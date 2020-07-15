@@ -8,7 +8,7 @@ public class Party {
 
 		name = partyName;
 	}
-	
+
 	public Party(String partyName, float projectedNumberOfSeats, float projectedPercentageOfVotes) {
 		name = partyName;
 
@@ -25,15 +25,15 @@ public class Party {
 			this.projectedNumberOfSeats = 0;
 		}
 	}
-	
+
 	public float getProjectedPercentageOfVotes() {
 		return projectedPercentageOfVotes;
 	}
-	
+
 	public String getName() {
 		return name;
 	}
-	
+
 	public void setProjectedPercentageOfVotes(float projectedPercentageOfVotes) {
 		if (projectedPercentageOfVotes >= 0 && projectedPercentageOfVotes <= 1) {
 			this.projectedPercentageOfVotes = projectedPercentageOfVotes;
@@ -52,15 +52,20 @@ public class Party {
 
 	@Override
 	public String toString() {
-		return name + " "+"(" +(int)(projectedPercentageOfVotes*100) + "% of votes" +", "+  projectedNumberOfSeats + " seats)" ;
-	}
 
+		return name + " "+"(" +(int)(projectedPercentageOfVotes*100) + "% of votes" +", "+  projectedNumberOfSeats + " seats)" ;
+}
+
+
+
+
+//total num of seats available in parliament in percentage
 	public double projectedPercentOfSeats(int totalNumberOfSeats) {
 
 		if (totalNumberOfSeats <= 0){
 			return 0;
 		}
-		double result = projectedNumberOfSeats / totalNumberOfSeats;
+		double result = projectedNumberOfSeats / totalNumberOfSeats;    //shows percentage of how much is occupied by party out of total num that exists
 		if (result < 0){
 			result = 0;
 		}
@@ -69,50 +74,92 @@ public class Party {
 	}
 
 
+
 	public String textVisualizationBySeats(int maxStars, int starsNeededForMajority, double numOfSeatsPerStar) {
 
-		double result = projectedNumberOfSeats / numOfSeatsPerStar;
+		String result = printStars (projectedNumberOfSeats, numOfSeatsPerStar, starsNeededForMajority, maxStars);
+
+
+		return result+ toString();
+	}
+
+
+	public String textVisualizationByVotes(int maxStars, int starsNeededForMajority, double percentOfVotesPerStar) {
+		double votesInPercentage = projectedPercentageOfVotes*100;
+
+		String result = printStars (votesInPercentage, percentOfVotesPerStar, starsNeededForMajority, maxStars);
+
+
+
+		return result + toString();
+	}
+
+
+private String getNumSpaces (int majority, int minority){
+		int counterSpaces = 0;
+		int resultForSpaces = majority-minority;
+		String numSpaces = "";
+		while (counterSpaces <= resultForSpaces){
+			numSpaces = numSpaces + " ";
+			counterSpaces++;
+
+		}
+		return numSpaces;
+
+}
+
+	private String printStars (double projectedNumber, double numPerStars, int starsNeededForMajority, int maxStars ){
+
+		double result = projectedNumber / numPerStars;   //num of starts in vizualization
 		int resultInt = (int)Math.floor(result);
 		int counterStars = 0;
 		String resultStars= "";
-		int resultForSpaces = maxStars - resultInt;
-		String numSpaces= "";
-		int counterSpaces = 0;
 
-		//for (int i = 0; i < result; i++){
-			//System.out.println("*");
-			//if (counter = 10){
-				//System.out.println("|");
+		String numSpaces= "";
+
+
 		if (resultInt == 0){
 
-			while (counterStars < maxStars){
 
+			while (counterStars < maxStars){
 
 				if (counterStars == starsNeededForMajority){
 					resultStars = resultStars + "|";
 
 				}else{
-					resultStars = resultStars + "";
+					resultStars = resultStars + " ";
 				}
 				counterStars++;
 
 			}
+			resultStars = resultStars + "  ";
 
-		} else {
+		} else if(resultInt < starsNeededForMajority){
+			numSpaces = getNumSpaces(maxStars, starsNeededForMajority);
+
+			String emptySeats = getNumSpaces(starsNeededForMajority-1, resultInt);
+			while (counterStars < result-1) {
+				Math.floor(result);
 
 
-			while (counterSpaces <= resultForSpaces) {
-				numSpaces = numSpaces + " ";
-				counterSpaces++;
+				resultStars = resultStars + "*";
+
+				counterStars++;
+
 			}
+			resultStars = resultStars +emptySeats + "|";
 
+
+		} else{
+
+
+			numSpaces = getNumSpaces(maxStars, resultInt);
 
 			while (counterStars <= result) {
 				Math.floor(result);
 
 				if (counterStars == starsNeededForMajority) {
 					resultStars = resultStars + "|";
-
 
 				} else {
 					resultStars = resultStars + "*";
@@ -122,20 +169,9 @@ public class Party {
 			}
 		}
 
-		return resultStars +numSpaces+ name + " " + "(" +(int)(projectedPercentageOfVotes*100) + "% of votes" +", "+  projectedNumberOfSeats + " seats)" ;
+		return resultStars + numSpaces;
 	}
 
 
 
-	// 11+9=20
-	//'*'+" "="|"
-	public String textVisualizationByVotes(int maxStars, int starsNeededForMajority, double percentOfVotesPerStar) {
-
-
-
-
-		//return name + "(" + projectedNumberOfSeats + ", " + projectedPercentageOfVotes + "%)";
-	}
-
-		return "";
 }
