@@ -1,3 +1,8 @@
+/**
+ * 
+ * @author 
+ *
+ */
 public class Party {
 	private String name;
 	private float projectedNumberOfSeats;
@@ -8,24 +13,28 @@ public class Party {
 
 		name = partyName;
 	}
+	
 	//constructor 2
 	public Party(String partyName, float projectedNumberOfSeats, float projectedPercentageOfVotes) {
 		name = partyName;
 
 		if (projectedPercentageOfVotes >= 0 && projectedPercentageOfVotes <= 1){    //takes projectedSeats and projectedVotes as values b/w 0 & 1
 			this.projectedPercentageOfVotes = projectedPercentageOfVotes;
-		}
-		else{									 
+		} else {									 
 			this.projectedPercentageOfVotes = 0;
 		}
 		if (projectedNumberOfSeats >= 0){
 			this.projectedNumberOfSeats = projectedNumberOfSeats;
-		}
-		else{
+		} else{
 			this.projectedNumberOfSeats = 0;
 		}
 	}
-// getters & setters for instance variables
+
+
+	/**
+	 *  getters & setters for instance variables
+	 * @return
+	 */
 	public float getProjectedPercentageOfVotes() {
 		return projectedPercentageOfVotes;
 	}
@@ -53,7 +62,8 @@ public class Party {
 	@Override
 	public String toString() {
 
-		return name + " "+"(" +(int)(projectedPercentageOfVotes*100) + "% of votes" +", "+  projectedNumberOfSeats + " seats)" ;
+		return name + " "+"(" +(int)(projectedPercentageOfVotes*100)
+					+ "% of votes" +", "+  projectedNumberOfSeats + " seats)" ;
 }
 
 //total num of seats available in parliament in percentage
@@ -70,7 +80,8 @@ public class Party {
 
 	}
 
-	public String textVisualizationBySeats(int maxStars, int starsNeededForMajority, double numOfSeatsPerStar) {
+	public String textVisualizationBySeats(int maxStars, 
+										   int starsNeededForMajority, double numOfSeatsPerStar) {
 
 		String result = printStars (projectedNumberOfSeats, numOfSeatsPerStar, starsNeededForMajority, maxStars);
 
@@ -79,7 +90,7 @@ public class Party {
 	}
 
 	public String textVisualizationByVotes(int maxStars, int starsNeededForMajority, double percentOfVotesPerStar) {
-		double votesInPercentage = projectedPercentageOfVotes*100;   //since it takes values between 0 & 1 it is multiplied by 100
+		double votesInPercentage = projectedPercentageOfVotes * 100;   //since it takes values between 0 & 1 it is multiplied by 100
 
 		String result = printStars (votesInPercentage, percentOfVotesPerStar, starsNeededForMajority, maxStars);
 
@@ -102,7 +113,7 @@ private String getNumSpaces (int majority, int minority){
 	private String printStars (double projectedNumber, double numPerStars, int starsNeededForMajority, int maxStars ){
 
 		double result = projectedNumber / numPerStars;   //num of stars in visualization
-		int resultInt = (int)Math.floor(result);
+		int resultInt = (int) Math.floor(result);
 		int counterStars = 0;
 		String resultStars= "";
 
@@ -115,8 +126,7 @@ private String getNumSpaces (int majority, int minority){
 
 				if (counterStars == starsNeededForMajority){
 					resultStars = resultStars + "|";
-
-				}else{
+				} else {
 					resultStars = resultStars + " ";
 				}
 				counterStars++;
@@ -128,7 +138,7 @@ private String getNumSpaces (int majority, int minority){
 			numSpaces = getNumSpaces(maxStars, starsNeededForMajority);
 
 			String emptySeats = getNumSpaces(starsNeededForMajority-1, resultInt);
-			while (counterStars < result-1) {
+			while (counterStars < result - 1) {
 				Math.floor(result);
 
 

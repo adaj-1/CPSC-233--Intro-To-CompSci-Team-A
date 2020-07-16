@@ -13,7 +13,7 @@ import java.util.Scanner;
  * input from the user and outputs a visualization of the results of 
  * an election.
  * 
- * @version 1  14 Jul 2020
+ * @version 1.0  14 Jul 2020
  * @author Jada Li
  *
  */
@@ -30,7 +30,6 @@ public class TextApplication {
 	 * default constructor for the class
 	 */
 	public TextApplication() {	
-	// DO I LEAVE A BLANK SPACE HERE?
 	}
 	
 	/**

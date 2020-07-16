@@ -62,8 +62,7 @@ public class PollList {
 		
 		if (aPoll != null && index < polls.length) {			
 			polls[index] = aPoll;
-		}
-		else if (aPoll != null) {
+		} else if (aPoll != null) {
 			for (int i = 0; i < polls.length; i++) {
 				if (aPoll.getPollName().equalsIgnoreCase(this.polls[i].getPollName())) {
 				polls[i] = aPoll;
@@ -98,7 +97,7 @@ public class PollList {
 			aggregate = new Poll("Aggregate", partyNames.length);
 			for (int i = 0; i < partyNames.length; i++) {
 				p1 = getAveragePartyData(partyNames[i]);
-				seats[i] *= (400/seatTotal);	
+				seats[i] *= (400 / seatTotal);	
 				p1.setProjectedNumberOfSeats(seats[i]);
 				p1 = new Party(partyNames[i],
 							   p1.getProjectedNumberOfSeats(), p1.getProjectedPercentageOfVotes());
@@ -110,7 +109,7 @@ public class PollList {
 			aggregate = new Poll("Aggregate", partyNames.length);
 			for (int i = 0; i < partyNames.length; i++) {
 				p1 = getAveragePartyData(partyNames[i]);
-				votes[i] *= (1/voteTotal);
+				votes[i] *= (1 / voteTotal);
 				p1.setProjectedPercentageOfVotes(votes[i]);
 				p1 = new Party(partyNames[i],
 							   p1.getProjectedNumberOfSeats(), p1.getProjectedPercentageOfVotes());

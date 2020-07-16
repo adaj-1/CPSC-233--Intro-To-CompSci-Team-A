@@ -1,5 +1,3 @@
-import java.lang.reflect.Array;
-import java.util.Arrays;
 
 public class Poll {
 	private String name = "Unnamed Poll";
@@ -8,8 +6,8 @@ public class Poll {
 
 	public Poll(String name, int maxNumberOfParties) {
 		this.name = name; 
-		if(maxNumberOfParties<1) {
-			maxNumberOfParties=10;
+		if(maxNumberOfParties < 1) {
+			maxNumberOfParties = 10;
 			parties = new Party[maxNumberOfParties];
 		}
 		else parties= new Party[maxNumberOfParties];	
@@ -25,17 +23,16 @@ public class Poll {
 	}
 	
 	public void addParty(Party aParty) {
-		if (aParty==null) {
+		if (aParty == null) {
 			System.out.println("Error");
 		}
-		Boolean exists=false;
-		Boolean size=true;
+		Boolean exists = false;
+		Boolean size = true;
 		for(int i=0; i<parties.length&&parties[i]!=null; i++) {//Iterates through every index of parties array
 			if(aParty.getName().equalsIgnoreCase(parties[i].getName())) {
 				parties[i]=aParty; //Replaces existing party with same name with argument aParty
 				exists=true;
-			}
-			else if(numberOfParties>=parties.length) {
+			} else if(numberOfParties>=parties.length) {
 				System.out.println("Error, poll is full. No more parties can be added");
 				size=false;
 			}
@@ -44,7 +41,7 @@ public class Poll {
 			}	
 		
 		if(exists.equals(false)&&size.equals(true)) {
-			parties[numberOfParties++]=aParty;	
+			parties[numberOfParties++] = aParty;	
 		}
 	
 	}
@@ -52,7 +49,7 @@ public class Poll {
 	
 	public Party getParty(String name) {
 		
-		for(int i=0;i<parties.length;i++) {
+		for(int i = 0; i < parties.length; i++) {
 			if(name.toUpperCase().equals(parties[i].getName().toUpperCase())) {
 				return parties[i];
 			}
@@ -74,17 +71,16 @@ public class Poll {
 	
 	@Override
 	public String toString() {
-		StringBuilder sb= new StringBuilder();
+		StringBuilder sb = new StringBuilder();
 		for(int i=0; i<parties.length;i++) {
-			if(parties[i]==null) {
+			if(parties[i] == null) {
 				return name + "\n";
 			}
-			else if(parties.length>0) {
+			else if(parties.length > 0) {
 				sb.append(parties[i].getName());
 				sb.append("\n");
 			}
-			
 		}
-		return String.format(name+"\n"+sb);
+		return String.format(name + "\n" + sb);
 	}
 }
