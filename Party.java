@@ -1,8 +1,21 @@
 /**
  * 
- * @author 
- *
+ * @author Arlina Dey
+ * Iteration 1
  */
+
+/**
+* This class creates a visualization of all the 
+* majority and minority votes of a political party.
+*
+* It shows a visual represenaton by drawing stars 
+* that represent the number of seats and a bar to represent 
+* the number of seats needed for a majority.
+*
+* Empty spaces between the last start(or no star) 
+* and a bar represents that the party has 
+* fewer seats than needed for majority.
+*/
 public class Party {
 	private String name;
 	private float projectedNumberOfSeats;
@@ -13,12 +26,12 @@ public class Party {
 
 		name = partyName;
 	}
-	
+
 	//constructor 2
 	public Party(String partyName, float projectedNumberOfSeats, float projectedPercentageOfVotes) {
 		name = partyName;
 
-		if (projectedPercentageOfVotes >= 0 && projectedPercentageOfVotes <= 1){    //takes projectedSeats and projectedVotes as values b/w 0 & 1
+		if (projectedPercentageOfVotes >= 0 && projectedPercentageOfVotes <= 1){    //takes projectedSeats and projectedVotes as values between 0 & 1
 			this.projectedPercentageOfVotes = projectedPercentageOfVotes;
 		} else {									 
 			this.projectedPercentageOfVotes = 0;
@@ -30,10 +43,9 @@ public class Party {
 		}
 	}
 
-
 	/**
 	 *  getters & setters for instance variables
-	 * @return
+	 * @return the percentage of votes
 	 */
 	public float getProjectedPercentageOfVotes() {
 		return projectedPercentageOfVotes;
@@ -66,13 +78,13 @@ public class Party {
 					+ "% of votes" +", "+  projectedNumberOfSeats + " seats)" ;
 }
 
-//total num of seats available in parliament in percentage
+	//total num of seats available in parliament in percentage
 	public double projectedPercentOfSeats(int totalNumberOfSeats) {
 
 		if (totalNumberOfSeats <= 0){
 			return 0;
 		}
-		double result = projectedNumberOfSeats / totalNumberOfSeats;    //shows percentage of how much is occupied by party out of total num that exists
+		double result = projectedNumberOfSeats / totalNumberOfSeats;    //Shows percentage of how much is occupied by party out of total num that exists
 		if (result < 0){
 			result = 0;
 		}
@@ -81,7 +93,7 @@ public class Party {
 	}
 
 	public String textVisualizationBySeats(int maxStars, 
-										   int starsNeededForMajority, double numOfSeatsPerStar) {
+					       int starsNeededForMajority, double numOfSeatsPerStar) {
 
 		String result = printStars (projectedNumberOfSeats, numOfSeatsPerStar, starsNeededForMajority, maxStars);
 
@@ -89,7 +101,8 @@ public class Party {
 		return result+ toString();
 	}
 
-	public String textVisualizationByVotes(int maxStars, int starsNeededForMajority, double percentOfVotesPerStar) {
+	public String textVisualizationByVotes(int maxStars, 
+					       int starsNeededForMajority, double percentOfVotesPerStar) {
 		double votesInPercentage = projectedPercentageOfVotes * 100;   //since it takes values between 0 & 1 it is multiplied by 100
 
 		String result = printStars (votesInPercentage, percentOfVotesPerStar, starsNeededForMajority, maxStars);
@@ -110,7 +123,8 @@ private String getNumSpaces (int majority, int minority){
 
 }
 
-	private String printStars (double projectedNumber, double numPerStars, int starsNeededForMajority, int maxStars ){
+	private String printStars (double projectedNumber,
+				   double numPerStars, int starsNeededForMajority, int maxStars ){
 
 		double result = projectedNumber / numPerStars;   //num of stars in visualization
 		int resultInt = (int) Math.floor(result);
@@ -152,7 +166,6 @@ private String getNumSpaces (int majority, int minority){
 
 		} else{
 
-
 			numSpaces = getNumSpaces(maxStars, resultInt);
 
 			while (counterStars <= result) {
@@ -165,7 +178,6 @@ private String getNumSpaces (int majority, int minority){
 					resultStars = resultStars + "*";
 				}
 				counterStars++;
-
 			}
 		}
 
