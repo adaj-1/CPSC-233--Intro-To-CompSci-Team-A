@@ -13,19 +13,20 @@ import java.util.Scanner;
  * input from the user and outputs a visualization of the results of 
  * an election.
  * 
- * @version 1.0  14 Jul 2020
+ * @version 1.0  14 July 2020
  * @author Jada Li
  *
  */
 
 public class TextApplication {
-	/* FILL WITH CLASS DESCRIPTION OR DELETE  */
+	/* this class initiates the visualization for the poll data  */
 	
 	/** MAX_NUMBER_OF_STARS represents seats in the visualization */
 	public static final int MAX_NUMBER_OF_STARS = 25;
 	
-	/** FILL WITH INSTANCE VARIABLE DESCRIPTION OR DELETE */
+	/** polls provides the poll and party data */
 		private PollList polls;
+		
 	/**
 	 * default constructor for the class
 	 */
@@ -34,7 +35,7 @@ public class TextApplication {
 	
 	/**
 	 * initializes instance variable polls
-	 * @param polls this should provide the polls data
+	 * @param polls this provides the polls data
 	 */
 	public TextApplication(PollList polls) {
 		this.polls = polls;
@@ -70,8 +71,8 @@ public class TextApplication {
 	
 	/**
 	 * invokes textVisualizationBySeats method to display visualization of 
-	 * the poll data for each poll and each party.
-	 * @param aPoll this is the name of the poll and number of parties
+	 * the poll data for each poll and each party
+	 * @param aPoll has th name of the poll and number of parties
 	 */
 	public void displayPollDataBySeat(Poll aPoll) {
 		
@@ -126,11 +127,13 @@ public class TextApplication {
 			polls = holdPollList.promptForPollList(numOfPolls);			// prompts user for poll list data			
 		}
 		
+		/* 
+		 * this do-while loop prompts the user for which visualization they want
+		 * to generate while allowing them to quit at any time
+		 */
 		boolean hold = true;
 		do {
-			System.out.println("Options: all (Show results of all Polls),"					/* 
-			FIX COMMENT HERE
-			 */
+			System.out.println("Options: all (Show results of all Polls),"					
 					+ " aggregate (Show Aggregate results), or quit (End application)");
 			System.out.println("Choose an Option: ");
 			Scanner optionInput = new Scanner(System.in);
@@ -143,7 +146,7 @@ public class TextApplication {
 				Poll AggregatePoll = polls.getAggregatePoll(partyNameList);
 				displayPollDataBySeat(AggregatePoll);
 				hold = true;
-			} else {
+			} else if (option.equals("quit")) {
 				System.out.println("Goodbye.");												// ends the application
 				optionInput.close();
 				hold = false;
