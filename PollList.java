@@ -1,4 +1,4 @@
-/**
+/** 
  * This class grabs and stores collection of polls, collecting seat 
  * and vote data that represent one election.
  * 
