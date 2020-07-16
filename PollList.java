@@ -1,8 +1,3 @@
-/*
- * Luke Couture 30109028
- * No copywrite exists.
- */
-
 /**
  * This class grabs and stores collection of polls, collecting seat 
  * and vote data that represent one election.
@@ -68,22 +63,34 @@ public class PollList {
 		int index = 0;
 
 		if (aPoll == null) {
-			System.out.println("Error! The argument provided to addPoll cannot be null.");	// Error message is displayed and the program allowed to continue after error.
+			
+			/* Error message is displayed and the program allowed to continue after error */
+			System.out.println("Error! The argument provided to addPoll cannot be null.");
 		}
 		if (index >= polls.length) {
-			System.out.println("Error! The list is full, no more items can be added.");		// Error message is displayed and the program allowed to continue after
+			
+			/* Error message is displayed and the program allowed to continue after */
+			System.out.println("Error! The list is full, no more items can be added.");
 		}
 		
-		for (index = 0; index < polls.length && polls[index] != null; index++) {			// Index ensures polls are only stored in empty slots in the list
+		for (index = 0; index < polls.length && polls[index] != null; index++) {
+			
+			/* Index ensures polls are only stored in empty slots in the list */
 		}
 		
-		if (aPoll != null && index < polls.length) {										// Ensures polls are not null or out of list range
+		if (aPoll != null && index < polls.length) {
+			
+			/* Ensures polls are not null or out of list range */
 			polls[index] = aPoll;
 		}
 		else if (aPoll != null) {
 			for (int i = 0; i < polls.length; i++) {
-				if (aPoll.getPollName().equalsIgnoreCase(this.polls[i].getPollName())) {	// Checks list for polls with same name as current argument
-				polls[i] = aPoll;															// Overwrites poll already in list if new poll being added has same name
+				
+				/* Checks list for polls with same name as current argument,
+				 *  then overwrites poll already in list if new poll being added has same name 
+				 */
+				if (aPoll.getPollName().equalsIgnoreCase(this.polls[i].getPollName())) {
+				polls[i] = aPoll;														
 			}
 		}			
 		}
@@ -95,7 +102,7 @@ public class PollList {
 	 * 
 	 * This method then calculates the average amount of projected votes and seats
 	 * across all polls in which the party name appears and finally returns the values
-	 * in a new Party object with the given name. 
+	 * with the given name. 
 	 * 
 	 * @param partyName
 	 * @return
@@ -129,7 +136,7 @@ public class PollList {
 	 * This method uses the previous method getAveragePartyData to collect the average
 	 * projected seats and votes for a number of parties, using the list of names passed
 	 * to the method as an argument. This method then creates an aggregate of all the provided
-	 * parties into one Poll object and returns it.
+	 * parties and returns it.
 	 * 
 	 * This method also adjusts the number of votes if the aggregate produces a number of 
 	 * projected votes above 100% or a number of seats which is larger than the amount
@@ -147,35 +154,44 @@ public class PollList {
 		Poll aggregate = new Poll("Aggregate", partyNames.length);		
 		
 		for (int i = 0; i < partyNames.length; i++) {
-			p1 = getAveragePartyData(partyNames[i]);				// Gathers average party seats and votes for each party in the list separately
-			aggregate.addParty(p1);									// Adds average party seats and votes to the Poll object aggregate
+			
+			/* Gathers average party seats and votes for each party in the list separately,
+			 * then adds average party seats and votes to the Poll object aggregate,
+			 * also keeps a running total of seats and votes to track values, in case values exceed amount available
+			*/
+			p1 = getAveragePartyData(partyNames[i]);				
+			aggregate.addParty(p1);									
 			seats[i] = p1.getProjectedNumberOfSeats();				
 			votes[i] = p1.getProjectedPercentageOfVotes();			 
-			seatTotal += seats[i];									// Keeps a running total of seats to track values, in case values exceed amount available
-			voteTotal += votes[i];									// Keeps a running total of votes to track values, in case values exceed 100%
+			seatTotal += seats[i];									
+			voteTotal += votes[i];									
 		}
 		
-		if (seatTotal > 400) {
+		if (seatTotal > this.numOfSeats) {
 			aggregate = new Poll("Aggregate", partyNames.length);
 			for (int i = 0; i < partyNames.length; i++) {
+				
+				/* If seats do exceed amount available, reduces each parties seats by the required proportion */
 				p1 = getAveragePartyData(partyNames[i]);
-				seats[i] *= (400 / seatTotal);						// If seats do exceed amount available, this line reduces each parties seats by a proportion 
+				seats[i] *= (this.numOfSeats / seatTotal);					 
 				p1.setProjectedNumberOfSeats(seats[i]);				
 				p1 = new Party(partyNames[i],
 							   p1.getProjectedNumberOfSeats(), p1.getProjectedPercentageOfVotes());
-				aggregate.addParty(p1);								// Adds the updated seat value to a newly created Poll object
+				aggregate.addParty(p1);	
 			}
 		}
 
 		if (voteTotal > 1) {
+			
+			/* If votes do exceed amount available, this line reduces each parties votes by the required proportion */
 			aggregate = new Poll("Aggregate", partyNames.length);
 			for (int i = 0; i < partyNames.length; i++) {
 				p1 = getAveragePartyData(partyNames[i]);
-				votes[i] *= (1 / voteTotal);						// If votes do exceed amount available, this line reduces each parties votes by a proportion
+				votes[i] *= (1 / voteTotal);
 				p1.setProjectedPercentageOfVotes(votes[i]);
 				p1 = new Party(partyNames[i],
 							   p1.getProjectedNumberOfSeats(), p1.getProjectedPercentageOfVotes());
-				aggregate.addParty(p1);								// Adds the updated vote value to a newly created Poll object
+				aggregate.addParty(p1);	
 			}
 		}
 		return aggregate;
