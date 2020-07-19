@@ -1,6 +1,6 @@
 /**
  *
- * @author Arlina Dey 30099484
+ * @author Arlina Dey
  * Iteration 1
  * @version 15.07.2020
  */
@@ -91,7 +91,7 @@ public class Party {
 	public String toString() {
 
 		return name + " " + "(" + (int)(projectedPercentageOfVotes*100)
-			    + "% of votes" + ", " +  projectedNumberOfSeats + " seats)" ;
+				+ "% of votes" + ", " +  projectedNumberOfSeats + " seats)" ;
 	}
 
 	/**
@@ -113,6 +113,7 @@ public class Party {
 			result = 0;
 		}
 		return result;
+
 	}
 
 	/**
@@ -128,7 +129,7 @@ public class Party {
 	 * @returns the result including visualization info.
 	 */
 	public String textVisualizationBySeats(int maxStars,
-					       int starsNeededForMajority, double numOfSeatsPerStar) {
+										   int starsNeededForMajority, double numOfSeatsPerStar) {
 
 		String result = printStars (projectedNumberOfSeats,
 				numOfSeatsPerStar, starsNeededForMajority, maxStars);
@@ -144,7 +145,7 @@ public class Party {
 	 * @return the percentage result.
 	 */
 	public String textVisualizationByVotes(int maxStars,
-					       int starsNeededForMajority, double percentOfVotesPerStar) {
+										   int starsNeededForMajority, double percentOfVotesPerStar) {
 		double votesInPercentage = projectedPercentageOfVotes * 100;                //since it takes values between 0 & 1 it is multiplied by 100
 
 		String result = printStars (votesInPercentage,
@@ -179,7 +180,7 @@ public class Party {
 	 * The result gets rounded down to an int num of stars.
 	 */
 	private String printStars (double projectedNumber,
-			           double numPerStars, int starsNeededForMajority, int maxStars ) {
+							   double numPerStars, int starsNeededForMajority, int maxStars ) {
 
 		double result = projectedNumber / numPerStars;
 		int resultInt = (int) Math.floor(result);
