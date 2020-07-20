@@ -6,9 +6,14 @@ public class Human extends Player {  // Arlina
 	}
 	
 	public Human(String playerName){  // arg passed in from gameconfig
+
 		super.setName(playerName); // should take first three letters of each name
+
+		playerNameChars = playerName.substring(0,3);
+		System.out.println(playerNameChars);
+
 		super.setPosition(STARTPOSITION);
+
 	}
-	
 	
 }
