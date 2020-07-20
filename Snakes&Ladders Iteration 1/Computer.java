@@ -4,7 +4,17 @@ public class Computer extends Player {  // Arlina
 	String[] computerNames;
 	
 	public Computer(){
-		super.setName("name");  //preset computer names to jada,luke,nathan,arlina (first 3 letters)
+		  //preset computer names to jada,luke,nathan,arlina (first 3 letters)
+		computerNames[0] = "jada";
+		computerNames[1] = "luke";
+		computerNames[2] = " nathan";
+		computerNames[3] = "arlina";
+
+		for (int i = 0; i < computerNames.length; i++) {
+			super.setName(computerNames[i]);
+		}
+
+
 		super.setPosition(STARTPOSITION);
 	}	
 	
