@@ -154,10 +154,9 @@ public class GameBoard {
 				+ "_____________________________________________________________" + "\n");
 		
 	}
-
+/*
 	public static void main(String[] args) {
 		
-		/* option of four human players */
 		String[] player1 = new String[101];
 		for (int i = 0; i < 101; i++) {
 			player1[i] = "  ";
@@ -180,5 +179,5 @@ public class GameBoard {
 		player4[50] = "Dz";
 		
 		drawBoard(player1, player2, player3, player4);
-	}
+	}*/
 }
