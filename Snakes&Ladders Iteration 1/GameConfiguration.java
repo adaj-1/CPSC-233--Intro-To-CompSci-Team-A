@@ -5,10 +5,10 @@ public class GameConfiguration { // Nathan
 	// should call GameBoard and take inputs from user
 
 	final static int FINISHING_SPACE = 100;		
-	
+	final static int MAX_PLAYERS=4;
 	private String[] board;
 
-	private Scanner numPlayers;
+	private Scanner playerInput;
 	
 	public GameConfiguration(){
 		
@@ -26,7 +26,7 @@ public class GameConfiguration { // Nathan
 	/*
 	 *  this should print out our start menu for all user inputs
 	 *  this should ask for all user inputs ( # human players,
-	 *  # computer players, player names) check for valid inputs (example: max 4 players) and
+	 *  # computer players) check for valid inputs (example: max 4 players) and
 	 *  provide user input arguments for methods
 	 *  
 	 *   ( do while loop until a player reaches 100)
@@ -35,43 +35,36 @@ public class GameConfiguration { // Nathan
 	 *  while loop of (counter > 4) and use a counter to keep track of turn
 	 *  
 	 */
-		Boolean valid=false;
+		Boolean validNumPlayers=false;
+		Boolean validGameSetup=false;
+		int numPlayers=0;
 		int numComputer=0;
+		int numHuman=0;
 		Scanner playerInput = new Scanner(System.in);
 		System.out.println("Welcome to Snakes and Ladders!");
+			do {
+						System.out.println("Enter the total number of players (computer and human): ");
+						numPlayers=playerInput.nextInt();
+						if(numPlayers<2||numPlayers>4) System.out.println("Error: Invalid number of players");
+						else {
+							validNumPlayers=true;
+						}
+				}while(validNumPlayers.equals(false));
 				do {
+						System.out.println("Enter number of human players");
+						numHuman=playerInput.nextInt();
+						if(numHuman<numPlayers) {
+							System.out.println("Enter number of computer players");
+							numComputer=playerInput.nextInt();
+						}
+						if(numComputer+numHuman==numPlayers) {
+							validGameSetup=true;
+						}
+					}while(validGameSetup.equals(false));
+					
+		
+		
 				
-				System.out.println("Enter the number of human players: ");
-				int numHuman = playerInput.nextInt();	
-				if(numHuman==1){
-					System.out.println("Enter the number of computer players: ");
-					numComputer = playerInput.nextInt();
-				}
-				if((numHuman==2&&numComputer==0)||(numHuman==1&&numComputer==1)) {
-					if(numHuman==1&&numComputer==1) {
-						System.out.println("Enter in the name of the human player (Three letters): ");
-						String p1Name= playerInput.nextLine();
-						String p1Type="Human";
-						String p2Name="Computer";
-						String p2Type="Computer";
-					}
-					else if(numHuman==2&&numComputer==0) {
-						System.out.println("Enter in the name of the first player (Three letters): ");
-						String p1Name= playerInput.nextLine();
-						String p1Type="Human";
-						System.out.println("Enter in the name of the second player (Three letters): ");
-						String p2Name= playerInput.nextLine();
-						String p2Type= "Human";
-					}
-					valid=true;
-				}
-				if(numHuman!=2||numHuman!=1) {
-					System.out.println("Error: invalid player number");
-				}else if(numComputer!=1) {
-					System.out.println("Error: invalid number of computer players!");
-			} 
-				
-			}while(valid.equals(false));
 	}
 	
 	
