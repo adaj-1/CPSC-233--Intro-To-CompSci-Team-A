@@ -72,9 +72,6 @@ public class GameConfiguration { // Nathan
 			} 
 				
 			}while(valid.equals(false));
-					
-		
-		
 	}
 	
 	

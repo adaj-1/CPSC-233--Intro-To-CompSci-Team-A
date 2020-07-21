@@ -7,9 +7,12 @@ public class Player { // Arlina
 	private int position = 0;
 	private ArrayList <Player> PlayerList = new ArrayList <Player> (); //arrayList of player objects
 
+	public Player() {
+		
+	}
 	
 	public Player(String name) {
-
+		
 		this.name = name;
 		
 	}

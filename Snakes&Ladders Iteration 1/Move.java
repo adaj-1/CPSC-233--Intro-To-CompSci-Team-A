@@ -10,8 +10,6 @@ public class Move { //Jada
 		newPosition = Snake(newPosition);
 		
 		player.setPosition(newPosition);
-		
-		
 		// calls get method to getPosition
 		// dice method and adds to the player index
 		// check if snake or ladder by calling methods below and passing back the index
@@ -25,7 +23,6 @@ public class Move { //Jada
 	 *  appear in two spots on the game board
 	 */
 
-	
 	public int Ladder(int position) {
 		int[] laddersStart = new int[3];		
 		laddersStart[0] = 3;

@@ -9,8 +9,8 @@ public class Human extends Player {  // Arlina
 
 		super.setName(playerName); // should take first three letters of each name
 
-		playerNameChars = playerName.substring(0,3);
-		System.out.println(playerNameChars);
+//		String playerNameChars = playerName.substring(0,3);
+//		System.out.println(playerNameChars);
 
 		super.setPosition(STARTPOSITION);
 
