@@ -16,9 +16,12 @@ public class GameConfiguration { // Nathan
 		
 	public void updateIndex(Move move) {
 		// updates player location through move method
+		
+		
 	}
 	
 	public String toString() {
+		
 		return null;
 	}
 	
@@ -29,7 +32,7 @@ public class GameConfiguration { // Nathan
 	 *  # computer players) check for valid inputs (example: max 4 players) and
 	 *  provide user input arguments for methods
 	 *  
-	 *   ( do while loop until a player reaches 100)
+	 *   (do while loop until a player reaches 100)
 	 *  Then calls GameBoard
 	 *  
 	 *  while loop of (counter > 4) and use a counter to keep track of turn
@@ -40,7 +43,9 @@ public class GameConfiguration { // Nathan
 		int numPlayers=0;
 		int numComputer=0;
 		int numHuman=0;
-		Scanner playerInput = new Scanner(System.in);
+		int turnCounter=0;
+
+		playerInput = new Scanner(System.in);
 		System.out.println("Welcome to Snakes and Ladders!");
 			do {
 						System.out.println("Enter the total number of players (computer and human): ");
@@ -62,6 +67,11 @@ public class GameConfiguration { // Nathan
 						}
 					}while(validGameSetup.equals(false));
 					
+		GameBoard.Draw();
+		
+		while(turnCounter<5) {
+			
+		}
 		
 		
 				
