@@ -7,7 +7,6 @@ package application;
  */
 
 import java.util.Scanner;
-
 import model.Factory;
 import model.Party;
 import model.Poll;
