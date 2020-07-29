@@ -13,6 +13,10 @@ public abstract class PollTrackerController {
 		refresh();
 	}
 	
+	public PollTrackerApp getPollTrackerApp() {
+		return app;
+	}
+	
 	protected PollList getPollList() {
 		return app.getPolls();
 	}
