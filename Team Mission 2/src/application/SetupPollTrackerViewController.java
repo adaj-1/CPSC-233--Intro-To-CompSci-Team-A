@@ -61,11 +61,6 @@ public class SetupPollTrackerViewController extends PollTrackerController{
         PollList list = getFactory().createRandomPollList(10);
         setPollList(list);
 
-        //System.out.println("submitting...");
-
-//       Tab2 tab2 = new Tab2(party, seat, polls);
-//       PollList pollList = new PollList(Integer.parseInt(polls), (Integer.parseInt(seat)));
-
     }
 
     /**
@@ -80,7 +75,6 @@ public class SetupPollTrackerViewController extends PollTrackerController{
         poll.clear();
         seats.clear();
         parties.clear();
-//        System.out.println("clearing...");
 
     }
 
