@@ -7,7 +7,7 @@
  * @author Arlina Dey
  * @version 29.07.2020
  */
-package sample;
+package application;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -48,16 +48,24 @@ public class SetupPollTrackerViewController extends PollTrackerController{
     @FXML
     public void submitButton(ActionEvent event) {
 
-        String polls = poll.getText();
-        String seat = seats.getText();
-        String party = parties.getText();
+        int polls = Integer.parseInt(poll.getText());
+        int seat = Integer.parseInt(seats.getText());
+        int party = Integer.parseInt(parties.getText());
 
         System.out.println("polls: " + polls);
         System.out.println("seats: "+ seat);
         System.out.println("parties: "+ party);
 
-        String[] partyNames = {"1","2","3","4","5","6","7","8"};
+        String[] factoryNames = getFactory().getPartyNames(); //{"1","2","3","4","5","6","7","8"};
+        
+        String[] partyNames = new String[party];
+        
+        for (int i = 0; i < party; i++) {
+        	partyNames[i] = factoryNames[i];
+        }
+
         getFactory().setPartyNames(partyNames);
+        
         PollList list = getFactory().createRandomPollList(10);
         setPollList(list);
 
