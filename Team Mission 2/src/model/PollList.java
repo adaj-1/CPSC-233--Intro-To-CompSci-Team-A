@@ -44,6 +44,11 @@ public class PollList {
 		return numOfSeats;
 	}
 	
+	public void setNumOfSeats(int i){
+		this.numOfSeats = i;
+	}
+	
+	
 	/**
 	 * Returns the number of polls in the given poll list.
 	 * 

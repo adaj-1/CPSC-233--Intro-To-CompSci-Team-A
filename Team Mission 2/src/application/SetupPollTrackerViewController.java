@@ -56,8 +56,7 @@ public class SetupPollTrackerViewController extends PollTrackerController{
         System.out.println("seats: "+ seat);
         System.out.println("parties: "+ party);
 
-        String[] factoryNames = getFactory().getPartyNames(); //{"1","2","3","4","5","6","7","8"};
-        
+        String[] factoryNames = getFactory().getPartyNames();
         String[] partyNames = new String[party];
         
         for (int i = 0; i < party; i++) {
@@ -66,7 +65,8 @@ public class SetupPollTrackerViewController extends PollTrackerController{
 
         getFactory().setPartyNames(partyNames);
         
-        PollList list = getFactory().createRandomPollList(10);
+        PollList list = getFactory().createRandomPollList(polls);
+        list.setNumOfSeats(seat);
         setPollList(list);
 
     }
@@ -88,6 +88,6 @@ public class SetupPollTrackerViewController extends PollTrackerController{
 
     @Override
     public void refresh() {
-
+  
     }
 }
