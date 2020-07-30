@@ -46,11 +46,11 @@ public class PollTrackerApp extends Application {
 	private Tab createTab(String tabName, String FXMLFilename) {
 		Tab aTab = null;
 		try {
-			FXMLLoader loader = new FXMLLoader();
+			FXMLLoader loader = new FXMLLoader();		
 			aTab = new Tab(tabName, loader.load(new FileInputStream(FXMLFilename)));
-			PollTrackerController controller = (PollTrackerController)loader.getController();
-			aTab.setOnSelectionChanged (e -> controller.refresh());
-			controller.setPollTrackerApp(this);
+			PollTrackerController controller = (PollTrackerController)loader.getController();	
+			aTab.setOnSelectionChanged (e -> controller.refresh());		
+			controller.setPollTrackerApp(this);	
 		} catch (IOException e1) {
 			System.out.println("Problem loading FXML file " + FXMLFilename);
 		}
@@ -76,16 +76,22 @@ public class PollTrackerApp extends Application {
 		}
 		partyNames.append("\n");
 		
-		String numOfSeats = "Number of seats: " + polls.getNumOfSeats() + "\n";
+		if (polls == null) {
+			System.out.println("No polls to display");
+		} else {
+			String numOfSeats = "Number of seats: " + polls.getNumOfSeats() + "\n";
+			
+			String numOfPolls = "Number of polls: " + polls.getPolls().length + "\n";
+			
+			vizualizationTextArea.setText(partyNames + numOfSeats + numOfPolls + visualization.toString());		
+		}
 		
-		String numOfPolls = "Number of polls: " + polls.getPolls().length + "\n";
-		
-		vizualizationTextArea.setText(partyNames + numOfSeats + numOfPolls + visualization.toString());		
 	}
 	
 	// Remove this method if you use your own visualization.	
 	private Tab getDefaultVisualization() {
 		// Create a stream to hold the output
+		
 		TextArea vizTextArea = new TextArea();
 		updateVisualization(vizTextArea);
 		Tab vizTab = new Tab("Visualize Polls", vizTextArea); 
@@ -100,7 +106,7 @@ public class PollTrackerApp extends Application {
 		 * Use the first if you need the application to run with some randomly generated.
 		 * use the second if you want a list of empty polls to start with.
 		 */
-		polls = factory.createRandomPollList(DEFAULT_NUMBER_OF_POLLS);
+		//polls = factory.createRandomPollList(DEFAULT_NUMBER_OF_POLLS);
 		//polls = new PollList(DEFAULT_NUMBER_OF_POLLS, DEFAULT_NUMBER_OF_SEATS);
 			
 		/* Uncomment the line for the view you are working on.  All should be uncommented for

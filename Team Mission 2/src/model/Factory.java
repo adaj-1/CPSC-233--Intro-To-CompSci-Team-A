@@ -9,6 +9,7 @@ public class Factory {
 	public Factory(int numOfSeats) {
 		this.numOfSeats = numOfSeats;
 	}
+	
 	public void setPartyNames(String[] names) {
 		partyNames = names;
 	}

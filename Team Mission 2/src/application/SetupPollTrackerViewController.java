@@ -9,6 +9,7 @@
  */
 package application;
 
+import model.Factory;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -56,7 +57,11 @@ public class SetupPollTrackerViewController extends PollTrackerController{
         System.out.println("polls: " + polls);
         System.out.println("seats: "+ seat);
         System.out.println("parties: "+ party);
-
+        
+        Factory factory = new Factory(seat);
+        
+        setFactory(factory);
+        
         String[] factoryNames = getFactory().getPartyNames();
         String[] partyNames = new String[party];
         
@@ -66,10 +71,9 @@ public class SetupPollTrackerViewController extends PollTrackerController{
 
         getFactory().setPartyNames(partyNames);
         
-        PollList list = getFactory().createRandomPollList(polls);
-        list.setNumOfSeats(seat);
-        setPollList(list);
-
+        PollList list = getFactory().promptForPollList(polls);
+        
+        setPollList(list);    
     }
 
     /**

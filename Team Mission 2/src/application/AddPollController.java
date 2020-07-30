@@ -97,14 +97,21 @@ public class AddPollController extends PollTrackerController{
      */
 	@Override
 	public void refresh() {
+//		if (getPollList().getPolls() == null) {
+///			pollDropDown.isVisible(false);
+	//	}
+		try {
 		ArrayList<String> pollList=new ArrayList<String>();
 		Poll[] poll=getPollList().getPolls();
 		for(int i=0;i<poll.length;i++) {
 			pollList.add(poll[i].getPollName());
 		}
 			pollDropDown.setItems(FXCollections.observableArrayList(pollList));
-			System.out.println("Refreshing");
+			
 		
 		userInput.clear();
+		} catch (NullPointerException npe) {
+			
+		}
 	}
 }

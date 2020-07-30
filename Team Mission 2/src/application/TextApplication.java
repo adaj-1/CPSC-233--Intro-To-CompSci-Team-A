@@ -1,17 +1,17 @@
-package application;
 /*
  * TextApplication	Jada Li
  * 
  * Iteration 1
  * 
  */
+package application;
 
-import java.util.Scanner;
-
-import model.Factory;
 import model.Party;
+import model.Factory;
 import model.Poll;
 import model.PollList;
+
+import java.util.Scanner;
 
 /**
  * This class represents the entire application and pulls together 
@@ -52,19 +52,22 @@ public class TextApplication {
 	 * @param partyNames has all the party names
 	 */
 	public void displayPollsBySeat(String[] partyNames) {
-		
-		int numOfPolls = polls.getPolls().length;
-		Poll[] regularPoll = polls.getPolls();						// grabs array of poll data 
-		
-		for (int i = 0; i < numOfPolls; i++) {	
+		if (polls == null) {
+			System.out.println("No polls to display");
+		} else {
+			int numOfPolls = polls.getPolls().length;
+			Poll[] regularPoll = polls.getPolls();						// grabs array of poll data 
 			
-			displayPollDataBySeat(regularPoll[i]);					// invokes displayPollDataBySeat for each poll
-		  
-			System.out.println();
-		}
-			
-		Poll AggregatePoll = polls.getAggregatePoll(partyNames);	// invokes displayPollDataBySeat for the Aggregate poll data
-		displayPollDataBySeat(AggregatePoll);
+			for (int i = 0; i < numOfPolls; i++) {	
+				
+				displayPollDataBySeat(regularPoll[i]);					// invokes displayPollDataBySeat for each poll
+			  
+				System.out.println();
+			}
+				
+			Poll AggregatePoll = polls.getAggregatePoll(partyNames);	// invokes displayPollDataBySeat for the Aggregate poll data
+			displayPollDataBySeat(AggregatePoll);
+			}
 	}
 	
 	/**

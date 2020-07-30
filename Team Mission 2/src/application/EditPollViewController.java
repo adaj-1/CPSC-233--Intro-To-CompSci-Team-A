@@ -23,6 +23,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import model.Party;
 import java.lang.Math;
+import model.PollList;
 
 public class EditPollViewController extends PollTrackerController {
 	private Float seatInput;
@@ -226,6 +227,7 @@ public class EditPollViewController extends PollTrackerController {
      */
 	@Override
 	public void refresh() {
+		try {
 		
 		/* This line sets the total seats to the total amount available */
 		totalSeats.setText("/" + Integer.toString(getPollTrackerApp().getPolls().
@@ -236,7 +238,7 @@ public class EditPollViewController extends PollTrackerController {
 		String[] polls = new String[pollLength];
     	int i = 0;
 		for (; i < pollLength; i++) {
-    		polls[i] = "Poll" + i;
+			polls[i] = getPollList().getPolls()[i].getPollName();
     	}
 		
 		/* This block sets the choice box with the list of poll names */
@@ -256,8 +258,12 @@ public class EditPollViewController extends PollTrackerController {
     			}
     		}
     	);
+    	} catch (NullPointerException npe) {
+    		
+    	}
     	resetFields(); // resets the fields after each refresh
 	}
+		
 
 
 }
