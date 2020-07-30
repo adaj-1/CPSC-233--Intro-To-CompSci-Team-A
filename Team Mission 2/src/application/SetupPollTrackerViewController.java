@@ -19,7 +19,8 @@ import javafx.scene.input.MouseEvent;
 import model.PollList;
 
 public class SetupPollTrackerViewController extends PollTrackerController{
-    /**
+	
+	/**
      * Clear button clears all fields in the text area.
      * Submit button submits all fields from text area.
      */
@@ -79,15 +80,14 @@ public class SetupPollTrackerViewController extends PollTrackerController{
 
     @FXML
     public void clearButton(ActionEvent event) {
-
-        poll.clear();
-        seats.clear();
-        parties.clear();
-
+    	refresh();
     }
 
     @Override
     public void refresh() {
-  
+        poll.clear();
+        seats.clear();
+        parties.clear();
     }
+    
 }
