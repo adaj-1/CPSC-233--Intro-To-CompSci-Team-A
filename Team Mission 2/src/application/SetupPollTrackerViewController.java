@@ -58,21 +58,23 @@ public class SetupPollTrackerViewController extends PollTrackerController{
         System.out.println("seats: "+ seat);
         System.out.println("parties: "+ party);
         
-        Factory factory = new Factory(seat);
-        
+	/**
+         * This sets the party names in factory and creates
+         * a new poll list showing polls and seats available.
+         */
+        Factory factory = new Factory(seat);  
         setFactory(factory);
         
         String[] factoryNames = getFactory().getPartyNames();
         String[] partyNames = new String[party];
         
+	/* This takes in the number of parties from the user*/
         for (int i = 0; i < party; i++) {
         	partyNames[i] = factoryNames[i];
         }
 
-        getFactory().setPartyNames(partyNames);
-        
-        PollList list = getFactory().promptForPollList(polls);
-        
+        getFactory().setPartyNames(partyNames);        
+        PollList list = getFactory().promptForPollList(polls);        
         setPollList(list);    
     }
 
@@ -86,7 +88,11 @@ public class SetupPollTrackerViewController extends PollTrackerController{
     public void clearButton(ActionEvent event) {
     	refresh();
     }
-
+    
+    /**
+     * This method clears all information in this view
+     * and brings it back to default view.
+     */	
     @Override
     public void refresh() {
         poll.clear();
