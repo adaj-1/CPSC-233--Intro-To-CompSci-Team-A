@@ -1,30 +1,98 @@
+package model;
 import java.util.ArrayList;
 import java.util.Scanner;
-public class GameConfiguration extends Move{ // Nathan
-	
+
+public class GameConfiguration extends Move { // Nathan
+
 	// this is our TextApplication 
 	// should call GameBoard and take inputs from user
 
 	final static int FINISHING_SPACE = 100;		
 	final static int MAX_PLAYERS=4;
-	private String[] board;
-	private ArrayList <String> PlayerList = new ArrayList <String> (); //arrayList of player objects
+
+	private static ArrayList<Player> players = new ArrayList<Player>(); //arrayList of player objects
 	private static Scanner playerInput;
+	private int numComputer = 0;
+	private int numHuman = 0;
+	private int playerCounter = 0;
 	
-	public GameConfiguration(){
+	public void gameSetup() {
+		playerInput = new Scanner(System.in);
+		System.out.println("Welcome to Snakes and Ladders!");
+		System.out.println("How many human players would you like to play with? (max 4)");
+		numHuman=playerInput.nextInt();
 		
-	}
+		if (numHuman < MAX_PLAYERS) {
+			System.out.println("How many computer players would you like to play with?" + 
+								" (max " + (MAX_PLAYERS - numHuman) + ")");
+			numComputer=playerInput.nextInt();
+		}
 		
-	public void updateIndex(Move move) {
-		// updates player location through move method
+		/* Creates human players */
+		if (numHuman > 0) {
+			createHumanPlayers();
+		}
 		
+		/* Creates computer players */		
+		if (numComputer > 0) {
+			createComputerPlayers();
+		}
 		
+		/* Creates blank players for board spacing */
+		if (playerCounter < MAX_PLAYERS) {
+			createBlankPlayers();
+		}
 	}
 	
-	public String toString() {
-		return null;
+	public void createHumanPlayers() {
+		for (int i = 0; i < numHuman; i++) {
+			Player human = new Player("human", "P" + (i + 1));
+			players.add(playerCounter, human);
+			playerCounter++;
+		}
 	}
 	
+	public void createComputerPlayers() {
+		for (int i = 0; i < numComputer; i++) {
+			Player computer = new Player("AI", "C" + (i + 1));
+			players.add(playerCounter, computer);
+			playerCounter++;
+		}
+	}
+	
+	public void createBlankPlayers() {
+		for (int i = 0; i < (MAX_PLAYERS - playerCounter); i++) {
+			Player player = new Player();
+			players.add(playerCounter, player);
+		}
+	}
+	
+	public boolean isHuman(Player aPlayer) {
+		return aPlayer.getType() == "human";
+	}
+	
+	public boolean isComputer(Player aPlayer) {
+		return aPlayer.getType() == "AI";
+	}
+	
+	public void playerTurn(ArrayList<Player> aPlayerList, Player aPlayer) {
+		
+		if (isHuman(aPlayer)) {
+			System.out.println("It is your turn player " + aPlayer.getName() +  " if you would like to roll, type 'r'");
+			playerInput = new Scanner(System.in);
+			String isRoll = playerInput.nextLine();
+			if(isRoll.equals("r")) {
+					MovePlayer(aPlayer.getPlayer(), aPlayer.getName());
+					GameBoard.drawBoard(aPlayerList.get(0), aPlayerList.get(1), aPlayerList.get(2),
+										aPlayerList.get(3));
+			}
+		} else if (isComputer(aPlayer)){
+			MoveComputer(aPlayer.getPlayer(), aPlayer.getName());
+			GameBoard.drawBoard(aPlayerList.get(0), aPlayerList.get(1), aPlayerList.get(2), 
+								aPlayerList.get(3));
+		}
+	}		
+
 	public void run()  {
 	/*
 	 *  this should print out our start menu for all user inputs
@@ -35,168 +103,45 @@ public class GameConfiguration extends Move{ // Nathan
 	 *   (do while loop until a player reaches 100)
 	 *  Then calls GameBoard
 	 *  
-	 *  while loop of (counter > 4) and use a counter to keep track of turn
+	 *  
 	 *  
 	 */
-		Boolean validNumPlayers=false;
-		Boolean validGameSetup=false;
-		int numPlayers=0;
-		int numComputer=0;
-		int numHuman=0;
-		int turnCounter=0;
-		String playerName="  ";
-		int player1Roll=0;
-		int player2Roll=0;
-		int player3Roll=0;
-		int player4Roll=0;
-
-		playerInput = new Scanner(System.in);
-		System.out.println("Welcome to Snakes and Ladders!");
-		
-//		String[] player = new String[101];
-//		for (int i = 0; i < 101; i++) {
-//			player[i] = "  ";
-//		}
-
-//		for (int i = 0; i < 4; i++) {
-//			PlayerList.add(player[i]);
-//		}
-		
-//						System.out.println("Enter number of human players");
-//						numHuman=playerInput.nextInt();
-//						if(numHuman>5) {
-//							System.out.println("Error: invalid number of players");
-//						}else if(numHuman<=4&&numHuman>=0){
-//							System.out.println("Enter number of computer players");
-//							numComputer=playerInput.nextInt();
-//							if(numComputer+numHuman>4) {
-//								System.out.println("Error: Too many computers");
-//							}
-//						}else {
-//							System.out.println("Error: invalid number");
-//						}
-//						if(numHuman>0) {
-//							System.out.println("Enter the initials for the player: ");
-//							playerName=playerInput.nextLine();
-//							Player firstPlayer= new Player(playerName);
-//							
-//							
-//							
-//							}
-//							System.out.println(PlayerList);
-//						
-//						if(numHuman+numComputer<4) {
-//							
-//						}
-			
-		String[] player1 = new String[101];
-		for (int i = 0; i < 101; i++) {
-			player1[i] = "  ";
-		}
-		String[] player2 = new String[101];
-		for (int i = 0; i < 101; i++) {
-			player2[i] = "  ";
-		}
-		String[] player3 = new String[101];
-		for (int i = 0; i < 101; i++) {
-			player3[i] = "  ";
-		}
-		String[] player4 = new String[101];
-		for (int i = 0; i < 101; i++) {
-			player4[i] = "  ";
-		}
-//		System.out.println("Enter initials for player one: ");
-//		String p1Name = playerInput.nextLine();
-//		System.out.println("Enter initials for player two: ");
-//		String p2Name = playerInput.nextLine();
-//		System.out.println("Enter initials for player three: ");
-//		String p3Name = playerInput.nextLine();
-//		System.out.println("Enter initials for player four: ");
-//		String p4Name = playerInput.nextLine();
-		player1[1] = "P1";
-		player2[1] = "P2";
-		player3[1] = "P3";
-		player4[1] = "P4";
-		int currentP1=0;
-		int currentP2=0;
-		int currentP3=0;
-		int currentP4=0;
-		GameBoard.drawBoard(player1, player2, player3, player4);
-		do {
-			System.out.println("It is your turn player 1, if you would like to roll, type 'r'");
-			String isP1Roll = playerInput.nextLine();
-			if(isP1Roll.equals("r")) {
-				MovePlayer(player1,"P1");
-				}
-				 GameBoard.drawBoard(player1, player2, player3, player4);
-				 
-//				 if(diceRoll > 6) {
-//					 System.out.println("You went up a Ladder!");
-//				 } else if (diceRoll < 0) {
-//					 System.out.println("You went down a Snake!");
-//				 }
-			
-			System.out.println("It is your turn player 2, if you would like to roll, type 'r'");
-			String isP2Roll = playerInput.nextLine();
-			if(isP2Roll.equals("r")) {
-				MovePlayer(player2, "P2");
-				}
-				 GameBoard.drawBoard(player1, player2, player3, player4);
-//				 if(diceRoll > 6) {
-//					 System.out.println("You went up a Ladder!");
-//				 } else if (diceRoll < 0) {
-//					 System.out.println("You went down a Snake!");
-//				 }
-
-			
-			System.out.println("It is your turn player 3, if you would like to roll, type 'r'");
-			String isP3Roll = playerInput.nextLine();
-			if(isP3Roll.equals("r")) {
-				MovePlayer(player3, "P3");
-				}	
-				 GameBoard.drawBoard(player1, player2, player3, player4);
-//				 if(diceRoll > 6) {
-//					 System.out.println("You went up a Ladder!");
-//				 } else if (diceRoll < 0) {
-//					 System.out.println("You went down a Snake!");
-//				 }
-			
-			System.out.println("It is your turn player 4, if you would like to roll, type 'r'");
-			String isP4Roll = playerInput.nextLine();
-			if(isP4Roll.equals("r")) {
-				MovePlayer(player4, "P4");
-				}
-				 GameBoard.drawBoard(player1, player2, player3, player4);
-//				 if(diceRoll > 6) {
-//					 System.out.println("You went up a Ladder!");
-//				 } else if (diceRoll < 0) {
-//					 System.out.println("You went down a Snake!");
-//				 }
-			
+		gameSetup();
 				
+		Player p1 = players.get(0);
+		Player p2 = players.get(1);
+		Player p3 = players.get(2);
+		Player p4 = players.get(3);
 		
-		}while(player1[100] == "  " && player2[100] == "  " && player3[100] == "  " && player4[100] == "  ");
-		if(player1[100].equals("  ")) {
-			if(player2[100].equals("  ")) {
-				if(player3[100].equals("  ")) {
-					System.out.println("Player 4 has won");
-					}else System.out.println("Player 3 has won");
-				}else System.out.println("Player 2 has won");
-			}else System.out.println("Player 1 has won");
+		GameBoard.drawBoard(p1, p2, p3, p4);
+		
+		do {
 			
+			playerTurn(players, p1);
+			playerTurn(players, p2);
+			playerTurn(players, p3);
+			playerTurn(players, p4);
+	
+		
+		} while(p1.getPlayer()[FINISHING_SPACE] == "  " && 
+				p2.getPlayer()[FINISHING_SPACE] == "  " &&
+				p3.getPlayer()[FINISHING_SPACE] == "  " && 
+				p4.getPlayer()[FINISHING_SPACE] == "  ");
+		
+		if (p1.getPlayer()[100] != "  ") {
+			System.out.println(p1.getName() + " has won");
+		} else if (p2.getPlayer()[100] != "  ") {
+			System.out.println(p2.getName() + " has won");
+		} else if (p3.getPlayer()[100] != "  ") {
+			System.out.println(p3.getName() + " has won");
+		} else {
+			System.out.println(p4.getName() + " has won");
 		}
+	}
+					
 
-	
-	
 	public static void main(String[] args) {
 		GameConfiguration app = new GameConfiguration();		// instantiates the class
 		app.run();	
 	}
 }
-	
-
-
-
-
-
-

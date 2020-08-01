@@ -1,38 +1,63 @@
+package model;
 import java.util.Random;
 
 public class Move { // Jada
-	
 	public Move() {
 		
 	}
-	
-
 	public String[] MovePlayer(String[] PlayerList, String playerName ){
 		int currentPosition=0;
 		int i=0;
-		for(i=0; i<101;i++) {
-			if(PlayerList[i]!="  ") {
+		for (i=0; i<101;i++) {
+			if (PlayerList[i]!="  ") {
+
 				currentPosition=i;
 				PlayerList[i]="  ";
 			}
 		}
 		int diceRoll=dice();
 		int validRoll=diceRoll+currentPosition;
-		if(validRoll <= 100) {
+		if (validRoll <= 100) {
 			validRoll = Ladder(validRoll);
 			validRoll = Snake(validRoll);
 		
 			PlayerList[validRoll]=playerName;
 			System.out.println("You rolled a " + diceRoll + ", and you landed on " + validRoll + ".");
 			return PlayerList;
-		}else if (validRoll > 100) {
+		} else if (validRoll > 100) {
 			System.out.println("Rolled over 100, try again!");
 			
 		}
 		PlayerList[currentPosition]=playerName;
 		return PlayerList;
-	
 	}
+	
+	public String[] MoveComputer(String[] PlayerList, String playerName ){
+		int currentPosition=0;
+		int i=0;
+		for (i=0; i<101;i++) {
+			if (PlayerList[i]!="  ") {
+				currentPosition=i;
+				PlayerList[i]="  ";
+			}
+		}
+		int diceRoll=dice();
+		int validRoll=diceRoll+currentPosition;
+		if (validRoll <= 100) {
+			validRoll = Ladder(validRoll);
+			validRoll = Snake(validRoll);
+		
+			PlayerList[validRoll]=playerName;
+			System.out.println(playerName + " rolled a " + diceRoll + ", and landed on " + validRoll + ".");
+			return PlayerList;
+		} else if (validRoll > 100) {
+			System.out.println("Rolled over 100, try again!");
+			
+		}
+		PlayerList[currentPosition]=playerName;
+		return PlayerList;
+	}
+  
 	public int Ladder(int position) {
 		int[] laddersStart = new int[4];	
 		laddersStart[0] = 3;
@@ -85,22 +110,5 @@ public class Move { // Jada
 	int diceRoll = randomNum.nextInt((max - min) + 1) + min; // Source: https://stackoverflow.com/questions/363681/how-do-i-generate-random-integers-within-a-specific-range-in-java
 //	System.out.println("You rolled a " + diceRoll);
 	return diceRoll;
-
+	}
 }
-}
-
-
-//public Move(Player player) {	
-//
-//int position = player.getPosition();
-//int newPosition = position + dice();
-//
-//newPosition = Ladder(newPosition);
-//newPosition = Snake(newPosition);
-//
-//if (newPosition <= 100) {
-//	player.setPosition(newPosition);
-//} else if(newPosition > 100) {
-//	player.setPosition(position);
-//}
-//}
