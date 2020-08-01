@@ -1,5 +1,3 @@
-package model;
-
 public class Player { // Arlina
 	private String name;
 	private String type; 

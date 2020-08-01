@@ -1,4 +1,3 @@
-package model;
 public class GameBoard {
 	
 	public static void drawBoard(Player firstPlayer, Player secondPlayer, Player thirdPlayer, Player fourthPlayer) {
