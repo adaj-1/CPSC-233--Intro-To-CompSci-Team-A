@@ -1,11 +1,12 @@
+package model;
 public class GameBoard {
 	
-	public static void drawBoard(String[] firstPlayer, String[] secondPlayer, String[] thirdPlayer, String[] fourthPlayer) {
+	public static void drawBoard(Player firstPlayer, Player secondPlayer, Player thirdPlayer, Player fourthPlayer) {
 		int spaceNum = 100;
-		String[] player1 = firstPlayer;
-		String[] player2 = secondPlayer;
-		String[] player3 = thirdPlayer;
-		String[] player4 = fourthPlayer;
+		String[] player1 = firstPlayer.getPlayer();
+		String[] player2 = secondPlayer.getPlayer();
+		String[] player3 = thirdPlayer.getPlayer();
+		String[] player4 = fourthPlayer.getPlayer();
 		
 		/* Last line of game board */
 		System.out.print("_____________________________________________________________"
