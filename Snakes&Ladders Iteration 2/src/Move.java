@@ -10,6 +10,7 @@ public class Move { // Jada
 		int i=0;
 		for (i=0; i<101;i++) {
 			if (PlayerList[i]!="  ") {
+
 				currentPosition=i;
 				PlayerList[i]="  ";
 			}
@@ -56,7 +57,7 @@ public class Move { // Jada
 		PlayerList[currentPosition]=playerName;
 		return PlayerList;
 	}
-	
+  
 	public int Ladder(int position) {
 		int[] laddersStart = new int[4];	
 		laddersStart[0] = 3;

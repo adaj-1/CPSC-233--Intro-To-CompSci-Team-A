@@ -3,11 +3,13 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class GameConfiguration extends Move { // Nathan
+
 	// this is our TextApplication 
 	// should call GameBoard and take inputs from user
 
 	final static int FINISHING_SPACE = 100;		
 	final static int MAX_PLAYERS=4;
+
 	private static ArrayList<Player> players = new ArrayList<Player>(); //arrayList of player objects
 	private static Scanner playerInput;
 	private int numComputer = 0;
@@ -89,9 +91,8 @@ public class GameConfiguration extends Move { // Nathan
 			GameBoard.drawBoard(aPlayerList.get(0), aPlayerList.get(1), aPlayerList.get(2), 
 								aPlayerList.get(3));
 		}
-	}
-	
-	
+	}		
+
 	public void run()  {
 	/*
 	 *  this should print out our start menu for all user inputs
@@ -138,15 +139,9 @@ public class GameConfiguration extends Move { // Nathan
 		}
 	}
 					
+
 	public static void main(String[] args) {
 		GameConfiguration app = new GameConfiguration();		// instantiates the class
 		app.run();	
 	}
 }
-	
-
-
-
-
-
-

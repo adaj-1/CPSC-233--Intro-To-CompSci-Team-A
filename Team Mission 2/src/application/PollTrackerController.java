@@ -10,7 +10,8 @@ public abstract class PollTrackerController {
 	
 	public void setPollTrackerApp(PollTrackerApp app) {
 		this.app = app;
-		refresh();
+
+			refresh();		
 	}
 	
 	public PollTrackerApp getPollTrackerApp() {

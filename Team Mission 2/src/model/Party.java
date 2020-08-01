@@ -1,4 +1,3 @@
-package model;
 /**
  *
  * @author Arlina Dey
@@ -18,6 +17,9 @@ package model;
  * and a bar represents that the party has
  * fewer seats than needed for majority.
  */
+
+package model;
+
 public class Party {
 	private String name;
 	private float projectedNumberOfSeats;

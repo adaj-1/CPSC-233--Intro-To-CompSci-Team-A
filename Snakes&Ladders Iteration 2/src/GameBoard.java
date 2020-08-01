@@ -7,6 +7,7 @@ public class GameBoard {
 		String[] player2 = secondPlayer.getPlayer();
 		String[] player3 = thirdPlayer.getPlayer();
 		String[] player4 = fourthPlayer.getPlayer();
+
 		
 		/* Last line of game board */
 		System.out.print("_____________________________________________________________"
