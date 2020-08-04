@@ -23,6 +23,25 @@ public class Player { // Arlina
 		}
 		player[1] = name;
 	}
+	public void rollDice(){
+		int dice = (int)(Math.random()*6+1);
+		count++;  //rolled how many times
+		if (count == 1) {
+			if (dice == 6){
+				for (int i = 0; i <= dice; i++) {
+					position++;
+				}
+				count++;
+			} else {
+				count = 0;
+			}
+		}else {
+			for (int i = 0; i <= dice; i++) {
+				position++;
+			}
+		}
+
+	}
 
 	public String[] getPlayer(){
 		return this.player;
