@@ -5,6 +5,8 @@ public class Player { // Arlina
 	private String name;
 	private String type; 
 	private String[] player;
+	private int position = 0;
+	int count = 0;
 
 	public Player() {
 		this.type = null;
