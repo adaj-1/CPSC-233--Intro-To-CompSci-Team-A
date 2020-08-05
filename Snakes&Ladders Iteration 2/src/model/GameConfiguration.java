@@ -17,6 +17,7 @@ public class GameConfiguration extends Move { // Nathan
 	private int playerCounter = 0;
 	private String gameType = "txtBased";
 
+
 	
 	public GameConfiguration() {
 		
@@ -121,7 +122,7 @@ public class GameConfiguration extends Move { // Nathan
 			playerInput = new Scanner(System.in);
 			String isRoll = playerInput.nextLine();
 			if(isRoll.equals("r")) {
-					MovePlayer(aPlayer.getPlayer(), aPlayer.getName());
+					MovePlayer(aPlayer);
 					GameBoard.drawBoard(aPlayerList.get(0), aPlayerList.get(1), aPlayerList.get(2),
 										aPlayerList.get(3));
 			}
@@ -134,7 +135,7 @@ public class GameConfiguration extends Move { // Nathan
 	
 	public void playerTurnGUI(ArrayList<Player> aPlayerList, Player aPlayer) {
 		if (isHuman(aPlayer)) {
-			MovePlayer(aPlayer.getPlayer(), aPlayer.getName());
+			MovePlayer(aPlayer);
 		} else if (isComputer(aPlayer)) {
 			MoveComputer(aPlayer.getPlayer(), aPlayer.getName());
 		}

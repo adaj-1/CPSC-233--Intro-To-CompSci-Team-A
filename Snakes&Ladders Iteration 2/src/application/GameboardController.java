@@ -1,9 +1,11 @@
 package application;
 
 import java.awt.event.ActionEvent;
+import java.io.File;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import java.util.concurrent.TimeUnit;
 
 import model.GameConfiguration;
 import model.Player;
@@ -16,6 +18,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
@@ -23,7 +26,12 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
+import java.util.ResourceBundle;
 
+
+
+// Snake : https://w7.pngwing.com/pngs/461/577/png-transparent-rattlesnake-a-silver-ring-snake-png-material-ring-animals.png
+// Ladder : https://img.favpng.com/21/0/14/tangyuan-ladder-png-favpng-vYBUNXKvN2rEgxSFipAxSNNyN.jpg
 public class GameboardController {
 	private static final int MAX_PLAYERS = 4;
 	private String[] numOfPlayers = {"1","2","3","4"};
@@ -33,8 +41,9 @@ public class GameboardController {
 	private String nameEntered;
 	private String[] playerNameList = new String[MAX_PLAYERS];
 	private String[] messages = {"Enter first players name", 
-			"Enter second players name", "Enter Third players name", 
+			"Enter second players name", "Enter third players name", 
 			"Enter fourth players name"};
+	private String[] computerNames = {"CP1", "CP2", "CP3", "CP4"};
 	private ArrayList<Circle> tokens = new ArrayList<Circle>();
 	private int TURN = 0;
 	private GameConfiguration gc = new GameConfiguration("GUIBased");
@@ -44,7 +53,10 @@ public class GameboardController {
 	private int [] rows = {9,9,9,9,9,9,9,9,9,9,8,8,8,8,8,8,8,8,8,8,7,7,7,7,7,7,7,7,7,7,6,6,6,6,6,6,6,6,6,6,
 			5,5,5,5,5,5,5,5,5,5,4,4,4,4,4,4,4,4,4,4,3,3,3,3,3,3,3,3,3,3,2,2,2,2,2,2,2,2,2,2,
 			1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0};
-	private int totalPlayers;
+	private  int totalPlayers;
+	
+	//private final Image SNAKE1 = ResourceLoader.getImage("src/images/SNAKE.png");
+	
 	@FXML
     private Circle token1;
 
@@ -92,8 +104,17 @@ public class GameboardController {
     private GridPane gameGridBottom;
   
     @FXML
+    private Label currentplayerText;
+    
+    @FXML
+    private Label yourRoll;
+    
+    @FXML
+    private ImageView snake1;
+    
+    @FXML
     void submitButton(MouseEvent event) {
-      	playerNameText.setText(messages[currentPlayer]);
+      	playerNameText.setText(messages[getTURN()]);
       	totalPlayers = numOfHumanPlayers + numOfComputerPlayers;
      
       	if (totalPlayers == 1) {
@@ -123,14 +144,17 @@ public class GameboardController {
       	} 
     }
     
-    public void TurnCounter() {
-		if (TURN == (totalPlayers - 1)) {
-			TURN = 0;
+    public void TurnCounter() {  	
+    	if (getTURN() == (totalPlayers - 1)) {
+			this.TURN = 0;
 		} else {
-			TURN++;
-		}	
+			this.TURN++;
+		}
+    	currentplayerText.setText(playerNameList[getTURN()]);
+    	
 	}
 	
+
 	public int getTURN() {
 		return TURN;
 	}
@@ -141,7 +165,7 @@ public class GameboardController {
     	if (currentPlayer < numOfHumanPlayers) {
 	    	playerNameList[currentPlayer] = nameEntered;
 	      	playerNameTextField.clear();
-	       	currentPlayer++;
+	      	currentPlayer++;
 	       	if (currentPlayer == numOfHumanPlayers) {
 	       		playerNameText.setText("Press the start game button");
 	       	} else {
@@ -162,19 +186,34 @@ public class GameboardController {
     	for (currentPlayer = 0; currentPlayer < numOfHumanPlayers; currentPlayer++) {
     		gc.addPlayer(new Player("human", playerNameList[currentPlayer]), currentPlayer);
     	}
-    	for (; currentPlayer < (numOfHumanPlayers + numOfComputerPlayers); currentPlayer++) {
+    	for (; currentPlayer < (totalPlayers); currentPlayer++) {
     		gc.addPlayer(new Player("AI", "C" + (currentPlayer)), currentPlayer);
     	}
     	for (; currentPlayer < MAX_PLAYERS; currentPlayer++) {
     		gc.addPlayer(new Player(), currentPlayer);		
     	}
+    	
+    	if (numOfHumanPlayers < totalPlayers) {
+    		int index = numOfHumanPlayers;
+    		for (int i = 0;index < totalPlayers; i++) {
+    			playerNameList[index] = computerNames[i];
+    			index++;
+    		} 
+    	}
+    	System.out.println("startbutton "+ getTURN());
+    	currentplayerText.setText(playerNameList[getTURN()]);
     }
     
-    public void movePlayer(GameConfiguration gc) {
+    public void MovePlayerGUI(GameConfiguration gc) {
     	if (gc.getPlayer().get(getTURN()).getType() == "human") {
-    	gc.MovePlayerGUI(gc.getPlayer().get(getTURN()).getPlayer(), gc.getPlayer().get(getTURN()).getName());
-    	gameGridTop.add(tokens.get(getTURN()),0,9);
+    	gc.MovePlayerGUI(gc.getPlayer().get(getTURN()));
+    	int position = gc.getPlayer().get(getTURN()).getPosition() - 1;
+    	
+    	yourRoll.setText(gc.getPlayer().get(getTURN()).getName() + " you rolled a: " + gc.getPlayer().get(getTURN()).getHoldDiceRoll());
+    	gameGridTop.getChildren().remove(tokens.get(getTURN()));
+    	gameGridTop.add(tokens.get(getTURN()),columns[position],rows[position]);
     	TurnCounter();
+    	System.out.println("Move Player " + getTURN());
     	} 
 
     }
@@ -182,9 +221,10 @@ public class GameboardController {
     @FXML
     void onDiceClick(MouseEvent event) {
     	if (gc.getPlayer().get(getTURN()).getType() == "human") {
-    		movePlayer(gc);
+    		MovePlayerGUI(gc);
     		refresh();
     	} 	
+   	
     }
 
     @FXML
@@ -198,7 +238,12 @@ public class GameboardController {
         assert playerNameTextField != null : "fx:id=\"PlayerNameEntered\" was not injected: check your FXML file 'Gameboard.fxml'.";
         assert gameGridTop != null : "fx:id=\"gameGrid\" was not injected: check your FXML file 'Gameboard.fxml'.";
         assert gameGridBottom != null : "fx:id=\"gameGrid\" was not injected: check your FXML file 'Gameboard.fxml'.";
-
+        
+        
+        Image snake = new Image("file:src/images/SNAKE.jpg");
+        ImageView imageView = new ImageView(snake);
+      //  snake1.setImage(i);
+        
         numOfHumans.setItems(FXCollections.observableArrayList(numOfPlayers));
     	numOfHumans.getSelectionModel().selectedIndexProperty().addListener(
     			new	ChangeListener<Number>() {
@@ -235,12 +280,19 @@ public class GameboardController {
     	);
     }
       
+    
     public void refresh() {
-    	if (gc.getPlayer().get(getTURN()).getType() == "AI") {
-    	gc.playerTurnGUI(gc.getPlayer(), gc.getPlayer().get(getTURN()));
-    	gameGridTop.add(tokens.get(getTURN()), 0, 9);
-    	TurnCounter();
-    	refresh();
+    	  
+    	if (gc.getPlayer().get(getTURN()).getType() == "AI")  {
+    		gc.MovePlayerGUI(gc.getPlayer().get(getTURN()));
+        	int position = gc.getPlayer().get(getTURN()).getPosition() - 1;
+        	yourRoll.setText(gc.getPlayer().get(getTURN()).getName() + " you rolled a: " + gc.getPlayer().get(getTURN()).getHoldDiceRoll());
+        	gameGridTop.getChildren().remove(tokens.get(getTURN()));
+        	gameGridTop.add(tokens.get(getTURN()),columns[position],rows[position]);
+        	
+        	TurnCounter();
+        	System.out.println("Move Player " + getTURN());
+        	refresh();
     	}
     }
     

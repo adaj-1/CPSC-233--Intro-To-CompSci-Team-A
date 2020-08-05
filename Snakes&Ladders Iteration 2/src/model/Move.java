@@ -3,59 +3,80 @@ package model;
 import java.util.Random;
 
 public class Move { // Jada
+	private int playerPosition;
+	
 	public Move() {
 		
 	}
-	public String[] MovePlayer(String[] PlayerList, String playerName ){
+	public Player MovePlayer(Player currentPlayer){
 		int currentPosition=0;
 		int i=0;
 		for (i=0; i<101;i++) {
-			if (PlayerList[i]!="  ") {
+			if (currentPlayer.getPlayer()[i]!="  ") {
 				currentPosition=i;
-				PlayerList[i]="  ";
+				currentPlayer.getPlayer()[i]="  ";
 			}
 		}
+		
 		int diceRoll=dice();
+		currentPlayer.setHoldDiceRoll(diceRoll);
+		
 		int validRoll=diceRoll+currentPosition;
 		if (validRoll <= 100) {
 			validRoll = Ladder(validRoll);
 			validRoll = Snake(validRoll);
 		
-			PlayerList[validRoll]=playerName;
+			currentPlayer.getPlayer()[validRoll]=currentPlayer.getName();
 			System.out.println("You rolled a " + diceRoll + ", and you landed on " + validRoll + ".");
-			return PlayerList;
+			currentPlayer.setPosition(validRoll);
+			return currentPlayer;
 		} else if (validRoll > 100) {
 			System.out.println("Rolled over 100, try again!");
 			
 		}
-		PlayerList[currentPosition]=playerName;
-		return PlayerList;
+		
+		currentPlayer.getPlayer()[currentPosition]=currentPlayer.getName();
+		currentPlayer.setPosition(currentPosition);
+		
+		return currentPlayer;
+		
 	}
-	public String[] MovePlayerGUI(String[] PlayerList, String playerName ){
+	
+	
+	public Player MovePlayerGUI(Player currentPlayer){
 		int currentPosition=0;
 		int i=0;
 		for (i=0; i<101;i++) {
-			if (PlayerList[i]!="  ") {
+			if (currentPlayer.getPlayer()[i]!="  ") {
 				currentPosition=i;
-				PlayerList[i]="  ";
+				currentPlayer.getPlayer()[i]="  ";
 			}
 		}
+		
 		int diceRoll=dice();
+		currentPlayer.setHoldDiceRoll(diceRoll);
+		
 		int validRoll=diceRoll+currentPosition;
 		if (validRoll <= 100) {
-//			validRoll = Ladder(validRoll);
-//			validRoll = Snake(validRoll);
-//		
-			PlayerList[validRoll]=playerName;
+			validRoll = Ladder(validRoll);
+			validRoll = Snake(validRoll);
+		
+			currentPlayer.getPlayer()[validRoll]=currentPlayer.getName();
 			System.out.println("You rolled a " + diceRoll + ", and you landed on " + validRoll + ".");
-			return PlayerList;
+			currentPlayer.setPosition(validRoll);
+			return currentPlayer;
 		} else if (validRoll > 100) {
 			System.out.println("Rolled over 100, try again!");
 			
 		}
-		PlayerList[currentPosition]=playerName;
-		return PlayerList;
+		
+		currentPlayer.getPlayer()[currentPosition]=currentPlayer.getName();
+		currentPlayer.setPosition(currentPosition);
+		
+		return currentPlayer;
+		
 	}
+	
 	public String[] MoveComputer(String[] PlayerList, String playerName ){
 		int currentPosition=0;
 		int i=0;
@@ -134,5 +155,12 @@ public class Move { // Jada
 	int diceRoll = randomNum.nextInt((max - min) + 1) + min; // Source: https://stackoverflow.com/questions/363681/how-do-i-generate-random-integers-within-a-specific-range-in-java
 //	System.out.println("You rolled a " + diceRoll);
 	return diceRoll;
+	}
+	
+	public int getPlayerPosition() {
+		return playerPosition;
+	}
+	public void setPlayerPosition(int playerPosition) {
+		this.playerPosition = playerPosition;
 	}
 }

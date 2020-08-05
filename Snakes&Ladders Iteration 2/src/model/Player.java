@@ -5,7 +5,8 @@ public class Player { // Arlina
 	private String name;
 	private String type; 
 	private String[] player;
-	private int position = 0;
+	private int position;
+	private int holdDiceRoll;
 	int count = 0;
 
 	public Player() {
@@ -24,26 +25,28 @@ public class Player { // Arlina
 			player[i] = "  ";
 		}
 		player[1] = name;
+		this.setPosition(1);
 	}
-	public void rollDice(){
-		int dice = (int)(Math.random()*6+1);
-		count++;  //rolled how many times
-		if (count == 1) {
-			if (dice == 6){
-				for (int i = 0; i <= dice; i++) {
-					setPosition(getPosition() + 1);
-				}
-				count++;
-			} else {
-				count = 0;
-			}
-		}else {
-			for (int i = 0; i <= dice; i++) {
-				setPosition(getPosition() + 1);
-			}
-		}
-
-	}
+	
+//	public void rollDice(){
+//		int dice = (int)(Math.random()*6+1);
+//		count++;  //rolled how many times
+//		if (count == 1) {
+//			if (dice == 6){
+//				for (int i = 0; i <= dice; i++) {
+//					setPosition(getPosition() + 1);
+//				}
+//				count++;
+//			} else {
+//				count = 0;
+//			}
+//		}else {
+//			for (int i = 0; i <= dice; i++) {
+//				setPosition(getPosition() + 1);
+//			}
+//		}
+//
+//	}
 
 	public String[] getPlayer(){
 		return this.player;
@@ -63,5 +66,13 @@ public class Player { // Arlina
 
 	public void setPosition(int position) {
 		this.position = position;
+	}
+
+	public int getHoldDiceRoll() {
+		return holdDiceRoll;
+	}
+
+	public void setHoldDiceRoll(int holdDiceRoll) {
+		this.holdDiceRoll = holdDiceRoll;
 	}
 }
