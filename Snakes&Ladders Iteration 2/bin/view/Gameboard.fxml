@@ -35,6 +35,11 @@
                   <Font name="Arial Bold" size="18.0" />
                </font>
             </Label>
+            <Label fx:id="currentplayerText" prefHeight="29.0" prefWidth="164.0">
+               <font>
+                  <Font name="Arial" size="18.0" />
+               </font>
+            </Label>
             <VBox alignment="CENTER">
                <children>
                   <HBox alignment="CENTER">
@@ -51,6 +56,27 @@
                   <Insets top="50.0" />
                </VBox.margin>
             </VBox>
+            <Label text="ROLL THE DICE!">
+               <font>
+                  <Font name="Arial" size="15.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </Label>
+            <Label fx:id="yourRoll">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </Label>
+            <Button fx:id="rollDice" alignment="CENTER" focusTraversable="false" mnemonicParsing="false" onMouseClicked="#onDiceClick">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Button>
             <VBox alignment="CENTER" spacing="20.0">
                <children>
                   <ImageView fx:id="diceIndicatorImage" pickOnBounds="true" preserveRatio="true">
@@ -63,22 +89,6 @@
                   <Insets top="100.0" />
                </VBox.margin>
             </VBox>
-            <Label text="ROLL THE DICE!">
-               <font>
-                  <Font name="Arial" size="15.0" />
-               </font>
-               <VBox.margin>
-                  <Insets top="20.0" />
-               </VBox.margin>
-            </Label>
-            <Button fx:id="rollDice" alignment="CENTER" focusTraversable="false" mnemonicParsing="false" onMouseClicked="#onDiceClick">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <VBox.margin>
-                  <Insets top="10.0" />
-               </VBox.margin>
-            </Button>
          </children>
          <BorderPane.margin>
             <Insets />
@@ -106,9 +116,9 @@
                </VBox.margin>
             </VBox>
             <Button mnemonicParsing="false" onMouseClicked="#submitButton" text="Set Players" />
-            <Label fx:id="playerNameText" prefHeight="22.0" prefWidth="192.0">
+            <Label fx:id="playerNameText" prefHeight="78.0" prefWidth="194.0">
                <font>
-                  <Font name="Consolas Bold" size="18.0" />
+                  <Font name="Consolas Bold" size="14.0" />
                </font>
                <VBox.margin>
                   <Insets />
@@ -121,6 +131,7 @@
             </TextField>
             <Button mnemonicParsing="false" onMouseClicked="#submitPlayerName" text="Enter Name" />
             <VBox alignment="CENTER" spacing="20.0" />
+            <Button mnemonicParsing="false" onMouseClicked="#startButtonClicked" prefHeight="57.0" prefWidth="120.0" text="Start the game" />
             <VBox alignment="CENTER" layoutX="10.0" layoutY="492.0" spacing="10.0">
                <children>
                   <HBox alignment="CENTER" spacing="50.0" />
@@ -129,7 +140,6 @@
                   <Insets top="20.0" />
                </VBox.margin>
             </VBox>
-            <Button mnemonicParsing="false" onMouseClicked="#startButtonClicked" prefHeight="57.0" prefWidth="120.0" text="Start the game" />
          </children>
 	  </VBox>
    </left>
@@ -1124,7 +1134,7 @@
                         </Text>
                      </children>
                   </Pane>
-                  <Pane fx:id="forty_one" GridPane.columnIndex="0" GridPane.rowIndex="5">
+                  <Pane GridPane.columnIndex="0" GridPane.rowIndex="5">
                      <children>
                         <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="41">
                            <font>
@@ -1133,7 +1143,7 @@
                         </Text>
                      </children>
                   </Pane>
-                  <Pane fx:id="forty" GridPane.columnIndex="0" GridPane.rowIndex="6">
+                  <Pane GridPane.columnIndex="0" GridPane.rowIndex="6">
                      <children>
                         <Text layoutX="31.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="40">
                            <font>
@@ -1142,7 +1152,7 @@
                         </Text>
                      </children>
                   </Pane>
-                  <Pane fx:id="twenty_one" GridPane.columnIndex="0" GridPane.rowIndex="7">
+                  <Pane GridPane.columnIndex="0" GridPane.rowIndex="7">
                      <children>
                         <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="21">
                            <font>
@@ -1153,7 +1163,7 @@
                   </Pane>
                   <Pane GridPane.columnIndex="0" GridPane.rowIndex="8">
                      <children>
-                        <Text fx:id="twenty" layoutX="31.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="20">
+                        <Text layoutX="31.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="20">
                            <font>
                               <Font name="Times New Roman" size="21.0" />
                            </font>
@@ -1218,7 +1228,7 @@
                         </Text>
                      </children>
                   </Pane>
-                  <Pane fx:id="forty_two" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                  <Pane GridPane.columnIndex="1" GridPane.rowIndex="5">
                      <children>
                         <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="42">
                            <font>
@@ -1227,7 +1237,7 @@
                         </Text>
                      </children>
                   </Pane>
-                  <Pane fx:id="thirty_nine" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                  <Pane GridPane.columnIndex="1" GridPane.rowIndex="6">
                      <children>
                         <Text layoutX="35.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="39">
                            <font>
@@ -1236,7 +1246,7 @@
                         </Text>
                      </children>
                   </Pane>
-                  <Pane fx:id="twenty_two" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                  <Pane GridPane.columnIndex="1" GridPane.rowIndex="7">
                      <children>
                         <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="22">
                            <font>
@@ -1245,7 +1255,7 @@
                         </Text>
                      </children>
                   </Pane>
-                  <Pane fx:id="nineteen" GridPane.columnIndex="1" GridPane.rowIndex="8">
+                  <Pane GridPane.columnIndex="1" GridPane.rowIndex="8">
                      <children>
                         <Text layoutX="31.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="19">
                            <font>
@@ -1254,9 +1264,9 @@
                         </Text>
                      </children>
                   </Pane>
-                  <Pane fx:id="two" GridPane.columnIndex="1" GridPane.rowIndex="9">
+                  <Pane GridPane.columnIndex="1" GridPane.rowIndex="9">
                      <children>
-                        <Text fx:id="two" layoutX="39.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2">
+                        <Text layoutX="39.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2">
                            <font>
                               <Font name="Times New Roman" size="21.0" />
                            </font>
@@ -1308,7 +1318,7 @@
                         </Text>
                      </children>
                   </Pane>
-                  <Pane fx:id="forty_three" GridPane.columnIndex="2" GridPane.rowIndex="5">
+                  <Pane GridPane.columnIndex="2" GridPane.rowIndex="5">
                      <children>
                         <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="43">
                            <font>
@@ -1317,7 +1327,7 @@
                         </Text>
                      </children>
                   </Pane>
-                  <Pane fx:id="thirty_eight" GridPane.columnIndex="2" GridPane.rowIndex="6">
+                  <Pane GridPane.columnIndex="2" GridPane.rowIndex="6">
                      <children>
                         <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="38">
                            <font>
@@ -1326,7 +1336,7 @@
                         </Text>
                      </children>
                   </Pane>
-                  <Pane fx:id="twenty_three" GridPane.columnIndex="2" GridPane.rowIndex="7">
+                  <Pane GridPane.columnIndex="2" GridPane.rowIndex="7">
                      <children>
                         <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="23">
                            <font>
@@ -1335,7 +1345,7 @@
                         </Text>
                      </children>
                   </Pane>
-                  <Pane fx:id="eighteen" GridPane.columnIndex="2" GridPane.rowIndex="8">
+                  <Pane GridPane.columnIndex="2" GridPane.rowIndex="8">
                      <children>
                         <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="18">
                            <font>
@@ -1344,13 +1354,14 @@
                         </Text>
                      </children>
                   </Pane>
-                  <Pane fx:id="three" GridPane.columnIndex="2" GridPane.rowIndex="9">
+                  <Pane GridPane.columnIndex="2" GridPane.rowIndex="9">
                      <children>
                         <Text layoutX="39.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3">
                            <font>
                               <Font name="Times New Roman" size="21.0" />
                            </font>
                         </Text>
+                        <ImageView fx:id="snake1" fitHeight="303.0" fitWidth="305.0" layoutX="-72.0" layoutY="-201.0" pickOnBounds="true" preserveRatio="true" />
                      </children>
                   </Pane>
                   <Pane GridPane.columnIndex="3" GridPane.rowIndex="0">
@@ -1400,14 +1411,14 @@
                   </Pane>
                   <Pane GridPane.columnIndex="3" GridPane.rowIndex="5">
                      <children>
-                        <Text fx:id="forty_four" layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="44">
+                        <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="44">
                            <font>
                               <Font name="Times New Roman" size="21.0" />
                            </font>
                         </Text>
                      </children>
                   </Pane>
-                  <Pane fx:id="thirty_seven" GridPane.columnIndex="3" GridPane.rowIndex="6">
+                  <Pane GridPane.columnIndex="3" GridPane.rowIndex="6">
                      <children>
                         <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="37">
                            <font>
@@ -1416,7 +1427,7 @@
                         </Text>
                      </children>
                   </Pane>
-                  <Pane fx:id="twenty_four" GridPane.columnIndex="3" GridPane.rowIndex="7">
+                  <Pane GridPane.columnIndex="3" GridPane.rowIndex="7">
                      <children>
                         <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="24">
                            <font>
@@ -1427,14 +1438,14 @@
                   </Pane>
                   <Pane GridPane.columnIndex="3" GridPane.rowIndex="8">
                      <children>
-                        <Text fx:id="seventeen" layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="17">
+                        <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="17">
                            <font>
                               <Font name="Times New Roman" size="21.0" />
                            </font>
                         </Text>
                      </children>
                   </Pane>
-                  <Pane fx:id="four" GridPane.columnIndex="3" GridPane.rowIndex="9">
+                  <Pane GridPane.columnIndex="3" GridPane.rowIndex="9">
                      <children>
                         <Text layoutX="39.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="4">
                            <font>
@@ -1490,7 +1501,7 @@
                   </Pane>
                   <Pane GridPane.columnIndex="4" GridPane.rowIndex="5">
                      <children>
-                        <Text fx:id="forty_five" layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="45">
+                        <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="45">
                            <font>
                               <Font name="Times New Roman" size="21.0" />
                            </font>
@@ -1499,14 +1510,14 @@
                   </Pane>
                   <Pane GridPane.columnIndex="4" GridPane.rowIndex="6">
                      <children>
-                        <Text fx:id="thirty_six" layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="36">
+                        <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="36">
                            <font>
                               <Font name="Times New Roman" size="21.0" />
                            </font>
                         </Text>
                      </children>
                   </Pane>
-                  <Pane fx:id="twenty_five" GridPane.columnIndex="4" GridPane.rowIndex="7">
+                  <Pane GridPane.columnIndex="4" GridPane.rowIndex="7">
                      <children>
                         <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="25">
                            <font>
@@ -1515,16 +1526,16 @@
                         </Text>
                      </children>
                   </Pane>
-                  <Pane fx:id="sixteen" GridPane.columnIndex="4" GridPane.rowIndex="8">
+                  <Pane GridPane.columnIndex="4" GridPane.rowIndex="8">
                      <children>
-                        <Text fx:id="sixteen" layoutX="25.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="16">
+                        <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="16">
                            <font>
                               <Font name="Times New Roman" size="21.0" />
                            </font>
                         </Text>
                      </children>
                   </Pane>
-                  <Pane fx:id="five" GridPane.columnIndex="4" GridPane.rowIndex="9">
+                  <Pane GridPane.columnIndex="4" GridPane.rowIndex="9">
                      <children>
                         <Text layoutX="39.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="5">
                            <font>
@@ -1580,7 +1591,7 @@
                   </Pane>
                   <Pane GridPane.columnIndex="5" GridPane.rowIndex="5">
                      <children>
-                        <Text fx:id="forty_six" layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="46">
+                        <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="46">
                            <font>
                               <Font name="Times New Roman" size="21.0" />
                            </font>
@@ -1589,7 +1600,7 @@
                   </Pane>
                   <Pane GridPane.columnIndex="5" GridPane.rowIndex="6">
                      <children>
-                        <Text fx:id="thirty_five" layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="35">
+                        <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="35">
                            <font>
                               <Font name="Times New Roman" size="21.0" />
                            </font>
@@ -1598,14 +1609,14 @@
                   </Pane>
                   <Pane GridPane.columnIndex="5" GridPane.rowIndex="7">
                      <children>
-                        <Text fx:id="twenty_six" layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="26">
+                        <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="26">
                            <font>
                               <Font name="Times New Roman" size="21.0" />
                            </font>
                         </Text>
                      </children>
                   </Pane>
-                  <Pane fx:id="fifteen" GridPane.columnIndex="5" GridPane.rowIndex="8">
+                  <Pane GridPane.columnIndex="5" GridPane.rowIndex="8">
                      <children>
                         <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="15">
                            <font>
@@ -1614,7 +1625,7 @@
                         </Text>
                      </children>
                   </Pane>
-                  <Pane fx:id="six" GridPane.columnIndex="5" GridPane.rowIndex="9">
+                  <Pane GridPane.columnIndex="5" GridPane.rowIndex="9">
                      <children>
                         <Text layoutX="39.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="6">
                            <font>
@@ -1668,7 +1679,7 @@
                         </Text>
                      </children>
                   </Pane>
-                  <Pane fx:id="forty_seven" GridPane.columnIndex="6" GridPane.rowIndex="5">
+                  <Pane GridPane.columnIndex="6" GridPane.rowIndex="5">
                      <children>
                         <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="47">
                            <font>
@@ -1679,7 +1690,7 @@
                   </Pane>
                   <Pane GridPane.columnIndex="6" GridPane.rowIndex="6">
                      <children>
-                        <Text fx:id="thirty_four" layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="34">
+                        <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="34">
                            <font>
                               <Font name="Times New Roman" size="21.0" />
                            </font>
@@ -1688,14 +1699,14 @@
                   </Pane>
                   <Pane GridPane.columnIndex="6" GridPane.rowIndex="7">
                      <children>
-                        <Text fx:id="twenty_seven" layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="27">
+                        <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="27">
                            <font>
                               <Font name="Times New Roman" size="21.0" />
                            </font>
                         </Text>
                      </children>
                   </Pane>
-                  <Pane fx:id="fourteen" GridPane.columnIndex="6" GridPane.rowIndex="8">
+                  <Pane GridPane.columnIndex="6" GridPane.rowIndex="8">
                      <children>
                         <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="14">
                            <font>
@@ -1704,7 +1715,7 @@
                         </Text>
                      </children>
                   </Pane>
-                  <Pane fx:id="seven" GridPane.columnIndex="6" GridPane.rowIndex="9">
+                  <Pane GridPane.columnIndex="6" GridPane.rowIndex="9">
                      <children>
                         <Text layoutX="39.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="7">
                            <font>
@@ -1760,14 +1771,14 @@
                   </Pane>
                   <Pane GridPane.columnIndex="7" GridPane.rowIndex="5">
                      <children>
-                        <Text fx:id="forty_eight" layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="48">
+                        <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="48">
                            <font>
                               <Font name="Times New Roman" size="21.0" />
                            </font>
                         </Text>
                      </children>
                   </Pane>
-                  <Pane fx:id="thirty_three" GridPane.columnIndex="7" GridPane.rowIndex="6">
+                  <Pane GridPane.columnIndex="7" GridPane.rowIndex="6">
                      <children>
                         <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="33">
                            <font>
@@ -1776,7 +1787,7 @@
                         </Text>
                      </children>
                   </Pane>
-                  <Pane fx:id="twenty_eight" GridPane.columnIndex="7" GridPane.rowIndex="7">
+                  <Pane GridPane.columnIndex="7" GridPane.rowIndex="7">
                      <children>
                         <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="28">
                            <font>
@@ -1785,7 +1796,7 @@
                         </Text>
                      </children>
                   </Pane>
-                  <Pane fx:id="thirteen" GridPane.columnIndex="7" GridPane.rowIndex="8">
+                  <Pane GridPane.columnIndex="7" GridPane.rowIndex="8">
                      <children>
                         <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="13">
                            <font>
@@ -1796,7 +1807,7 @@
                   </Pane>
                   <Pane GridPane.columnIndex="7" GridPane.rowIndex="9">
                      <children>
-                        <Text fx:id="eight" layoutX="39.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="8">
+                        <Text layoutX="39.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="8">
                            <font>
                               <Font name="Times New Roman" size="21.0" />
                            </font>
@@ -1850,14 +1861,14 @@
                   </Pane>
                   <Pane GridPane.columnIndex="8" GridPane.rowIndex="5">
                      <children>
-                        <Text fx:id="forty_nine" layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="49">
+                        <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="49">
                            <font>
                               <Font name="Times New Roman" size="21.0" />
                            </font>
                         </Text>
                      </children>
                   </Pane>
-                  <Pane fx:id="thirty_two" GridPane.columnIndex="8" GridPane.rowIndex="6">
+                  <Pane GridPane.columnIndex="8" GridPane.rowIndex="6">
                      <children>
                         <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="32">
                            <font>
@@ -1866,7 +1877,7 @@
                         </Text>
                      </children>
                   </Pane>
-                  <Pane fx:id="twenty_nine" GridPane.columnIndex="8" GridPane.rowIndex="7">
+                  <Pane GridPane.columnIndex="8" GridPane.rowIndex="7">
                      <children>
                         <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="29">
                            <font>
@@ -1877,14 +1888,14 @@
                   </Pane>
                   <Pane GridPane.columnIndex="8" GridPane.rowIndex="8">
                      <children>
-                        <Text fx:id="twleve" layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="12">
+                        <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="12">
                            <font>
                               <Font name="Times New Roman" size="21.0" />
                            </font>
                         </Text>
                      </children>
                   </Pane>
-                  <Pane fx:id="nine" GridPane.columnIndex="8" GridPane.rowIndex="9">
+                  <Pane GridPane.columnIndex="8" GridPane.rowIndex="9">
                      <children>
                         <Text layoutX="39.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="9">
                            <font>
@@ -1938,7 +1949,7 @@
                         </Text>
                      </children>
                   </Pane>
-                  <Pane fx:id="fifty_" GridPane.columnIndex="9" GridPane.rowIndex="5">
+                  <Pane GridPane.columnIndex="9" GridPane.rowIndex="5">
                      <children>
                         <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="50">
                            <font>
@@ -1947,7 +1958,7 @@
                         </Text>
                      </children>
                   </Pane>
-                  <Pane fx:id="thirty_one" GridPane.columnIndex="9" GridPane.rowIndex="6">
+                  <Pane GridPane.columnIndex="9" GridPane.rowIndex="6">
                      <children>
                         <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="31">
                            <font>
@@ -1956,7 +1967,7 @@
                         </Text>
                      </children>
                   </Pane>
-                  <Pane fx:id="thirty" GridPane.columnIndex="9" GridPane.rowIndex="7">
+                  <Pane GridPane.columnIndex="9" GridPane.rowIndex="7">
                      <children>
                         <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="30">
                            <font>
@@ -1967,14 +1978,14 @@
                   </Pane>
                   <Pane GridPane.columnIndex="9" GridPane.rowIndex="8">
                      <children>
-                        <Text fx:id="eleven" layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="11">
+                        <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="11">
                            <font>
                               <Font name="Times New Roman" size="21.0" />
                            </font>
                         </Text>
                      </children>
                   </Pane>
-                  <Pane fx:id="ten" GridPane.columnIndex="9" GridPane.rowIndex="9">
+                  <Pane GridPane.columnIndex="9" GridPane.rowIndex="9">
                      <children>
                         <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="10">
                            <font>
