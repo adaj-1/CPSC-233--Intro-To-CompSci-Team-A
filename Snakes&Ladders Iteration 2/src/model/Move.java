@@ -2,12 +2,18 @@ package model;
 
 import java.util.Random;
 
-public class Move { // Jada
+public class Move { 
 	private int playerPosition;
 	
 	public Move() {
 		
 	}
+	
+	/**
+	 * This method moves the players to their
+	 * positions after the dice is rolled.
+	 * @param currentPlayer
+	 */
 	public Player MovePlayer(Player currentPlayer){
 		int currentPosition=0;
 		int i=0;
@@ -17,6 +23,13 @@ public class Move { // Jada
 				currentPlayer.getPlayer()[i]="  ";
 			}
 		}
+		
+		/**
+		 * This saves the dice rolls of each
+		 * player if they are valid and sets their
+		 * new position according to the number they rolled.
+		 * @returns currentPlayers position
+		 */
 		
 		int diceRoll=dice();
 		currentPlayer.setHoldDiceRoll(diceRoll);
@@ -42,7 +55,9 @@ public class Move { // Jada
 		
 	}
 	
-	
+	/**
+	 * Duplicates previous methods for GUI.
+	 */	
 	public Player MovePlayerGUI(Player currentPlayer){
 		int currentPosition=0;
 		int i=0;
@@ -72,6 +87,13 @@ public class Move { // Jada
 		
 	}
 	
+	/**
+	 * This does the same thing as theprevious methods,
+	 * but for the computer players.
+	 * @param PlayerList
+	 * @param playerName
+	 * @returns the players name.
+	 */
 	public String[] MoveComputer(String[] PlayerList, String playerName ){
 		int currentPosition=0;
 		int i=0;
@@ -98,6 +120,13 @@ public class Move { // Jada
 		return PlayerList;
 	}
 	
+	/**
+	 * This sets the position of the ladders
+	 * on the gameboard.
+	 * @param position
+	 * @returns position of player after
+	 * player goes up the ladder.
+	 */
 	public int Ladder(int position) {
 		int[] laddersStart = new int[4];	
 		laddersStart[0] = 3;
@@ -121,6 +150,13 @@ public class Move { // Jada
 		return position;	
 	}
 	
+	/**
+	 * This sets the positions of the snakes
+	 * on the gameboard.
+	 * @param position
+	 * @returns position of player after
+	 * player goes down a snake.
+	 */	
 	public int Snake(int position) {
 		int[] snakesStart = new int[4];
 		snakesStart[0] = 97;
@@ -197,6 +233,10 @@ public class Move { // Jada
 		return position;	
 	}
 	
+	/**
+	 * This method randomly rolls the dice
+	 * and returns the number rolled.
+	 */
 	public int dice() {
 	int max = 6;
 	int min = 1;
@@ -206,6 +246,11 @@ public class Move { // Jada
 	return diceRoll;
 	}
 	
+	/**
+	 * Gets and sets psotion of players
+	 * throughout the game.
+	 * @returns player's position.
+	 */
 	public int getPlayerPosition() {
 		return playerPosition;
 	}
