@@ -2,7 +2,7 @@ package model;
 
 import java.util.Random;
 
-public class Move { // Jada
+public class Move { 
 	private int playerPosition;
 	
 	public Move() {
