@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.effect.*?>
 <?import javafx.scene.shape.*?>
 <?import java.lang.*?>
 <?import javafx.geometry.*?>
@@ -27,7 +28,7 @@
 
 <BorderPane prefHeight="800.0" prefWidth="1500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.GameboardController">
    <right>
-      <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="350.0" spacing="50.0" BorderPane.alignment="CENTER">
+      <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="350.0" spacing="50.0" style="-fx-background-color: transparent;" BorderPane.alignment="CENTER">
          <children>
 			<VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0" />
             <Label text="CURRENT TURN: ">
@@ -146,948 +147,11 @@
    <center>
       <StackPane>
          <children>
-            <Pane prefWidth="900.0" style="-fx-background-color: #c0c0c0" BorderPane.alignment="CENTER">
-               <children>
-                  <GridPane fx:id="gameGridBottom" alignment="CENTER" hgap="1.0" opacity="0.0" prefHeight="800.0" prefWidth="900.0" vgap="1.0">
-                    <columnConstraints>
-                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-      				  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                    </columnConstraints>
-                    <rowConstraints>
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                    </rowConstraints>
-                     <children>
-      				<Pane GridPane.columnIndex="0" GridPane.rowIndex="0">
-      					<children>
-      							  <Text layoutX="29.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="100">
-      								 <font>
-      									<Font name="Times New Roman" size="21.0" />
-      								 </font>
-      							  </Text>
-      					</children>
-      				</Pane>
-      				<Pane GridPane.columnIndex="0" GridPane.rowIndex="1">
-      					<children>
-      						  <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="81">
-      							 <font>
-      								<Font name="Times New Roman" size="21.0" />
-      							 </font>
-      						  </Text>
-      					</children>
-      				</Pane>
-      				<Pane GridPane.columnIndex="0" GridPane.rowIndex="2">
-      					<children>
-      						  <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="80">
-      							 <font>
-      								<Font name="Times New Roman" size="21.0" />
-      							 </font>
-      						  </Text>
-      					</children>
-      				</Pane>
-      				<Pane GridPane.columnIndex="0" GridPane.rowIndex="3">
-      					<children>
-      						  <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="61">
-      							 <font>
-      								<Font name="Times New Roman" size="21.0" />
-      							 </font>
-      						  </Text>
-      					</children>
-      				</Pane>
-      				<Pane GridPane.columnIndex="0" GridPane.rowIndex="4">
-      				   <children>
-      					  <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="60">
-      						 <font>
-      							<Font name="Times New Roman" size="21.0" />
-      						 </font>
-      					  </Text>
-      				   </children>
-      				</Pane>
-      				<Pane GridPane.columnIndex="0" GridPane.rowIndex="5">
-      				   <children>
-      					  <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="41">
-      						 <font>
-      							<Font name="Times New Roman" size="21.0" />
-      						 </font>
-      					  </Text>
-      				   </children>
-      				</Pane>
-      				<Pane GridPane.columnIndex="0" GridPane.rowIndex="6">
-      				   <children>
-      					  <Text layoutX="31.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="40">
-      						 <font>
-      							<Font name="Times New Roman" size="21.0" />
-      						 </font>
-      					  </Text>
-      				   </children>
-      				</Pane>
-      				<Pane GridPane.columnIndex="0" GridPane.rowIndex="7">
-      				   <children>
-      					  <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="21">
-      						 <font>
-      							<Font name="Times New Roman" size="21.0" />
-      						 </font>
-      					  </Text>
-      				   </children>
-      				</Pane>
-      				<Pane GridPane.columnIndex="0" GridPane.rowIndex="8">
-      				   <children>
-      					  <Text layoutX="31.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="20">
-      						 <font>
-      							<Font name="Times New Roman" size="21.0" />
-      						 </font>
-      					  </Text>
-      				   </children>
-      				</Pane>
-      				<Pane GridPane.columnIndex="0" GridPane.rowIndex="9">
-      				   <children>
-      					  <Text layoutX="39.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1">
-      						 <font>
-      							<Font name="Times New Roman" size="21.0" />
-      						 </font>
-      					  </Text>
-      				   </children>
-      				</Pane>
-      				
-                  				<Pane GridPane.columnIndex="1" GridPane.rowIndex="0">
-      				   <children>
-      					  <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="99">
-      						 <font>
-      							<Font name="Times New Roman" size="21.0" />
-      						 </font>
-      					  </Text>
-      				   </children>
-      				</Pane>
-      				<Pane GridPane.columnIndex="1" GridPane.rowIndex="1">
-      				   <children>
-      					  <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="82">
-      						 <font>
-      							<Font name="Times New Roman" size="21.0" />
-      						 </font>
-      					  </Text>
-      				   </children>
-      				</Pane>
-      				<Pane GridPane.columnIndex="1" GridPane.rowIndex="2">
-      				   <children>
-      					  <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="79">
-      						 <font>
-      							<Font name="Times New Roman" size="21.0" />
-      						 </font>
-      					  </Text>
-      				   </children>
-      				</Pane>
-      				<Pane GridPane.columnIndex="1" GridPane.rowIndex="3">
-      				   <children>
-      					  <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="62">
-      						 <font>
-      							<Font name="Times New Roman" size="21.0" />
-      						 </font>
-      					  </Text>
-      				   </children>
-      				</Pane>
-      				<Pane GridPane.columnIndex="1" GridPane.rowIndex="4">
-      				   <children>
-      					  <Text layoutX="31.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="59">
-      						 <font>
-      							<Font name="Times New Roman" size="21.0" />
-      						 </font>
-      					  </Text>
-      				   </children>
-      				</Pane>
-      				<Pane GridPane.columnIndex="1" GridPane.rowIndex="5">
-      				   <children>
-      					  <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="42">
-      						 <font>
-      							<Font name="Times New Roman" size="21.0" />
-      						 </font>
-      					  </Text>
-      				   </children>
-      				</Pane>
-      				<Pane GridPane.columnIndex="1" GridPane.rowIndex="6">
-      				   <children>
-      					  <Text layoutX="35.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="39">
-      						 <font>
-      							<Font name="Times New Roman" size="21.0" />
-      						 </font>
-      					  </Text>
-      				   </children>
-      				</Pane>
-      				<Pane GridPane.columnIndex="1" GridPane.rowIndex="7">
-      				   <children>
-      					  <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="22">
-      						 <font>
-      							<Font name="Times New Roman" size="21.0" />
-      						 </font>
-      					  </Text>
-      				   </children>
-      				</Pane>
-      				<Pane GridPane.columnIndex="1" GridPane.rowIndex="8">
-      				   <children>
-      					  <Text layoutX="31.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="19">
-      						 <font>
-      							<Font name="Times New Roman" size="21.0" />
-      						 </font>
-      					  </Text>
-      				   </children>
-      				</Pane>
-      				<Pane GridPane.columnIndex="1" GridPane.rowIndex="9">
-      				   <children>
-      					  <Text layoutX="39.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2">
-      						 <font>
-      							<Font name="Times New Roman" size="21.0" />
-      						 </font>
-      					  </Text>
-      				   </children>
-      				</Pane>
-      
-                  				<Pane GridPane.columnIndex="2" GridPane.rowIndex="0">
-      				   <children>
-      					  <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="98">
-      						 <font>
-      							<Font name="Times New Roman" size="21.0" />
-      						 </font>
-      					  </Text>
-      				   </children>
-      				</Pane>
-      				<Pane GridPane.columnIndex="2" GridPane.rowIndex="1">
-      				   <children>
-      					  <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="83">
-      						 <font>
-      							<Font name="Times New Roman" size="21.0" />
-      						 </font>
-      					  </Text>
-      				   </children>
-      				</Pane>
-      				<Pane GridPane.columnIndex="2" GridPane.rowIndex="2">
-      				   <children>
-      					  <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="78">
-      						 <font>
-      							<Font name="Times New Roman" size="21.0" />
-      						 </font>
-      					  </Text>
-      				   </children>
-      				</Pane>
-      				<Pane GridPane.columnIndex="2" GridPane.rowIndex="3">
-      				   <children>
-      					  <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="63">
-      						 <font>
-      							<Font name="Times New Roman" size="21.0" />
-      						 </font>
-      					  </Text>
-      				   </children>
-      				</Pane>
-      				<Pane GridPane.columnIndex="2" GridPane.rowIndex="4">
-      				   <children>
-      					  <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="58">
-      						 <font>
-      							<Font name="Times New Roman" size="21.0" />
-      						 </font>
-      					  </Text>
-      				   </children>
-      				</Pane>
-      				<Pane GridPane.columnIndex="2" GridPane.rowIndex="5">
-      				   <children>
-      					  <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="43">
-      						 <font>
-      							<Font name="Times New Roman" size="21.0" />
-      						 </font>
-      					  </Text>
-      				   </children>
-      				</Pane>
-      				<Pane GridPane.columnIndex="2" GridPane.rowIndex="6">
-      				   <children>
-      					  <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="38">
-      						 <font>
-      							<Font name="Times New Roman" size="21.0" />
-      						 </font>
-      					  </Text>
-      				   </children>
-      				</Pane>
-      				<Pane GridPane.columnIndex="2" GridPane.rowIndex="7">
-      				   <children>
-      					  <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="23">
-      						 <font>
-      							<Font name="Times New Roman" size="21.0" />
-      						 </font>
-      					  </Text>
-      				   </children>
-      				</Pane>
-      				<Pane GridPane.columnIndex="2" GridPane.rowIndex="8">
-      				   <children>
-      					  <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="18">
-      						 <font>
-      							<Font name="Times New Roman" size="21.0" />
-      						 </font>
-      					  </Text>
-      				   </children>
-      				</Pane>
-      				<Pane GridPane.columnIndex="2" GridPane.rowIndex="9">
-      				   <children>
-      					  <Text layoutX="39.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3">
-      						 <font>
-      							<Font name="Times New Roman" size="21.0" />
-      						 </font>
-      					  </Text>
-      				   </children>
-      				</Pane>
-      
-                  				<Pane GridPane.columnIndex="3" GridPane.rowIndex="0">
-      				   <children>
-      					  <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="97">
-      						 <font>
-      							<Font name="Times New Roman" size="21.0" />
-      						 </font>
-      					  </Text>
-      				   </children>
-      				</Pane>
-      				<Pane GridPane.columnIndex="3" GridPane.rowIndex="1">
-      				   <children>
-      					  <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="84">
-      						 <font>
-      							<Font name="Times New Roman" size="21.0" />
-      						 </font>
-      					  </Text>
-      				   </children>
-      				</Pane>
-      				<Pane GridPane.columnIndex="3" GridPane.rowIndex="2">
-      				   <children>
-      					  <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="77">
-      						 <font>
-      							<Font name="Times New Roman" size="21.0" />
-      						 </font>
-      					  </Text>
-      				   </children>
-      				</Pane>
-      				<Pane GridPane.columnIndex="3" GridPane.rowIndex="3">
-      				   <children>
-      					  <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="64">
-      						 <font>
-      							<Font name="Times New Roman" size="21.0" />
-      						 </font>
-      					  </Text>
-      				   </children>
-      				</Pane>
-      				<Pane GridPane.columnIndex="3" GridPane.rowIndex="4">
-      				   <children>
-      					  <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="57">
-      						 <font>
-      							<Font name="Times New Roman" size="21.0" />
-      						 </font>
-      					  </Text>
-      				   </children>
-      				</Pane>
-      				<Pane GridPane.columnIndex="3" GridPane.rowIndex="5">
-      				   <children>
-      					  <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="44">
-      						 <font>
-      							<Font name="Times New Roman" size="21.0" />
-      						 </font>
-      					  </Text>
-      				   </children>
-      				</Pane>
-      				<Pane GridPane.columnIndex="3" GridPane.rowIndex="6">
-      				   <children>
-      					  <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="37">
-      						 <font>
-      							<Font name="Times New Roman" size="21.0" />
-      						 </font>
-      					  </Text>
-      				   </children>
-      				</Pane>
-      				<Pane GridPane.columnIndex="3" GridPane.rowIndex="7">
-      				   <children>
-      					  <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="24">
-      						 <font>
-      							<Font name="Times New Roman" size="21.0" />
-      						 </font>
-      					  </Text>
-      				   </children>
-      				</Pane>
-      				<Pane GridPane.columnIndex="3" GridPane.rowIndex="8">
-      				   <children>
-      					  <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="17">
-      						 <font>
-      							<Font name="Times New Roman" size="21.0" />
-      						 </font>
-      					  </Text>
-      				   </children>
-      				</Pane>
-      				<Pane GridPane.columnIndex="3" GridPane.rowIndex="9">
-      				   <children>
-      					  <Text layoutX="39.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="4">
-      						 <font>
-      							<Font name="Times New Roman" size="21.0" />
-      						 </font>
-      					  </Text>
-      				   </children>
-      				</Pane>
-      
-                  				<Pane GridPane.columnIndex="4" GridPane.rowIndex="0">
-      				   <children>
-      					  <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="96">
-      						 <font>
-      							<Font name="Times New Roman" size="21.0" />
-      						 </font>
-      					  </Text>
-      				   </children>
-      				</Pane>
-      				<Pane GridPane.columnIndex="4" GridPane.rowIndex="1">
-      				   <children>
-      					  <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="85">
-      						 <font>
-      							<Font name="Times New Roman" size="21.0" />
-      						 </font>
-      					  </Text>
-      				   </children>
-      				</Pane>
-      				<Pane GridPane.columnIndex="4" GridPane.rowIndex="2">
-      				   <children>
-      					  <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="76">
-      						 <font>
-      							<Font name="Times New Roman" size="21.0" />
-      						 </font>
-      					  </Text>
-      				   </children>
-      				</Pane>
-      				<Pane GridPane.columnIndex="4" GridPane.rowIndex="3">
-      				   <children>
-      					  <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="65">
-      						 <font>
-      							<Font name="Times New Roman" size="21.0" />
-      						 </font>
-      					  </Text>
-      				   </children>
-      				</Pane>
-      				<Pane GridPane.columnIndex="4" GridPane.rowIndex="4">
-      				   <children>
-      					  <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="56">
-      						 <font>
-      							<Font name="Times New Roman" size="21.0" />
-      						 </font>
-      					  </Text>
-      				   </children>
-      				</Pane>
-      				<Pane GridPane.columnIndex="4" GridPane.rowIndex="5">
-      				   <children>
-      					  <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="45">
-      						 <font>
-      							<Font name="Times New Roman" size="21.0" />
-      						 </font>
-      					  </Text>
-      				   </children>
-      				</Pane>
-      				<Pane GridPane.columnIndex="4" GridPane.rowIndex="6">
-      				   <children>
-      					  <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="36">
-      						 <font>
-      							<Font name="Times New Roman" size="21.0" />
-      						 </font>
-      					  </Text>
-      				   </children>
-      				</Pane>
-      				<Pane GridPane.columnIndex="4" GridPane.rowIndex="7">
-      				   <children>
-      					  <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="25">
-      						 <font>
-      							<Font name="Times New Roman" size="21.0" />
-      						 </font>
-      					  </Text>
-      				   </children>
-      				</Pane>
-      				<Pane GridPane.columnIndex="4" GridPane.rowIndex="8">
-      				   <children>
-      					  <Text layoutX="25.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="16">
-      						 <font>
-      							<Font name="Times New Roman" size="21.0" />
-      						 </font>
-      					  </Text>
-      				   </children>
-      				</Pane>
-      				<Pane GridPane.columnIndex="4" GridPane.rowIndex="9">
-      				   <children>
-      					  <Text layoutX="39.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="5">
-      						 <font>
-      							<Font name="Times New Roman" size="21.0" />
-      						 </font>
-      					  </Text>
-      				   </children>
-      				</Pane>
-      
-                  				<Pane GridPane.columnIndex="5" GridPane.rowIndex="0">
-      				   <children>
-      					  <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="95">
-      						 <font>
-      							<Font name="Times New Roman" size="21.0" />
-      						 </font>
-      					  </Text>
-      				   </children>
-      				</Pane>
-      				<Pane GridPane.columnIndex="5" GridPane.rowIndex="1">
-      				   <children>
-      					  <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="86">
-      						 <font>
-      							<Font name="Times New Roman" size="21.0" />
-      						 </font>
-      					  </Text>
-      				   </children>
-      				</Pane>
-      				<Pane GridPane.columnIndex="5" GridPane.rowIndex="2">
-      				   <children>
-      					  <Text layoutX="31.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="75">
-      						 <font>
-      							<Font name="Times New Roman" size="21.0" />
-      						 </font>
-      					  </Text>
-      				   </children>
-      				</Pane>
-      				<Pane GridPane.columnIndex="5" GridPane.rowIndex="3">
-      				   <children>
-      					  <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="66">
-      						 <font>
-      							<Font name="Times New Roman" size="21.0" />
-      						 </font>
-      					  </Text>
-      				   </children>
-      				</Pane>
-      				<Pane GridPane.columnIndex="5" GridPane.rowIndex="4">
-      				   <children>
-      					  <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="55">
-      						 <font>
-      							<Font name="Times New Roman" size="21.0" />
-      						 </font>
-      					  </Text>
-      				   </children>
-      				</Pane>
-      				<Pane GridPane.columnIndex="5" GridPane.rowIndex="5">
-      				   <children>
-      					  <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="46">
-      						 <font>
-      							<Font name="Times New Roman" size="21.0" />
-      						 </font>
-      					  </Text>
-      				   </children>
-      				</Pane>
-      				<Pane GridPane.columnIndex="5" GridPane.rowIndex="6">
-      				   <children>
-      					  <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="35">
-      						 <font>
-      							<Font name="Times New Roman" size="21.0" />
-      						 </font>
-      					  </Text>
-      				   </children>
-      				</Pane>
-      				<Pane GridPane.columnIndex="5" GridPane.rowIndex="7">
-      				   <children>
-      					  <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="26">
-      						 <font>
-      							<Font name="Times New Roman" size="21.0" />
-      						 </font>
-      					  </Text>
-      				   </children>
-      				</Pane>
-      				<Pane GridPane.columnIndex="5" GridPane.rowIndex="8">
-      				   <children>
-      					  <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="15">
-      						 <font>
-      							<Font name="Times New Roman" size="21.0" />
-      						 </font>
-      					  </Text>
-      				   </children>
-      				</Pane>
-      				<Pane GridPane.columnIndex="5" GridPane.rowIndex="9">
-                           <children>
-                              <Text layoutX="39.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="6">
-                                 <font>
-                                    <Font name="Times New Roman" size="21.0" />
-                                 </font>
-                              </Text>
-                           </children>
-      				</Pane>
-      
-                  				<Pane GridPane.columnIndex="6" GridPane.rowIndex="0">
-      				   <children>
-      					  <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="94">
-      						 <font>
-      							<Font name="Times New Roman" size="21.0" />
-      						 </font>
-      					  </Text>
-      				   </children>
-      				</Pane>
-      				<Pane GridPane.columnIndex="6" GridPane.rowIndex="1">
-      				   <children>
-      					  <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="87">
-      						 <font>
-      							<Font name="Times New Roman" size="21.0" />
-      						 </font>
-      					  </Text>
-      				   </children>
-      				</Pane>
-      				<Pane GridPane.columnIndex="6" GridPane.rowIndex="2">
-      				   <children>
-      					  <Text layoutX="30.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="74">
-      						 <font>
-      							<Font name="Times New Roman" size="21.0" />
-      						 </font>
-      					  </Text>
-      				   </children>
-      				</Pane>
-      				<Pane GridPane.columnIndex="6" GridPane.rowIndex="3">
-      				   <children>
-      					  <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="67">
-      						 <font>
-      							<Font name="Times New Roman" size="21.0" />
-      						 </font>
-      					  </Text>
-      				   </children>
-      				</Pane>
-      				<Pane GridPane.columnIndex="6" GridPane.rowIndex="4">
-      				   <children>
-      					  <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="54">
-      						 <font>
-      							<Font name="Times New Roman" size="21.0" />
-      						 </font>
-      					  </Text>
-      				   </children>
-      				</Pane>
-      				<Pane GridPane.columnIndex="6" GridPane.rowIndex="5">
-      				   <children>
-      					  <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="47">
-      						 <font>
-      							<Font name="Times New Roman" size="21.0" />
-      						 </font>
-      					  </Text>
-      				   </children>
-      				</Pane>
-      				<Pane GridPane.columnIndex="6" GridPane.rowIndex="6">
-      				   <children>
-      					  <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="34">
-      						 <font>
-      							<Font name="Times New Roman" size="21.0" />
-      						 </font>
-      					  </Text>
-      				   </children>
-      				</Pane>
-      				<Pane GridPane.columnIndex="6" GridPane.rowIndex="7">
-      				   <children>
-      					  <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="27">
-      						 <font>
-      							<Font name="Times New Roman" size="21.0" />
-      						 </font>
-      					  </Text>
-      				   </children>
-      				</Pane>
-      				<Pane GridPane.columnIndex="6" GridPane.rowIndex="8">
-      				   <children>
-      					  <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="14">
-      						 <font>
-      							<Font name="Times New Roman" size="21.0" />
-      						 </font>
-      					  </Text>
-      				   </children>
-      				</Pane>
-      				<Pane GridPane.columnIndex="6" GridPane.rowIndex="9">
-      				   <children>
-      					  <Text layoutX="39.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="7">
-      						 <font>
-      							<Font name="Times New Roman" size="21.0" />
-      						 </font>
-      					  </Text>
-      				   </children>
-      				</Pane>
-      
-                  				<Pane GridPane.columnIndex="7" GridPane.rowIndex="0">
-      				   <children>
-      					  <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="93">
-      						 <font>
-      							<Font name="Times New Roman" size="21.0" />
-      						 </font>
-      					  </Text>
-      				   </children>
-      				</Pane>
-      				<Pane GridPane.columnIndex="7" GridPane.rowIndex="1">
-      				   <children>
-      					  <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="88">
-      						 <font>
-      							<Font name="Times New Roman" size="21.0" />
-      						 </font>
-      					  </Text>
-      				   </children>
-      				</Pane>
-      				<Pane GridPane.columnIndex="7" GridPane.rowIndex="2">
-      				   <children>
-      					  <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="73">
-      						 <font>
-      							<Font name="Times New Roman" size="21.0" />
-      						 </font>
-      					  </Text>
-      				   </children>
-      				</Pane>
-      				<Pane GridPane.columnIndex="7" GridPane.rowIndex="3">
-      				   <children>
-      					  <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="68">
-      						 <font>
-      							<Font name="Times New Roman" size="21.0" />
-      						 </font>
-      					  </Text>
-      				   </children>
-      				</Pane>
-      				<Pane GridPane.columnIndex="7" GridPane.rowIndex="4">
-      				   <children>
-      					  <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="53">
-      						 <font>
-      							<Font name="Times New Roman" size="21.0" />
-      						 </font>
-      					  </Text>
-      				   </children>
-      				</Pane>
-      				<Pane GridPane.columnIndex="7" GridPane.rowIndex="5">
-      				   <children>
-      					  <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="48">
-      						 <font>
-      							<Font name="Times New Roman" size="21.0" />
-      						 </font>
-      					  </Text>
-      				   </children>
-      				</Pane>
-      				<Pane GridPane.columnIndex="7" GridPane.rowIndex="6">
-      				   <children>
-      					  <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="33">
-      						 <font>
-      							<Font name="Times New Roman" size="21.0" />
-      						 </font>
-      					  </Text>
-      				   </children>
-      				</Pane>
-      				<Pane GridPane.columnIndex="7" GridPane.rowIndex="7">
-      				   <children>
-      					  <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="28">
-      						 <font>
-      							<Font name="Times New Roman" size="21.0" />
-      						 </font>
-      					  </Text>
-      				   </children>
-      				</Pane>
-      				<Pane GridPane.columnIndex="7" GridPane.rowIndex="8">
-      				   <children>
-      					  <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="13">
-      						 <font>
-      							<Font name="Times New Roman" size="21.0" />
-      						 </font>
-      					  </Text>
-      				   </children>
-      				</Pane>
-      				<Pane GridPane.columnIndex="7" GridPane.rowIndex="9">
-      				   <children>
-      					  <Text layoutX="39.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="8">
-      						 <font>
-      							<Font name="Times New Roman" size="21.0" />
-      						 </font>
-      					  </Text>
-      				   </children>
-      				</Pane>
-      
-                  				<Pane GridPane.columnIndex="8" GridPane.rowIndex="0">
-      				   <children>
-      					  <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="92">
-      						 <font>
-      							<Font name="Times New Roman" size="21.0" />
-      						 </font>
-      					  </Text>
-      				   </children>
-      				</Pane>
-      				<Pane GridPane.columnIndex="8" GridPane.rowIndex="1">
-      				   <children>
-      					  <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="89">
-      						 <font>
-      							<Font name="Times New Roman" size="21.0" />
-      						 </font>
-      					  </Text>
-      				   </children>
-      				</Pane>
-      				<Pane GridPane.columnIndex="8" GridPane.rowIndex="2">
-      				   <children>
-      					  <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="72">
-      						 <font>
-      							<Font name="Times New Roman" size="21.0" />
-      						 </font>
-      					  </Text>
-      				   </children>
-      				</Pane>
-      				<Pane GridPane.columnIndex="8" GridPane.rowIndex="3">
-      				   <children>
-      					  <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="69">
-      						 <font>
-      							<Font name="Times New Roman" size="21.0" />
-      						 </font>
-      					  </Text>
-      				   </children>
-      				</Pane>
-      				<Pane GridPane.columnIndex="8" GridPane.rowIndex="4">
-      				   <children>
-      					  <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="52">
-      						 <font>
-      							<Font name="Times New Roman" size="21.0" />
-      						 </font>
-      					  </Text>
-      				   </children>
-      				</Pane>
-      				<Pane GridPane.columnIndex="8" GridPane.rowIndex="5">
-      				   <children>
-      					  <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="49">
-      						 <font>
-      							<Font name="Times New Roman" size="21.0" />
-      						 </font>
-      					  </Text>
-      				   </children>
-      				</Pane>
-      				<Pane GridPane.columnIndex="8" GridPane.rowIndex="6">
-      				   <children>
-      					  <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="32">
-      						 <font>
-      							<Font name="Times New Roman" size="21.0" />
-      						 </font>
-      					  </Text>
-      				   </children>
-      				</Pane>
-      				<Pane GridPane.columnIndex="8" GridPane.rowIndex="7">
-      				   <children>
-      					  <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="29">
-      						 <font>
-      							<Font name="Times New Roman" size="21.0" />
-      						 </font>
-      					  </Text>
-      				   </children>
-      				</Pane>
-      				<Pane GridPane.columnIndex="8" GridPane.rowIndex="8">
-      				   <children>
-      					  <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="12">
-      						 <font>
-      							<Font name="Times New Roman" size="21.0" />
-      						 </font>
-      					  </Text>
-      				   </children>
-      				</Pane>
-      				<Pane GridPane.columnIndex="8" GridPane.rowIndex="9">
-      				   <children>
-      					  <Text layoutX="39.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="9">
-      						 <font>
-      							<Font name="Times New Roman" size="21.0" />
-      						 </font>
-      					  </Text>
-      				   </children>
-      				</Pane>
-      
-                  				<Pane GridPane.columnIndex="9" GridPane.rowIndex="0">
-      				   <children>
-      					  <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="91">
-      						 <font>
-      							<Font name="Times New Roman" size="21.0" />
-      						 </font>
-      					  </Text>
-      				   </children>
-      				</Pane>
-      				<Pane GridPane.columnIndex="9" GridPane.rowIndex="1">
-      				   <children>
-      					  <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="90">
-      						 <font>
-      							<Font name="Times New Roman" size="21.0" />
-      						 </font>
-      					  </Text>
-      				   </children>
-      				</Pane>
-      				<Pane GridPane.columnIndex="9" GridPane.rowIndex="2">
-      				   <children>
-      					  <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="71">
-      						 <font>
-      							<Font name="Times New Roman" size="21.0" />
-      						 </font>
-      					  </Text>
-      				   </children>
-      				</Pane>
-      				<Pane GridPane.columnIndex="9" GridPane.rowIndex="3">
-      				   <children>
-      					  <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="70">
-      						 <font>
-      							<Font name="Times New Roman" size="21.0" />
-      						 </font>
-      					  </Text>
-      				   </children>
-      				</Pane>
-      				<Pane GridPane.columnIndex="9" GridPane.rowIndex="4">
-      				   <children>
-      					  <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="51">
-      						 <font>
-      							<Font name="Times New Roman" size="21.0" />
-      						 </font>
-      					  </Text>
-      				   </children>
-      				</Pane>
-      				<Pane GridPane.columnIndex="9" GridPane.rowIndex="5">
-      				   <children>
-      					  <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="50">
-      						 <font>
-      							<Font name="Times New Roman" size="21.0" />
-      						 </font>
-      					  </Text>
-      				   </children>
-      				</Pane>
-      				<Pane GridPane.columnIndex="9" GridPane.rowIndex="6">
-      				   <children>
-      					  <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="31">
-      						 <font>
-      							<Font name="Times New Roman" size="21.0" />
-      						 </font>
-      					  </Text>
-      				   </children>
-      				</Pane>
-      				<Pane GridPane.columnIndex="9" GridPane.rowIndex="7">
-      				   <children>
-      					  <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="30">
-      						 <font>
-      							<Font name="Times New Roman" size="21.0" />
-      						 </font>
-      					  </Text>
-      				   </children>
-      				</Pane>
-      				<Pane GridPane.columnIndex="9" GridPane.rowIndex="8">
-      				   <children>
-      					  <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="11">
-      						 <font>
-      							<Font name="Times New Roman" size="21.0" />
-      						 </font>
-      					  </Text>
-      				   </children>
-      				</Pane>
-      				<Pane GridPane.columnIndex="9" GridPane.rowIndex="9">
-      				   <children>
-      					  <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="10">
-      						 <font>
-      							<Font name="Times New Roman" size="21.0" />
-      						 </font>
-      					  </Text>
-      				   </children>
-      				</Pane>
-      			</children>
-                  </GridPane>
-               </children>
-            </Pane>
-            <GridPane fx:id="gameGridTop" alignment="CENTER" hgap="1.0" prefHeight="800.0" prefWidth="900.0" vgap="1.0">
+            <ImageView fx:id="grass" fitHeight="800.0" fitWidth="907.0" opacity="0.64" pickOnBounds="true">
+               <image>
+                  <Image url="@../images/GRASS.jpg" />
+               </image></ImageView>
+            <GridPane fx:id="gameGridTop" alignment="CENTER" gridLinesVisible="true" hgap="1.0" prefHeight="800.0" prefWidth="900.0" vgap="1.0">
                <children>
                   <Pane GridPane.columnIndex="0" GridPane.rowIndex="0">
                      <children>
@@ -1161,15 +225,6 @@
                         </Text>
                      </children>
                   </Pane>
-                  <Pane GridPane.columnIndex="0" GridPane.rowIndex="8">
-                     <children>
-                        <Text layoutX="31.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="20">
-                           <font>
-                              <Font name="Times New Roman" size="21.0" />
-                           </font>
-                        </Text>
-                     </children>
-                  </Pane>
                   <Pane GridPane.columnIndex="0" GridPane.rowIndex="9">
                      <children>
                         <Text fx:id="one" layoutX="39.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1">
@@ -1177,10 +232,10 @@
                               <Font name="Times New Roman" size="21.0" />
                            </font>
                         </Text>
-                        <Circle fx:id="token1" fill="DODGERBLUE" layoutX="14.0" layoutY="64.0" opacity="0.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" />
-                        <Circle fx:id="token2" fill="#ff1f1f" layoutX="69.0" layoutY="27.0" opacity="0.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" />
-                        <Circle fx:id="token3" fill="#1fff3b" layoutX="14.0" layoutY="14.0" opacity="0.0" radius="12.0" stroke="BLACK" strokeType="INSIDE" />
-                        <Circle fx:id="token4" fill="#deff1f" layoutX="69.0" layoutY="65.0" opacity="0.0" radius="14.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle fx:id="token1" fill="DODGERBLUE" layoutX="14.0" layoutY="64.0" opacity="0.0" radius="15.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle fx:id="token2" fill="#ff1f1f" layoutX="75.0" layoutY="14.0" opacity="0.0" radius="15.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle fx:id="token4" fill="#deff1f" layoutX="75.0" layoutY="65.0" opacity="0.0" radius="15.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle fx:id="token3" fill="#1fff3b" layoutX="14.0" layoutY="14.0" opacity="0.0" radius="15.0" stroke="BLACK" strokeType="INSIDE" />
                      </children>
                   </Pane>
                   <Pane GridPane.columnIndex="1" GridPane.rowIndex="0">
@@ -1240,33 +295,6 @@
                   <Pane GridPane.columnIndex="1" GridPane.rowIndex="6">
                      <children>
                         <Text layoutX="35.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="39">
-                           <font>
-                              <Font name="Times New Roman" size="21.0" />
-                           </font>
-                        </Text>
-                     </children>
-                  </Pane>
-                  <Pane GridPane.columnIndex="1" GridPane.rowIndex="7">
-                     <children>
-                        <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="22">
-                           <font>
-                              <Font name="Times New Roman" size="21.0" />
-                           </font>
-                        </Text>
-                     </children>
-                  </Pane>
-                  <Pane GridPane.columnIndex="1" GridPane.rowIndex="8">
-                     <children>
-                        <Text layoutX="31.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="19">
-                           <font>
-                              <Font name="Times New Roman" size="21.0" />
-                           </font>
-                        </Text>
-                     </children>
-                  </Pane>
-                  <Pane GridPane.columnIndex="1" GridPane.rowIndex="9">
-                     <children>
-                        <Text layoutX="39.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2">
                            <font>
                               <Font name="Times New Roman" size="21.0" />
                            </font>
@@ -1334,34 +362,6 @@
                               <Font name="Times New Roman" size="21.0" />
                            </font>
                         </Text>
-                     </children>
-                  </Pane>
-                  <Pane GridPane.columnIndex="2" GridPane.rowIndex="7">
-                     <children>
-                        <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="23">
-                           <font>
-                              <Font name="Times New Roman" size="21.0" />
-                           </font>
-                        </Text>
-                     </children>
-                  </Pane>
-                  <Pane GridPane.columnIndex="2" GridPane.rowIndex="8">
-                     <children>
-                        <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="18">
-                           <font>
-                              <Font name="Times New Roman" size="21.0" />
-                           </font>
-                        </Text>
-                     </children>
-                  </Pane>
-                  <Pane GridPane.columnIndex="2" GridPane.rowIndex="9">
-                     <children>
-                        <Text layoutX="39.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3">
-                           <font>
-                              <Font name="Times New Roman" size="21.0" />
-                           </font>
-                        </Text>
-                        <ImageView fx:id="snake1" fitHeight="303.0" fitWidth="305.0" layoutX="-72.0" layoutY="-201.0" pickOnBounds="true" preserveRatio="true" />
                      </children>
                   </Pane>
                   <Pane GridPane.columnIndex="3" GridPane.rowIndex="0">
@@ -1619,15 +619,6 @@
                   <Pane GridPane.columnIndex="5" GridPane.rowIndex="8">
                      <children>
                         <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="15">
-                           <font>
-                              <Font name="Times New Roman" size="21.0" />
-                           </font>
-                        </Text>
-                     </children>
-                  </Pane>
-                  <Pane GridPane.columnIndex="5" GridPane.rowIndex="9">
-                     <children>
-                        <Text layoutX="39.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="6">
                            <font>
                               <Font name="Times New Roman" size="21.0" />
                            </font>
@@ -1994,6 +985,78 @@
                         </Text>
                      </children>
                   </Pane>
+                  <Pane GridPane.columnIndex="1" GridPane.rowIndex="9">
+                     <children>
+                        <Text layoutX="39.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2">
+                           <font>
+                              <Font name="Times New Roman" size="21.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </Pane>
+                  <Pane GridPane.columnIndex="0" GridPane.rowIndex="8">
+                     <children>
+                        <Text layoutX="31.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="20">
+                           <font>
+                              <Font name="Times New Roman" size="21.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </Pane>
+                  <Pane GridPane.columnIndex="2" GridPane.rowIndex="9">
+                     <children>
+                        <Text layoutX="39.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3">
+                           <font>
+                              <Font name="Times New Roman" size="21.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </Pane>
+                  <Pane GridPane.columnIndex="5" GridPane.rowIndex="9">
+                     <children>
+                        <Text layoutX="39.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="6">
+                           <font>
+                              <Font name="Times New Roman" size="21.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </Pane>
+                  <Pane GridPane.columnIndex="1" GridPane.rowIndex="8">
+                     <children>
+                        <Text layoutX="31.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="19">
+                           <font>
+                              <Font name="Times New Roman" size="21.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </Pane>
+                  <Pane GridPane.columnIndex="2" GridPane.rowIndex="8">
+                     <children>
+                        <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="18">
+                           <font>
+                              <Font name="Times New Roman" size="21.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </Pane>
+                  <Pane GridPane.columnIndex="2" GridPane.rowIndex="7">
+                     <children>
+                        <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="23">
+                           <font>
+                              <Font name="Times New Roman" size="21.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </Pane>
+                  <Pane GridPane.columnIndex="1" GridPane.rowIndex="7">
+                     <children>
+                        <Text layoutX="34.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="22">
+                           <font>
+                              <Font name="Times New Roman" size="21.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </Pane>
                </children>
                <columnConstraints>
                   <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -2020,6 +1083,124 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                </rowConstraints>
             </GridPane>
+            <Pane prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <ImageView fx:id="snake83" blendMode="MULTIPLY" fitHeight="580.0" fitWidth="214.0" layoutX="213.0" layoutY="-49.0" mouseTransparent="true" nodeOrientation="INHERIT" pickOnBounds="true" rotate="-164.7" smooth="false">
+                     <viewport>
+                        <Rectangle2D />
+                     </viewport>
+                     <image>
+                        <Image url="@../images/SNAKE.png" />
+                     </image>
+                     <effect>
+                        <ColorAdjust contrast="0.07" hue="1.0" saturation="-1.0" />
+                     </effect>
+                  </ImageView>
+                  <ImageView fx:id="snake93" blendMode="MULTIPLY" fitHeight="580.0" fitWidth="214.0" layoutX="675.0" layoutY="-137.0" mouseTransparent="true" nodeOrientation="INHERIT" pickOnBounds="true" rotate="-167.9" smooth="false">
+                     <effect>
+                        <ColorAdjust contrast="0.07" hue="1.0" saturation="-1.0" />
+                     </effect>
+                     <image>
+                        <Image url="@../images/SNAKE.png" />
+                     </image>
+                     <viewport>
+                        <Rectangle2D />
+                     </viewport>
+                  </ImageView>
+                  <ImageView fx:id="snake52" blendMode="MULTIPLY" fitHeight="580.0" fitWidth="172.0" layoutX="568.0" layoutY="88.0" mouseTransparent="true" nodeOrientation="INHERIT" pickOnBounds="true" rotate="-54.5" smooth="false">
+                     <effect>
+                        <ColorAdjust contrast="0.07" hue="1.0" saturation="-1.0" />
+                     </effect>
+                     <image>
+                        <Image url="@../images/SNAKE.png" />
+                     </image>
+                     <viewport>
+                        <Rectangle2D />
+                     </viewport>
+                  </ImageView>
+                  <ImageView fx:id="snake45" blendMode="MULTIPLY" fitHeight="691.0" fitWidth="279.0" layoutX="134.0" layoutY="224.0" mouseTransparent="true" nodeOrientation="INHERIT" pickOnBounds="true" rotate="-83.7" smooth="false">
+                     <effect>
+                        <ColorAdjust contrast="0.07" hue="1.0" saturation="-1.0" />
+                     </effect>
+                     <image>
+                        <Image url="@../images/SNAKE.png" />
+                     </image>
+                     <viewport>
+                        <Rectangle2D />
+                     </viewport>
+                  </ImageView>
+                  <ImageView fx:id="snake57" blendMode="MULTIPLY" fitHeight="691.0" fitWidth="279.0" layoutX="26.0" layoutY="79.0" mouseTransparent="true" nodeOrientation="INHERIT" pickOnBounds="true" rotate="-55.1" smooth="false">
+                     <effect>
+                        <ColorAdjust contrast="0.07" hue="1.0" saturation="-1.0" />
+                     </effect>
+                     <image>
+                        <Image url="@../images/SNAKE.png" />
+                     </image>
+                     <viewport>
+                        <Rectangle2D />
+                     </viewport>
+                  </ImageView>
+                  <ImageView fx:id="snake26" blendMode="MULTIPLY" fitHeight="681.0" fitWidth="279.0" layoutX="493.0" layoutY="371.0" mouseTransparent="true" nodeOrientation="INHERIT" pickOnBounds="true" rotate="178.2" smooth="false">
+                     <effect>
+                        <ColorAdjust contrast="0.07" hue="1.0" saturation="-1.0" />
+                     </effect>
+                     <image>
+                        <Image url="@../images/SNAKE.png" />
+                     </image>
+                     <viewport>
+                        <Rectangle2D />
+                     </viewport>
+                  </ImageView>
+                  <ImageView blendMode="MULTIPLY" fitHeight="261.0" fitWidth="228.0" layoutX="56.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/LADDER.jpg" />
+                     </image>
+                     <effect>
+                        <ColorAdjust brightness="0.05" contrast="0.21" hue="-0.58" saturation="-0.51" />
+                     </effect>
+                  </ImageView>
+                  <ImageView blendMode="MULTIPLY" fitHeight="271.0" fitWidth="182.0" layoutX="725.0" layoutY="441.0" pickOnBounds="true" preserveRatio="true" rotate="-45.0">
+                     <effect>
+                        <ColorAdjust brightness="0.05" contrast="0.21" hue="-0.58" saturation="-0.51" />
+                     </effect>
+                     <image>
+                        <Image url="@../images/LADDER.jpg" />
+                     </image>
+                  </ImageView>
+                  <ImageView blendMode="MULTIPLY" fitHeight="271.0" fitWidth="182.0" layoutX="256.0" layoutY="582.0" pickOnBounds="true" preserveRatio="true">
+                     <effect>
+                        <ColorAdjust brightness="0.05" contrast="0.21" hue="-0.58" saturation="-0.51" />
+                     </effect>
+                     <image>
+                        <Image url="@../images/LADDER.jpg" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="ladder51" blendMode="MULTIPLY" fitHeight="271.0" fitWidth="182.0" layoutX="725.0" layoutY="160.0" pickOnBounds="true" preserveRatio="true" rotate="130.6">
+                     <effect>
+                        <ColorAdjust brightness="0.05" contrast="0.21" hue="-0.58" saturation="-0.51" />
+                     </effect>
+                     <image>
+                        <Image url="@../images/LADDER.jpg" />
+                     </image>
+                  </ImageView>
+                  <ImageView blendMode="MULTIPLY" fitHeight="271.0" fitWidth="182.0" layoutX="75.0" layoutY="500.0" pickOnBounds="true" preserveRatio="true" rotate="-50.2">
+                     <effect>
+                        <ColorAdjust brightness="0.05" contrast="0.21" hue="-0.58" saturation="-0.51" />
+                     </effect>
+                     <image>
+                        <Image url="@../images/LADDER.jpg" />
+                     </image>
+                  </ImageView>
+                  <ImageView blendMode="MULTIPLY" fitHeight="289.0" fitWidth="272.0" layoutX="414.0" layoutY="48.0" pickOnBounds="true" preserveRatio="true">
+                     <effect>
+                        <ColorAdjust brightness="0.05" contrast="0.21" hue="-0.58" saturation="-0.51" />
+                     </effect>
+                     <image>
+                        <Image url="@../images/LADDER.jpg" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
          </children>
       </StackPane>
    </center>
