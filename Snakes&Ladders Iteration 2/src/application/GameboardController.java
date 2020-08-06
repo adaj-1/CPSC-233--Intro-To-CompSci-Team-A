@@ -2,6 +2,8 @@ package application;
 
 import java.awt.event.ActionEvent;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -29,7 +31,7 @@ import javafx.scene.text.Text;
 import java.util.ResourceBundle;
 
 
-
+// Grass: https://graphicriver.img.customer.envatousercontent.com/files/121477694/grass_0020_background_AM_IPr.jpg?auto=compress%2Cformat&fit=crop&crop=top&w=590&h=590&s=f8259506302be4a30a682963b6a72d71
 // Snake : https://w7.pngwing.com/pngs/461/577/png-transparent-rattlesnake-a-silver-ring-snake-png-material-ring-animals.png
 // Ladder : https://img.favpng.com/21/0/14/tangyuan-ladder-png-favpng-vYBUNXKvN2rEgxSFipAxSNNyN.jpg
 public class GameboardController {
@@ -110,7 +112,10 @@ public class GameboardController {
     private Label yourRoll;
     
     @FXML
-    private ImageView snake1;
+    private ImageView snake47;
+    
+    @FXML
+    private ImageView grass;
     
     @FXML
     void submitButton(MouseEvent event) {
@@ -228,7 +233,7 @@ public class GameboardController {
     }
 
     @FXML
-    void initialize() {
+    void initialize() throws FileNotFoundException {
         assert playerNameText != null : "fx:id=\"playerNameText\" was not injected: check your FXML file 'Gameboard.fxml'.";
         assert numOfHumans != null : "fx:id=\"numOfHumans\" was not injected: check your FXML file 'Gameboard.fxml'.";
         assert diceIndicatorImage != null : "fx:id=\"diceIndicatorImage\" was not injected: check your FXML file 'Gameboard.fxml'.";
@@ -239,11 +244,17 @@ public class GameboardController {
         assert gameGridTop != null : "fx:id=\"gameGrid\" was not injected: check your FXML file 'Gameboard.fxml'.";
         assert gameGridBottom != null : "fx:id=\"gameGrid\" was not injected: check your FXML file 'Gameboard.fxml'.";
         
+        //Image grassBackground = new Image (new FileInputStream("src\\images\\GRASS.jpg"));
         
-        Image snake = new Image("file:src/images/SNAKE.jpg");
-        ImageView imageView = new ImageView(snake);
-      //  snake1.setImage(i);
+        //grass.setImage(grassBackground);
         
+        //Image snake = new Image(new FileInputStream("src\\images\\SNAKE.png"));
+        //snake47.setImage(snake);
+        //snake1.styleProperty().set("-fx-background-color:transparent");
+        //ImageView imageView = new ImageView(snake);
+        //imageView.setImage(snake);
+        //snake1.setStyle("-fx-background-color:RED");
+        //snake1.setStyle("-fx-background-color:transparent");
         numOfHumans.setItems(FXCollections.observableArrayList(numOfPlayers));
     	numOfHumans.getSelectionModel().selectedIndexProperty().addListener(
     			new	ChangeListener<Number>() {
