@@ -1151,7 +1151,7 @@
                         <Rectangle2D />
                      </viewport>
                   </ImageView>
-                  <ImageView blendMode="MULTIPLY" fitHeight="261.0" fitWidth="228.0" layoutX="56.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="ladder62" blendMode="MULTIPLY" fitHeight="261.0" fitWidth="228.0" layoutX="56.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../images/LADDER.jpg" />
                      </image>
@@ -1159,7 +1159,7 @@
                         <ColorAdjust brightness="0.05" contrast="0.21" hue="-0.58" saturation="-0.51" />
                      </effect>
                   </ImageView>
-                  <ImageView blendMode="MULTIPLY" fitHeight="271.0" fitWidth="182.0" layoutX="725.0" layoutY="441.0" pickOnBounds="true" preserveRatio="true" rotate="-45.0">
+                  <ImageView fx:id="ladder30" blendMode="MULTIPLY" fitHeight="271.0" fitWidth="182.0" layoutX="725.0" layoutY="441.0" pickOnBounds="true" preserveRatio="true" rotate="-45.0">
                      <effect>
                         <ColorAdjust brightness="0.05" contrast="0.21" hue="-0.58" saturation="-0.51" />
                      </effect>
@@ -1167,7 +1167,7 @@
                         <Image url="@../images/LADDER.jpg" />
                      </image>
                   </ImageView>
-                  <ImageView blendMode="MULTIPLY" fitHeight="271.0" fitWidth="182.0" layoutX="256.0" layoutY="582.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="ladder4" blendMode="MULTIPLY" fitHeight="271.0" fitWidth="182.0" layoutX="256.0" layoutY="582.0" pickOnBounds="true" preserveRatio="true">
                      <effect>
                         <ColorAdjust brightness="0.05" contrast="0.21" hue="-0.58" saturation="-0.51" />
                      </effect>
@@ -1183,7 +1183,7 @@
                         <Image url="@../images/LADDER.jpg" />
                      </image>
                   </ImageView>
-                  <ImageView blendMode="MULTIPLY" fitHeight="271.0" fitWidth="182.0" layoutX="75.0" layoutY="500.0" pickOnBounds="true" preserveRatio="true" rotate="-50.2">
+                  <ImageView fx:id="ladder18" blendMode="MULTIPLY" fitHeight="271.0" fitWidth="182.0" layoutX="75.0" layoutY="500.0" pickOnBounds="true" preserveRatio="true" rotate="-50.2">
                      <effect>
                         <ColorAdjust brightness="0.05" contrast="0.21" hue="-0.58" saturation="-0.51" />
                      </effect>
@@ -1191,7 +1191,7 @@
                         <Image url="@../images/LADDER.jpg" />
                      </image>
                   </ImageView>
-                  <ImageView blendMode="MULTIPLY" fitHeight="289.0" fitWidth="272.0" layoutX="414.0" layoutY="48.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="ladder55" blendMode="MULTIPLY" fitHeight="202.0" fitWidth="149.0" layoutX="468.0" layoutY="204.0" pickOnBounds="true" preserveRatio="true">
                      <effect>
                         <ColorAdjust brightness="0.05" contrast="0.21" hue="-0.58" saturation="-0.51" />
                      </effect>
