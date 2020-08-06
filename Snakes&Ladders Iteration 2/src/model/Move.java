@@ -182,7 +182,7 @@ public class Move { // Jada
 		int[] snakesEnd = new int[6];
 		snakesEnd[0] = 71;
 		snakesEnd[1] = 65;
-		snakesEnd[2] = 40;
+		snakesEnd[2] = 42;
 		snakesEnd[3] = 47;
 		snakesEnd[4] = 18;
 		snakesEnd[5] = 9;
