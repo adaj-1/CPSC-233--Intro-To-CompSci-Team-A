@@ -36,9 +36,9 @@
                   <Font name="Arial Bold" size="18.0" />
                </font>
             </Label>
-            <Label fx:id="currentplayerText" prefHeight="29.0" prefWidth="164.0">
+            <Label fx:id="currentplayerText" alignment="CENTER" prefHeight="29.0" prefWidth="164.0">
                <font>
-                  <Font name="Arial" size="18.0" />
+                  <Font name="Arial Bold" size="18.0" />
                </font>
             </Label>
             <VBox alignment="CENTER">
@@ -65,9 +65,9 @@
                   <Insets top="20.0" />
                </VBox.margin>
             </Label>
-            <Label fx:id="yourRoll">
+            <Label fx:id="yourRoll" alignment="CENTER" minHeight="100.0" minWidth="300.0">
                <font>
-                  <Font name="Arial" size="14.0" />
+                  <Font name="Arial Bold" size="16.0" />
                </font>
             </Label>
             <Button fx:id="rollDice" alignment="CENTER" focusTraversable="false" mnemonicParsing="false" onMouseClicked="#onDiceClick">
@@ -77,15 +77,15 @@
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin>
+               <graphic>
+                  <ImageView blendMode="DARKEN" fitHeight="75.0" fitWidth="75.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@../images/die.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </Button>
             <VBox alignment="CENTER" spacing="20.0">
-               <children>
-                  <ImageView fx:id="diceIndicatorImage" pickOnBounds="true" preserveRatio="true">
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
-                  </ImageView>
-               </children>
                <VBox.margin>
                   <Insets top="100.0" />
                </VBox.margin>
@@ -117,7 +117,7 @@
                </VBox.margin>
             </VBox>
             <Button mnemonicParsing="false" onMouseClicked="#submitButton" text="Set Players" />
-            <Label fx:id="playerNameText" prefHeight="78.0" prefWidth="194.0">
+            <Label fx:id="playerNameText" alignment="CENTER" prefHeight="78.0" prefWidth="194.0">
                <font>
                   <Font name="Consolas Bold" size="14.0" />
                </font>
@@ -132,15 +132,7 @@
             </TextField>
             <Button mnemonicParsing="false" onMouseClicked="#submitPlayerName" text="Enter Name" />
             <VBox alignment="CENTER" spacing="20.0" />
-            <Button mnemonicParsing="false" onMouseClicked="#startButtonClicked" prefHeight="57.0" prefWidth="120.0" text="Start the game" />
-            <VBox alignment="CENTER" layoutX="10.0" layoutY="492.0" spacing="10.0">
-               <children>
-                  <HBox alignment="CENTER" spacing="50.0" />
-               </children>
-               <VBox.margin>
-                  <Insets top="20.0" />
-               </VBox.margin>
-            </VBox>
+            <Button fx:id="startButtonClicked" mnemonicParsing="false" onMouseClicked="#startButtonClicked" prefHeight="57.0" prefWidth="120.0" text="Start the game" />
          </children>
 	  </VBox>
    </left>
@@ -1083,18 +1075,18 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                </rowConstraints>
             </GridPane>
-            <Pane prefHeight="200.0" prefWidth="200.0">
+            <Pane mouseTransparent="true" prefHeight="200.0" prefWidth="200.0">
                <children>
                   <ImageView fx:id="snake83" blendMode="MULTIPLY" fitHeight="580.0" fitWidth="214.0" layoutX="213.0" layoutY="-49.0" mouseTransparent="true" nodeOrientation="INHERIT" pickOnBounds="true" rotate="-164.7" smooth="false">
-                     <viewport>
-                        <Rectangle2D />
-                     </viewport>
-                     <image>
-                        <Image url="@../images/SNAKE.png" />
-                     </image>
                      <effect>
                         <ColorAdjust contrast="0.07" hue="1.0" saturation="-1.0" />
                      </effect>
+                     <image>
+                        <Image url="@../images/SNAKE.png" />
+                     </image>
+                     <viewport>
+                        <Rectangle2D />
+                     </viewport>
                   </ImageView>
                   <ImageView fx:id="snake93" blendMode="MULTIPLY" fitHeight="580.0" fitWidth="214.0" layoutX="675.0" layoutY="-137.0" mouseTransparent="true" nodeOrientation="INHERIT" pickOnBounds="true" rotate="-167.9" smooth="false">
                      <effect>
@@ -1129,35 +1121,24 @@
                         <Rectangle2D />
                      </viewport>
                   </ImageView>
-                  <ImageView fx:id="snake57" blendMode="MULTIPLY" fitHeight="691.0" fitWidth="279.0" layoutX="26.0" layoutY="79.0" mouseTransparent="true" nodeOrientation="INHERIT" pickOnBounds="true" rotate="-55.1" smooth="false">
-                     <effect>
-                        <ColorAdjust contrast="0.07" hue="1.0" saturation="-1.0" />
-                     </effect>
-                     <image>
-                        <Image url="@../images/SNAKE.png" />
-                     </image>
-                     <viewport>
-                        <Rectangle2D />
-                     </viewport>
-                  </ImageView>
                   <ImageView fx:id="snake26" blendMode="MULTIPLY" fitHeight="681.0" fitWidth="279.0" layoutX="493.0" layoutY="371.0" mouseTransparent="true" nodeOrientation="INHERIT" pickOnBounds="true" rotate="178.2" smooth="false">
-                     <effect>
-                        <ColorAdjust contrast="0.07" hue="1.0" saturation="-1.0" />
-                     </effect>
                      <image>
                         <Image url="@../images/SNAKE.png" />
                      </image>
                      <viewport>
                         <Rectangle2D />
                      </viewport>
+                     <effect>
+                        <ColorAdjust contrast="0.07" hue="1.0" saturation="-1.0" />
+                     </effect>
                   </ImageView>
                   <ImageView fx:id="ladder62" blendMode="MULTIPLY" fitHeight="261.0" fitWidth="228.0" layoutX="56.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/LADDER.jpg" />
-                     </image>
                      <effect>
                         <ColorAdjust brightness="0.05" contrast="0.21" hue="-0.58" saturation="-0.51" />
                      </effect>
+                     <image>
+                        <Image url="@../images/LADDER.jpg" />
+                     </image>
                   </ImageView>
                   <ImageView fx:id="ladder30" blendMode="MULTIPLY" fitHeight="271.0" fitWidth="182.0" layoutX="725.0" layoutY="441.0" pickOnBounds="true" preserveRatio="true" rotate="-45.0">
                      <effect>
@@ -1176,12 +1157,12 @@
                      </image>
                   </ImageView>
                   <ImageView fx:id="ladder51" blendMode="MULTIPLY" fitHeight="271.0" fitWidth="182.0" layoutX="725.0" layoutY="160.0" pickOnBounds="true" preserveRatio="true" rotate="130.6">
-                     <effect>
-                        <ColorAdjust brightness="0.05" contrast="0.21" hue="-0.58" saturation="-0.51" />
-                     </effect>
                      <image>
                         <Image url="@../images/LADDER.jpg" />
                      </image>
+                     <effect>
+                        <ColorAdjust brightness="0.05" contrast="0.21" hue="-0.58" saturation="-0.51" />
+                     </effect>
                   </ImageView>
                   <ImageView fx:id="ladder18" blendMode="MULTIPLY" fitHeight="271.0" fitWidth="182.0" layoutX="75.0" layoutY="500.0" pickOnBounds="true" preserveRatio="true" rotate="-50.2">
                      <effect>
@@ -1198,6 +1179,17 @@
                      <image>
                         <Image url="@../images/LADDER.jpg" />
                      </image>
+                  </ImageView>
+                  <ImageView fx:id="snake451" blendMode="MULTIPLY" fitHeight="450.0" fitWidth="173.0" layoutX="112.0" layoutY="175.0" mouseTransparent="true" nodeOrientation="INHERIT" pickOnBounds="true" rotate="-63.4" smooth="false">
+                     <effect>
+                        <ColorAdjust contrast="0.07" hue="1.0" saturation="-1.0" />
+                     </effect>
+                     <image>
+                        <Image url="@../images/SNAKE.png" />
+                     </image>
+                     <viewport>
+                        <Rectangle2D />
+                     </viewport>
                   </ImageView>
                </children>
             </Pane>
