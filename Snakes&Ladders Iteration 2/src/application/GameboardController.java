@@ -2,11 +2,13 @@ package application;
 
 
 import java.net.URL;
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import model.GameConfiguration;
 import model.Player;
+import javafx.animation.PauseTransition;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -19,6 +21,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.shape.Circle;
 
 
@@ -93,7 +96,7 @@ public class GameboardController {
     private GridPane gameGridTop;
     
     @FXML
-    private GridPane gameGridBottom;
+    private Pane pane;
   
     @FXML
     private Label currentplayerText;
@@ -102,11 +105,81 @@ public class GameboardController {
     private Label yourRoll;
     
     @FXML
-    private ImageView snake47;
+    private ImageView grass;
     
     @FXML
-    private ImageView grass;
+    private ImageView ladder4;
+
+    @FXML
+    private ImageView ladder55;
+    
+    @FXML
+    private ImageView ladder62;
+
+    @FXML
+    private ImageView ladder51;
+
+    @FXML
+    private ImageView ladder30;
+    
+    @FXML
+    private ImageView ladder18;
+    
+    @FXML
+    private ImageView ladder37;
+
+    @FXML
+    private ImageView ladder41;
+    
+    @FXML
+    private ImageView ladder87;
+
+    @FXML
+    private ImageView ladder14;
+
+    @FXML
+    private ImageView ladder58;
+    
+    @FXML
+    private ImageView ladder73;
+    
+    @FXML
+    private ImageView snake83;
+    
+    @FXML
+    private ImageView snake57;
+    
+    @FXML
+    private ImageView snake46;
+
+    @FXML
+    private ImageView snake26; 
+
+    @FXML
+    private ImageView snake93;
+    
+    @FXML
+    private ImageView snake52;
+    
+    @FXML
+    private ImageView snake96;
    
+    @FXML
+    private ImageView snake21;
+    
+    @FXML
+    private ImageView snake80;
+    
+    @FXML
+    private ImageView snake34;
+
+    @FXML
+    private ImageView snake16; 
+
+    @FXML
+    private ImageView snake97;
+    
+
     /**
      * takes user input for # of human players and # of computer players for GUI setup
      * @param event
@@ -124,14 +197,14 @@ public class GameboardController {
       		tokens.add(token2);
       		token1.setOpacity(1);
     		token2.setOpacity(1);
-      	}else if (totalPlayers == 3) {
+      	} else if (totalPlayers == 3) {
       		tokens.add(token1);
       		tokens.add(token2);
       		tokens.add(token3);
       		token1.setOpacity(1);
     		token2.setOpacity(1);
     		token3.setOpacity(1);
-      	}else if (totalPlayers == 4){
+      	} else if (totalPlayers == 4){
       		tokens.add(token1);
       		tokens.add(token2);
       		tokens.add(token3);
@@ -198,6 +271,69 @@ public class GameboardController {
     		} 
     	}
     	currentplayerText.setText(playerNameList[getTURN()]);
+    	
+    		if (gc.getLaddersStart()[0] == 4) {
+    			ladder4.setOpacity(1);
+    		} else {
+    			ladder37.setOpacity(1);
+    		}
+    		if (gc.getLaddersStart()[1] == 18) {
+				ladder18.setOpacity(1);
+			} else {
+				ladder41.setOpacity(1);
+			}
+    		if (gc.getLaddersStart()[2] == 30) {
+				ladder30.setOpacity(1);
+			} else {
+				ladder87.setOpacity(1);
+			}
+    		if (gc.getLaddersStart()[3] == 51) {
+				ladder51.setOpacity(1);
+			} else {
+				ladder14.setOpacity(1);
+			}
+    		if (gc.getLaddersStart()[4] == 55) {
+				ladder55.setOpacity(1);
+			} else {
+				ladder58.setOpacity(1);
+			}
+    		if (gc.getLaddersStart()[5] == 62) {
+				ladder62.setOpacity(1);				
+			} else {
+				ladder73.setOpacity(1);
+			}
+    		
+    		if (gc.getSnakesStart()[0] == 93) {
+    			snake93.setOpacity(1);
+    		} else {
+    			snake97.setOpacity(1);
+    		}
+    		if (gc.getSnakesStart()[1] == 83) {
+				snake83.setOpacity(1);
+			} else {
+				snake96.setOpacity(1);
+			}
+    		if (gc.getSnakesStart()[2] == 57) {
+				snake57.setOpacity(1);
+			} else {
+				snake21.setOpacity(1);
+			}
+    		if (gc.getSnakesStart()[3] == 52) {
+				snake52.setOpacity(1);
+			} else {
+				snake80.setOpacity(1);
+			}
+    		if (gc.getSnakesStart()[4] == 46) {
+				snake46.setOpacity(1);
+			} else {
+				snake34.setOpacity(1);
+			}
+    		if (gc.getSnakesStart()[5] == 26) {
+				snake26.setOpacity(1);				
+			} else {
+				snake16.setOpacity(1);
+			}
+    	
     }
     
     /**
@@ -214,6 +350,7 @@ public class GameboardController {
         		
         	} 	
     	} 
+    	
     }
     
     /*
@@ -235,6 +372,8 @@ public class GameboardController {
         			}
     			}
     	);
+    	
+    	gc.initializeSnakeLadder();
     }
     
     /**
@@ -265,6 +404,7 @@ public class GameboardController {
      * keeps track of player turns 
      */
     public void TurnCounter() { 
+  
     	if (getTURN() == (totalPlayers - 1)) {
 			this.TURN = 0;
 		} else {
@@ -299,7 +439,9 @@ public class GameboardController {
     */
     public void MovePlayerGUI(GameConfiguration gc) {
     	if (gc.getPlayer().get(getTURN()).getType() == "human") {
-    			Move();
+    		
+    		Move();
+    		
     	}    	
     } 
     
@@ -308,9 +450,14 @@ public class GameboardController {
      */
     public void moveComputerGUI() {  
     	if (gc.getPlayer().get(getTURN()).getType() == "AI")  {	
+    		rollDice.setDisable(true);
+    		waitfor();
     		Move();
+    		rollDice.setDisable(false);	
     		moveComputerGUI();
+    	
     	}
+    	
     } 
     
     /**
@@ -329,7 +476,8 @@ public class GameboardController {
     		yourRoll.setText(gc.getPlayer().get(getTURN()).getName() + " went down a snake and rolled a: " + gc.getPlayer().get(getTURN()).getHoldDiceRoll());
     		
     	} else {
-    		yourRoll.setText(gc.getPlayer().get(getTURN()).getName() + " you rolled a: " + gc.getPlayer().get(getTURN()).getHoldDiceRoll()); 		
+    		yourRoll.setText(gc.getPlayer().get(getTURN()).getName() + " you rolled a: " + gc.getPlayer().get(getTURN()).getHoldDiceRoll()); 
+    		
     	}
     	gameGridTop.getChildren().remove(tokens.get(getTURN()));
     	gameGridTop.add(tokens.get(getTURN()),columns[position],rows[position]);
@@ -342,17 +490,17 @@ public class GameboardController {
     /**
      * the below method is for iteration 3
      */
-//  public void waitfor() {
-//  	if (gc.getPlayer().get(getTURN()).getType() == "AI")  {
-//  		try
-//  		{
-//  		    Thread.sleep(3000);
-//  		}
-//  		catch(InterruptedException ex)
-//  		{
-//  		    Thread.currentThread().interrupt();
-//  		}	
-//  	 }	
-//  }
+  public void waitfor() {
+  	if (gc.getPlayer().get(getTURN()).getType() == "AI")  {
+  		try
+  		{
+  		    Thread.sleep(1000);
+  		}
+  		catch(InterruptedException ex)
+  		{
+  		    Thread.currentThread().interrupt();
+  		}	
+  	 }	
+  }
  
 }

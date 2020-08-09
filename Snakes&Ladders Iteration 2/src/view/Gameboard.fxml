@@ -1075,12 +1075,9 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                </rowConstraints>
             </GridPane>
-            <Pane mouseTransparent="true" prefHeight="200.0" prefWidth="200.0">
+            <Pane fx:id="pane" blendMode="MULTIPLY" mouseTransparent="true" prefHeight="200.0" prefWidth="200.0">
                <children>
-                  <ImageView fx:id="snake83" blendMode="MULTIPLY" fitHeight="580.0" fitWidth="214.0" layoutX="213.0" layoutY="-49.0" mouseTransparent="true" nodeOrientation="INHERIT" pickOnBounds="true" rotate="-164.7" smooth="false">
-                     <effect>
-                        <ColorAdjust contrast="0.07" hue="1.0" saturation="-1.0" />
-                     </effect>
+                  <ImageView fx:id="snake93" blendMode="MULTIPLY" fitHeight="580.0" fitWidth="214.0" layoutX="675.0" layoutY="-137.0" mouseTransparent="true" nodeOrientation="INHERIT" opacity="0.0" pickOnBounds="true" rotate="-167.9" smooth="false">
                      <image>
                         <Image url="@../images/SNAKE.png" />
                      </image>
@@ -1088,10 +1085,7 @@
                         <Rectangle2D />
                      </viewport>
                   </ImageView>
-                  <ImageView fx:id="snake93" blendMode="MULTIPLY" fitHeight="580.0" fitWidth="214.0" layoutX="675.0" layoutY="-137.0" mouseTransparent="true" nodeOrientation="INHERIT" pickOnBounds="true" rotate="-167.9" smooth="false">
-                     <effect>
-                        <ColorAdjust contrast="0.07" hue="1.0" saturation="-1.0" />
-                     </effect>
+                  <ImageView fx:id="snake52" blendMode="MULTIPLY" fitHeight="580.0" fitWidth="172.0" layoutX="568.0" layoutY="88.0" mouseTransparent="true" nodeOrientation="INHERIT" opacity="0.0" pickOnBounds="true" rotate="-54.5" smooth="false">
                      <image>
                         <Image url="@../images/SNAKE.png" />
                      </image>
@@ -1099,10 +1093,7 @@
                         <Rectangle2D />
                      </viewport>
                   </ImageView>
-                  <ImageView fx:id="snake52" blendMode="MULTIPLY" fitHeight="580.0" fitWidth="172.0" layoutX="568.0" layoutY="88.0" mouseTransparent="true" nodeOrientation="INHERIT" pickOnBounds="true" rotate="-54.5" smooth="false">
-                     <effect>
-                        <ColorAdjust contrast="0.07" hue="1.0" saturation="-1.0" />
-                     </effect>
+                  <ImageView fx:id="snake46" blendMode="MULTIPLY" fitHeight="691.0" fitWidth="279.0" layoutX="244.0" layoutY="219.0" mouseTransparent="true" nodeOrientation="INHERIT" opacity="0.0" pickOnBounds="true" rotate="-83.7" smooth="false">
                      <image>
                         <Image url="@../images/SNAKE.png" />
                      </image>
@@ -1110,10 +1101,7 @@
                         <Rectangle2D />
                      </viewport>
                   </ImageView>
-                  <ImageView fx:id="snake45" blendMode="MULTIPLY" fitHeight="691.0" fitWidth="279.0" layoutX="134.0" layoutY="224.0" mouseTransparent="true" nodeOrientation="INHERIT" pickOnBounds="true" rotate="-83.7" smooth="false">
-                     <effect>
-                        <ColorAdjust contrast="0.07" hue="1.0" saturation="-1.0" />
-                     </effect>
+                  <ImageView fx:id="snake26" blendMode="MULTIPLY" fitHeight="681.0" fitWidth="279.0" layoutX="493.0" layoutY="371.0" mouseTransparent="true" nodeOrientation="INHERIT" opacity="0.0" pickOnBounds="true" rotate="178.2" smooth="false">
                      <image>
                         <Image url="@../images/SNAKE.png" />
                      </image>
@@ -1121,69 +1109,123 @@
                         <Rectangle2D />
                      </viewport>
                   </ImageView>
-                  <ImageView fx:id="snake26" blendMode="MULTIPLY" fitHeight="681.0" fitWidth="279.0" layoutX="493.0" layoutY="371.0" mouseTransparent="true" nodeOrientation="INHERIT" pickOnBounds="true" rotate="178.2" smooth="false">
+                  <ImageView fx:id="ladder62" fitHeight="261.0" fitWidth="228.0" layoutX="56.0" layoutY="32.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/LADDER.jpg" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="ladder30" blendMode="MULTIPLY" fitHeight="271.0" fitWidth="182.0" layoutX="725.0" layoutY="441.0" opacity="0.0" pickOnBounds="true" preserveRatio="true" rotate="-45.0">
+                     <image>
+                        <Image url="@../images/LADDER.jpg" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="snake83" blendMode="MULTIPLY" fitHeight="580.0" fitWidth="214.0" layoutX="213.0" layoutY="-49.0" mouseTransparent="true" nodeOrientation="INHERIT" opacity="0.0" pickOnBounds="true" rotate="-164.7" smooth="false">
                      <image>
                         <Image url="@../images/SNAKE.png" />
                      </image>
                      <viewport>
                         <Rectangle2D />
                      </viewport>
-                     <effect>
-                        <ColorAdjust contrast="0.07" hue="1.0" saturation="-1.0" />
-                     </effect>
                   </ImageView>
-                  <ImageView fx:id="ladder62" blendMode="MULTIPLY" fitHeight="261.0" fitWidth="228.0" layoutX="56.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
-                     <effect>
-                        <ColorAdjust brightness="0.05" contrast="0.21" hue="-0.58" saturation="-0.51" />
-                     </effect>
+                  <ImageView fx:id="ladder4" blendMode="MULTIPLY" fitHeight="271.0" fitWidth="182.0" layoutX="256.0" layoutY="582.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../images/LADDER.jpg" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="ladder30" blendMode="MULTIPLY" fitHeight="271.0" fitWidth="182.0" layoutX="725.0" layoutY="441.0" pickOnBounds="true" preserveRatio="true" rotate="-45.0">
-                     <effect>
-                        <ColorAdjust brightness="0.05" contrast="0.21" hue="-0.58" saturation="-0.51" />
-                     </effect>
+                  <ImageView fx:id="ladder51" blendMode="MULTIPLY" fitHeight="271.0" fitWidth="182.0" layoutX="725.0" layoutY="160.0" opacity="0.0" pickOnBounds="true" preserveRatio="true" rotate="130.6">
                      <image>
                         <Image url="@../images/LADDER.jpg" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="ladder4" blendMode="MULTIPLY" fitHeight="271.0" fitWidth="182.0" layoutX="256.0" layoutY="582.0" pickOnBounds="true" preserveRatio="true">
-                     <effect>
-                        <ColorAdjust brightness="0.05" contrast="0.21" hue="-0.58" saturation="-0.51" />
-                     </effect>
+                  <ImageView fx:id="ladder18" blendMode="MULTIPLY" fitHeight="271.0" fitWidth="182.0" layoutX="75.0" layoutY="500.0" opacity="0.0" pickOnBounds="true" preserveRatio="true" rotate="-50.2">
                      <image>
                         <Image url="@../images/LADDER.jpg" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="ladder51" blendMode="MULTIPLY" fitHeight="271.0" fitWidth="182.0" layoutX="725.0" layoutY="160.0" pickOnBounds="true" preserveRatio="true" rotate="130.6">
-                     <image>
-                        <Image url="@../images/LADDER.jpg" />
-                     </image>
-                     <effect>
-                        <ColorAdjust brightness="0.05" contrast="0.21" hue="-0.58" saturation="-0.51" />
-                     </effect>
-                  </ImageView>
-                  <ImageView fx:id="ladder18" blendMode="MULTIPLY" fitHeight="271.0" fitWidth="182.0" layoutX="75.0" layoutY="500.0" pickOnBounds="true" preserveRatio="true" rotate="-50.2">
-                     <effect>
-                        <ColorAdjust brightness="0.05" contrast="0.21" hue="-0.58" saturation="-0.51" />
-                     </effect>
+                  <ImageView fx:id="ladder55" blendMode="MULTIPLY" fitHeight="202.0" fitWidth="149.0" layoutX="468.0" layoutY="204.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../images/LADDER.jpg" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="ladder55" blendMode="MULTIPLY" fitHeight="202.0" fitWidth="149.0" layoutX="468.0" layoutY="204.0" pickOnBounds="true" preserveRatio="true">
-                     <effect>
-                        <ColorAdjust brightness="0.05" contrast="0.21" hue="-0.58" saturation="-0.51" />
-                     </effect>
+                  <ImageView fx:id="snake57" blendMode="MULTIPLY" fitHeight="450.0" fitWidth="173.0" layoutX="112.0" layoutY="175.0" mouseTransparent="true" nodeOrientation="INHERIT" opacity="0.0" pickOnBounds="true" rotate="-63.4" smooth="false">
+                     <image>
+                        <Image url="@../images/SNAKE.png" />
+                     </image>
+                     <viewport>
+                        <Rectangle2D />
+                     </viewport>
+                  </ImageView>
+                  <ImageView fx:id="snake96" blendMode="MULTIPLY" fitHeight="580.0" fitWidth="214.0" layoutX="384.0" layoutY="-137.0" mouseTransparent="true" nodeOrientation="INHERIT" opacity="0.0" pickOnBounds="true" rotate="-176.7" smooth="false">
+                     <image>
+                        <Image url="@../images/SNAKE.png" />
+                     </image>
+                     <viewport>
+                        <Rectangle2D />
+                     </viewport>
+                  </ImageView>
+                  <ImageView fx:id="snake21" blendMode="MULTIPLY" fitHeight="580.0" fitWidth="172.0" layoutX="54.0" layoutY="422.0" mouseTransparent="true" nodeOrientation="INHERIT" opacity="0.0" pickOnBounds="true" rotate="-178.5" smooth="false">
+                     <image>
+                        <Image url="@../images/SNAKE.png" />
+                     </image>
+                     <viewport>
+                        <Rectangle2D />
+                     </viewport>
+                  </ImageView>
+                  <ImageView fx:id="snake80" blendMode="MULTIPLY" fitHeight="580.0" fitWidth="172.0" layoutX="30.0" layoutY="35.0" mouseTransparent="true" nodeOrientation="INHERIT" opacity="0.0" pickOnBounds="true" rotate="-179.0" smooth="false">
+                     <image>
+                        <Image url="@../images/SNAKE.png" />
+                     </image>
+                     <viewport>
+                        <Rectangle2D />
+                     </viewport>
+                  </ImageView>
+                  <ImageView fx:id="snake34" blendMode="MULTIPLY" fitHeight="580.0" fitWidth="172.0" layoutX="589.0" layoutY="304.0" mouseTransparent="true" nodeOrientation="INHERIT" opacity="0.0" pickOnBounds="true" rotate="170.0" smooth="false">
+                     <image>
+                        <Image url="@../images/SNAKE.png" />
+                     </image>
+                     <viewport>
+                        <Rectangle2D />
+                     </viewport>
+                  </ImageView>
+                  <ImageView fx:id="snake16" blendMode="MULTIPLY" fitHeight="580.0" fitWidth="172.0" layoutX="423.0" layoutY="475.0" mouseTransparent="true" nodeOrientation="INHERIT" opacity="0.0" pickOnBounds="true" rotate="162.3" smooth="false">
+                     <image>
+                        <Image url="@../images/SNAKE.png" />
+                     </image>
+                     <viewport>
+                        <Rectangle2D />
+                     </viewport>
+                  </ImageView>
+                  <ImageView fx:id="ladder37" blendMode="MULTIPLY" fitHeight="271.0" fitWidth="182.0" layoutX="256.0" layoutY="340.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../images/LADDER.jpg" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="snake451" blendMode="MULTIPLY" fitHeight="450.0" fitWidth="173.0" layoutX="112.0" layoutY="175.0" mouseTransparent="true" nodeOrientation="INHERIT" pickOnBounds="true" rotate="-63.4" smooth="false">
-                     <effect>
-                        <ColorAdjust contrast="0.07" hue="1.0" saturation="-1.0" />
-                     </effect>
+                  <ImageView fx:id="ladder41" blendMode="MULTIPLY" fitHeight="155.0" fitWidth="120.0" layoutX="25.0" layoutY="337.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/LADDER.jpg" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="ladder87" blendMode="MULTIPLY" fitHeight="155.0" fitWidth="120.0" layoutX="532.0" layoutY="22.0" opacity="0.0" pickOnBounds="true" preserveRatio="true" rotate="137.5">
+                     <image>
+                        <Image url="@../images/LADDER.jpg" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="ladder14" blendMode="MULTIPLY" fitHeight="271.0" fitWidth="182.0" layoutX="540.0" layoutY="508.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/LADDER.jpg" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="ladder58" blendMode="MULTIPLY" fitHeight="271.0" fitWidth="182.0" layoutX="157.0" layoutY="184.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/LADDER.jpg" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="ladder73" blendMode="MULTIPLY" fitHeight="271.0" fitWidth="182.0" layoutX="617.0" layoutY="20.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/LADDER.jpg" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="snake97" blendMode="MULTIPLY" fitHeight="580.0" fitWidth="172.0" layoutX="253.0" layoutY="-127.0" mouseTransparent="true" nodeOrientation="INHERIT" opacity="0.0" pickOnBounds="true" rotate="-148.4" smooth="false">
                      <image>
                         <Image url="@../images/SNAKE.png" />
                      </image>
@@ -1192,6 +1234,9 @@
                      </viewport>
                   </ImageView>
                </children>
+               <effect>
+                  <ColorAdjust contrast="0.33" hue="-0.02" />
+               </effect>
             </Pane>
          </children>
       </StackPane>
