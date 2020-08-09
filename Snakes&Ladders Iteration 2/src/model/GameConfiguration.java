@@ -3,18 +3,21 @@ package model;
 import java.util.ArrayList;
 import application.GameboardController;
 import java.util.Scanner;
+
 	/**
-	 * This Class is for setting up the game. There are two versions, the text and the GUI versions.
-	 * 
+	 * This Class is for setting up the game.
+	 * There are two versions, the text and the
+	 * GUI versions.
 	 */
 public class GameConfiguration extends Move { 
+	
 	/**
-	 * These variables are for setting up the game. These include:
-	 * Constants for the game setup (maximum number of players, finishing space on the board,
-	 * Lists for the players
-	 * Number of computer players, human players and counter for total players
+	 * These variables are for setting up the game.
+	 * These include: Constants for the game setup (maximum
+	 * number of players, finishing space on the board,
+	 * lists for the players, number of computer players,
+	 * human players and counter for total players).
 	 */
-
 	final static int FINISHING_SPACE = 100;		
 	final static int MAX_PLAYERS=4;
 	private ArrayList<Player> players = new ArrayList<Player>(); 
@@ -35,8 +38,10 @@ public class GameConfiguration extends Move {
 	public GameConfiguration(String type) {
 			this.gameType = type;
 	}
+	
 	/**
-	 * This method is for setting up the text version of the game, prompting for input from console.
+	 * This method is for setting up the text version of the game,
+	 * prompting for input from console.
 	 * The user will input the number of human and computer players.
 	 */
 	public void gameSetup() {
@@ -66,13 +71,15 @@ public class GameConfiguration extends Move {
 			createBlankPlayers();
 		}
 	}
+	
 	/**
 	 * This method is for setting up the GUI version of the game.
-	 * Based on the selections in the GUI, it will create the number of human and computer players.
-	 * It will also create a number of blank players, based on the selection of number of players to 
-	 * correctly space out the board.
-	 * @param numOfHum
-	 * @param numOfComp
+	 * Based on the selections in the GUI, it will create the number
+	 * of human and computer players.
+	 * It will also create a number of blank players, based on the
+	 * selection of number of players to correctly space out the board.
+	 * @param numOfHum takes in the number of human players.
+	 * @param numOfComp takes in the number of computer players.
 	 */
 	public void GUIGameSetup(int numOfHum, int numOfComp) {
 				
@@ -92,16 +99,15 @@ public class GameConfiguration extends Move {
 		}
 	}
 	
-	
 	/**
 	 * This method adds a created player to the player list.
 	 * @param aPlayer
-	 * @param index
+	 * @param index of player.
 	 */
-
 	public void addPlayer(Player aPlayer, int index) {
 		players.add(index, aPlayer);
 	}
+	
 	/**
 	 * This method returns the list of players.
 	 * @return
@@ -109,8 +115,10 @@ public class GameConfiguration extends Move {
 	public ArrayList<Player> getPlayer() {
 		return this.players;
 	}
+	
 	/**
-	 * This method uses a for loop to create a number of human players, based on the user input.
+	 * This method uses a for loop to create a number
+	 * of human players, based on the user input.
 	 */
 	public void createHumanPlayers() {
 		for (int i = 0; i < numHuman; i++) {
@@ -119,8 +127,10 @@ public class GameConfiguration extends Move {
 			playerCounter++;
 		}
 	}
+	
 	/**
-	 * This method uses a for loop to create a number of computer players, based on the user input.
+	 * This method uses a for loop to create a number
+	 * of computer players, based on the user input.
 	 */
 	public void createComputerPlayers() {
 		for (int i = 0; i < numComputer; i++) {
@@ -129,9 +139,11 @@ public class GameConfiguration extends Move {
 			playerCounter++;
 		}
 	}
+	
 	/**
-	 * If the number of human and computer players is less than 4, blank players will be created 
-	 * for the board spacing.
+	 * If the number of human and computer players is
+	 * less than 4, blank players will be created for
+	 * the board spacing.
 	 */
 	public void createBlankPlayers() {
 		for (int i = 0; i < (MAX_PLAYERS - playerCounter); i++) {
@@ -139,34 +151,43 @@ public class GameConfiguration extends Move {
 			players.add(playerCounter, player);
 		}
 	}
+	
 	/**
-	 * This method checks if the player passed in as a argument is a human.
+	 * This method checks if the player passed in
+	 * as a argument is a human.
 	 * @param aPlayer
-	 * @return
+	 * @returns the type of player.
 	 */
 	public boolean isHuman(Player aPlayer) {
 		return aPlayer.getType() == "human";
 	}
+	
 	/**
-	 * This method checks if the player passed in as a argument is a computer
+	 * This method checks if the player passed in
+	 * as a argument is a computer
 	 * @param aPlayer
-	 * @return
+	 * @returns type of player.
 	 */
 	public boolean isComputer(Player aPlayer) {
 		return aPlayer.getType() == "AI";
 	}
+	
 	/**
-	 * This method takes aPlayerList and aPlayer as arguments. If the player is a human, the program will
-	 * prompt the user via console to roll the dice, and move the player. If the player is a computer, it
-	 * will not ask for input, and move the computer player. AFter the player is moved, the gameboard will 
-	 * reprint to show the user the movement of the player on the baord.
+	 * This method takes aPlayerList and aPlayer as arguments.
+	 * If the player is a human, the program will prompt the
+	 * user via console to roll the dice, and move the player.
+	 * If the player is a computer, it will not ask for input,
+	 * and move the computer player. After the player is moved,
+	 * the game board will reprint to show the user the movement
+	 * of the player on the board.
 	 * @param aPlayerList
 	 * @param aPlayer
 	 */
 	public void playerTurn(ArrayList<Player> aPlayerList, Player aPlayer) {
 		
 		if (isHuman(aPlayer)) {
-			System.out.println("It is your turn player " + aPlayer.getName() +  " if you would like to roll, type 'r'");
+			System.out.println("It is your turn player " + aPlayer.getName() 
+					  +  " if you would like to roll, type 'r'");
 			playerInput = new Scanner(System.in);
 			String isRoll = playerInput.nextLine();
 			if(isRoll.equals("r")) {
@@ -180,8 +201,10 @@ public class GameConfiguration extends Move {
 								aPlayerList.get(3));
 		}
 	}
+	
 	/**
-	 * This method is the same as playerTurn, but for the GUI version of the game.
+	 * This method is the same as playerTurn, but for
+	 * the GUI version of the game.
 	 * @param aPlayerList
 	 * @param aPlayer
 	 */
@@ -195,9 +218,10 @@ public class GameConfiguration extends Move {
 	
 	
 	/**
-	 * This method sets up the game, and runs the game using a do while loop,
-	 * until a player's last space isnt empty, meaning that the game will be over.
-	 * The console will print a message indicating which player won.
+	 * This method sets up the game, and runs the game using
+	 * a do while loop, until a player's last space is not empty,
+	 * meaning that the game will be over. The console will print
+	 * a message indicating which player won.
 	 */
 	public void run()  {
 	/*
@@ -243,6 +267,7 @@ public class GameConfiguration extends Move {
 			}
 		}
 	}
+	
 	/**
 	 * This method instantiates the class
 	 * @param args
