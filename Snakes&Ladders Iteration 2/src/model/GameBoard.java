@@ -7,7 +7,8 @@ package model;
  */
 public class GameBoard {
 	
-	public static void drawBoard(Player firstPlayer, Player secondPlayer, Player thirdPlayer, Player fourthPlayer) {
+	public static void drawBoard(Player firstPlayer, Player secondPlayer, 
+				     Player thirdPlayer, Player fourthPlayer) {
 		int spaceNum = 100;
 		String[] player1 = firstPlayer.getPlayer();
 		String[] player2 = secondPlayer.getPlayer();
