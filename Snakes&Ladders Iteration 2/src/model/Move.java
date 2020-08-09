@@ -2,6 +2,12 @@ package model;
 
 import java.util.Random;
 
+/**
+ * This class moves all players to valid
+ * positions. It takes in valid dice rolls
+ * and sets the players to their correct
+ * positions through out the game board.
+ */
 public class Move { 
 	private int playerPosition;
 	
@@ -12,7 +18,8 @@ public class Move {
 	/**
 	 * This method moves the players to their
 	 * positions after the dice is rolled.
-	 * @param currentPlayer
+	 * @param currentPlayer takes in
+	 * the position of the current player.
 	 */
 	public Player MovePlayer(Player currentPlayer){
 		int currentPosition=0;
@@ -28,7 +35,7 @@ public class Move {
 		 * This saves the dice rolls of each
 		 * player if they are valid and sets their
 		 * new position according to the number they rolled.
-		 * @returns currentPlayers position
+		 * @returns currentPlayers new position.
 		 */
 		
 		int diceRoll=dice();
@@ -56,7 +63,7 @@ public class Move {
 	}
 	
 	/**
-	 * Duplicates previous methods for GUI.
+	 * Duplicates previous methods for GUI version.
 	 */	
 	public Player MovePlayerGUI(Player currentPlayer){
 		int currentPosition=0;
@@ -83,15 +90,15 @@ public class Move {
 		currentPlayer.getPlayer()[currentPosition]=currentPlayer.getName();
 		currentPlayer.setPosition(currentPosition);
 		
-		return currentPlayer;
-		
+		return currentPlayer;	
 	}
 	
 	/**
-	 * This does the same thing as theprevious methods,
+	 * This does the same thing as the previous methods,
 	 * but for the computer players.
-	 * @param PlayerList
-	 * @param playerName
+	 * @param PlayerList takes in a string array list
+	 * of players.
+	 * @param playerName takes in the players' names.
 	 * @returns the players name.
 	 */
 	public String[] MoveComputer(String[] PlayerList, String playerName ){
@@ -121,9 +128,10 @@ public class Move {
 	}
 	
 	/**
-	 * This sets the position of the ladders
-	 * on the gameboard.
-	 * @param position
+	 * This sets the positions of the ladders
+	 * on the game board.
+	 * @param position includes positions of all
+	 * ladders on the game board.
 	 * @returns position of player after
 	 * player goes up the ladder.
 	 */
@@ -152,11 +160,12 @@ public class Move {
 	
 	/**
 	 * This sets the positions of the snakes
-	 * on the gameboard.
-	 * @param position
+	 * on the game board.
+	 * @param position includes positions
+	 * of all snakes on the game board.
 	 * @returns position of player after
 	 * player goes down a snake.
-	 */	
+	 */		
 	public int Snake(int position) {
 		int[] snakesStart = new int[4];
 		snakesStart[0] = 97;
@@ -178,6 +187,14 @@ public class Move {
 		return position;	
 	}
 	
+	/**
+	 * This does the same thing as the previous
+	 * ladder method but for GUI version.
+	 * @param position includes positions of all
+	 * ladders on the game board.
+	 * @returns position of player after
+	 * player goes up the ladder.
+	 */	
 	public int LadderGUI(int position) {
 		int[] laddersStart = new int[6];	
 		laddersStart[0] = 4;
@@ -204,6 +221,14 @@ public class Move {
 		return position;	
 	}
 	
+	/**
+	 * This does the same thing as the previous
+	 * snake method but for GUI version.
+	 * @param position includes positions
+	 * of all snakes on the game board.
+	 * @returns position of player after
+	 * player goes down a snake.
+	 */	
 	public int SnakeGUI(int position) {
 		int[] snakesStart = new int[6];
 		snakesStart[0] = 93;
@@ -213,8 +238,6 @@ public class Move {
 		snakesStart[4] = 45;
 		snakesStart[5] = 26;
 		
-
-		
 		int[] snakesEnd = new int[6];
 		snakesEnd[0] = 71;
 		snakesEnd[1] = 65;
@@ -223,8 +246,6 @@ public class Move {
 		snakesEnd[4] = 18;
 		snakesEnd[5] = 9;
 		
-
-
 		for (int counter = 0; counter < 4; counter++) {
 			if (position == snakesStart[counter]) {
 				position = snakesEnd[counter];
@@ -234,8 +255,8 @@ public class Move {
 	}
 	
 	/**
-	 * This method randomly rolls the dice
-	 * and returns the number rolled.
+	 * This method rolls the dice
+	 * and randomly returns the number rolled.
 	 */
 	public int dice() {
 	int max = 6;
@@ -247,8 +268,8 @@ public class Move {
 	}
 	
 	/**
-	 * Gets and sets psotion of players
-	 * throughout the game.
+	 * Gets and sets position of players
+	 * throughout the game board.
 	 * @returns player's position.
 	 */
 	public int getPlayerPosition() {
