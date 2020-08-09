@@ -51,8 +51,8 @@ public class GameConfiguration extends Move {
 		numHuman=playerInput.nextInt();
 		
 		if (numHuman < MAX_PLAYERS) {
-			System.out.println("How many computer players would you like to play with?" + 
-								" (max " + (MAX_PLAYERS - numHuman) + ")");
+			System.out.println("How many computer players would you like to play with?" 
+					   + " (max " + (MAX_PLAYERS - numHuman) + ")");
 			numComputer=playerInput.nextInt();
 		}
 		
