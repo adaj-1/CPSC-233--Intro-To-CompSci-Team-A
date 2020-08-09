@@ -4,7 +4,7 @@ package model;
  * This class retrieves player names, types, and 
  * their positions and sets them.
  */
-public class Player { // Arlina
+public class Player { 
 	private String name;
 	private String type; 
 	private String[] player;
@@ -12,8 +12,8 @@ public class Player { // Arlina
 	private int holdDiceRoll;
 	int count = 0;
        /**
-	* This constuctor creates spaces on the
-	* gameboard for each of the players.
+	* This constructor creates spaces on the
+	* game board for each of the players.
 	*/
 	public Player() {
 		this.type = null;
@@ -27,8 +27,9 @@ public class Player { // Arlina
 	 * This constructor takes in the type and
 	 * name of the players. It then sets them
 	 * according to their positions.
-	 * @param type
-	 * @param name
+	 * @param type is the player's order in
+	 the game(i.e. player1,player2,etc)
+	 * @param name provides name of player
 	 */
 	public Player(String type, String name) {
 		this.type = type;
@@ -40,30 +41,10 @@ public class Player { // Arlina
 		player[1] = name;
 		this.setPosition(1);
 	}
-	
-//	public void rollDice(){
-//		int dice = (int)(Math.random()*6+1);
-//		count++;  //rolled how many times
-//		if (count == 1) {
-//			if (dice == 6){
-//				for (int i = 0; i <= dice; i++) {
-//					setPosition(getPosition() + 1);
-//				}
-//				count++;
-//			} else {
-//				count = 0;
-//			}
-//		}else {
-//			for (int i = 0; i <= dice; i++) {
-//				setPosition(getPosition() + 1);
-//			}
-//		}
-//
-//	}
 
 	/**
 	 * The getters and setters retrieves the
-	 * number of players, their names, positions,
+	 * number of players, their names, types, positions,
 	 * and sets them.
 	 *
 	 */
