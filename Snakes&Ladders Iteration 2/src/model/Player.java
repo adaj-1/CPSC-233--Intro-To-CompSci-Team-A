@@ -27,8 +27,8 @@ public class Player {
 	 * This constructor takes in the type and
 	 * name of the players. It then sets them
 	 * according to their positions.
-	 * @param type is the player's order in
-	 the game(i.e. player1,player2,etc)
+	 * @param type is the type of player in 
+	 * the game (i.e. human or computer)
 	 * @param name provides name of player
 	 */
 	public Player(String type, String name) {
