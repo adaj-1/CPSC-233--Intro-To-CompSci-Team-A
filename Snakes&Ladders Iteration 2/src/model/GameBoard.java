@@ -1,8 +1,13 @@
 package model;
-
+/**
+ * This class is for setting up the text version of the game. This class mainly contains the outputs to crate
+ * the text based version of the board in the console.
+ * 
+ *
+ */
 public class GameBoard {
 	
-	public static void drawBoard(Player firstPlayer, Player secondPlayer, Player thirdPlayer, Player fourthPlayer) {
+	public void drawBoard(Player firstPlayer, Player secondPlayer, Player thirdPlayer, Player fourthPlayer) {
 		int spaceNum = 100;
 		String[] player1 = firstPlayer.getPlayer();
 		String[] player2 = secondPlayer.getPlayer();
