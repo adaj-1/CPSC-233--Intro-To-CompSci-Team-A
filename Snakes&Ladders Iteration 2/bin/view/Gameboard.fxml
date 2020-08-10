@@ -78,11 +78,7 @@
                   <Insets top="10.0" />
                </VBox.margin>
                <graphic>
-                  <ImageView blendMode="DARKEN" fitHeight="75.0" fitWidth="75.0" pickOnBounds="true">
-                     <image>
-                        <Image url="@../images/die.png" />
-                     </image>
-                  </ImageView>
+                  <ImageView fx:id="dieImage" blendMode="DARKEN" fitHeight="75.0" fitWidth="75.0" pickOnBounds="true" />
                </graphic>
             </Button>
             <VBox alignment="CENTER" spacing="20.0">
