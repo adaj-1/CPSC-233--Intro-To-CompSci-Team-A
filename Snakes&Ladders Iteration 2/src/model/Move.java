@@ -4,6 +4,7 @@ import java.util.Random;
 
 public class Move { // Jada
 	private int playerPosition;
+	private int diceRoll;
 	
 	public Move() {
 		
@@ -206,9 +207,23 @@ public class Move { // Jada
 	return diceRoll;
 	}
 	
+<<<<<<< Updated upstream
+=======
+	
+	
+	/**
+	 * Gets and sets psotion of players
+	 * throughout the game.
+	 * @returns player's position.
+	 */
+>>>>>>> Stashed changes
 	public int getPlayerPosition() {
 		return playerPosition;
 	}
+	public int getDiceRoll() {
+		return this.diceRoll;
+	}
+	
 	public void setPlayerPosition(int playerPosition) {
 		this.playerPosition = playerPosition;
 	}
