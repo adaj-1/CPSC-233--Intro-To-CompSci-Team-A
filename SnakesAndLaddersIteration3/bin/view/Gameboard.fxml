@@ -78,11 +78,7 @@
                   <Insets top="10.0" />
                </VBox.margin>
                <graphic>
-                  <ImageView blendMode="DARKEN" fitHeight="75.0" fitWidth="75.0" pickOnBounds="true">
-                     <image>
-                        <Image url="@../images/die.png" />
-                     </image>
-                  </ImageView>
+                  <ImageView fx:id="dieImage" blendMode="DARKEN" fitHeight="90.0" fitWidth="90.0" pickOnBounds="true" />
                </graphic>
             </Button>
             <VBox alignment="CENTER" spacing="20.0">
@@ -226,7 +222,7 @@
                         </Text>
                         <Circle fx:id="token1" fill="DODGERBLUE" layoutX="14.0" layoutY="64.0" opacity="0.0" radius="15.0" stroke="BLACK" strokeType="INSIDE" />
                         <Circle fx:id="token2" fill="#ff1f1f" layoutX="75.0" layoutY="14.0" opacity="0.0" radius="15.0" stroke="BLACK" strokeType="INSIDE" />
-                        <Circle fx:id="token4" fill="#deff1f" layoutX="75.0" layoutY="65.0" opacity="0.0" radius="15.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle fx:id="token4" fill="#7300ff" layoutX="75.0" layoutY="65.0" opacity="0.0" radius="15.0" stroke="BLACK" strokeType="INSIDE" />
                         <Circle fx:id="token3" fill="#1fff3b" layoutX="14.0" layoutY="14.0" opacity="0.0" radius="15.0" stroke="BLACK" strokeType="INSIDE" />
                      </children>
                   </Pane>
