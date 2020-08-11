@@ -3,10 +3,13 @@ package application;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+
+import model.Player;
 import model.BlankPlayer;
 import model.Computer;
 import model.GameConfiguration;
 import model.Human;
+import javafx.animation.AnimationTimer;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -15,6 +18,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
@@ -123,6 +127,9 @@ public class GameboardController {
     
     @FXML
     private ImageView grass;
+    
+    @FXML
+    private ImageView dieImage;
    
     /**
      * takes user input for # of human players and # of computer players for GUI setup
@@ -246,6 +253,8 @@ public class GameboardController {
     	if (!checkWin()) {
 	    	rollDice.setDisable(true);
 	    	move();
+	    	spinningDice = new Roller();
+	    	spinningDice.start();
 			turnCounter();
 			refresh();
     	}
@@ -256,6 +265,7 @@ public class GameboardController {
      */
     @FXML
     void initialize() {
+    	dieImage.setImage(new Image("images/die.png"));
     	rollDice.setDisable(true);
     	startButton.setDisable(true);
     	submitPlayerNameButton.setDisable(true);
@@ -391,6 +401,64 @@ public class GameboardController {
        	for (int i = 0; i < totalPlayers; i++) {
        		currentplayerText.setTextFill(playerTokenColors[getCurrentPlayerTurn()]);
        	}
+    }
+ /**
+  * This method is for setting the dice image.
+  * @param diceRoll This int is passed in to tell the method which image to display based on the
+  * "roll" that occured.
+  */
+    public void setDiceImage(int diceRoll) {
+    	if(diceRoll==1) {
+    		dieImage.setImage(new Image("images/One.jpg"));
+    	}
+    	if(diceRoll==2) {
+    		dieImage.setImage(new Image("images/Two.jpg"));
+    	}
+    	if(diceRoll==3) {
+    		dieImage.setImage(new Image("images/Three.jpg"));
+    	}
+    	if(diceRoll==4) {
+    		dieImage.setImage(new Image("images/Four.jpg"));
+    	}
+    	if(diceRoll==5) {
+    		dieImage.setImage(new Image("images/Five.jpg"));
+    	}
+    	if(diceRoll==6) {
+    		dieImage.setImage(new Image("images/Six.jpg"));
+    	}
+    }
+    
+ 
+/**
+ * This creates a roller called spinningDice
+ */
+    private Roller spinningDice;
+   
+    private class Roller extends AnimationTimer{
+
+    	private long FPS= 50L;
+    	private long INTERVAL=100000000L/FPS;
+    	private int MAX_ROLLS = 20;
+    	private long last=0;
+    
+    	private int count = 0;
+  
+		@Override
+		public void handle(long now) {
+			if(now-last>INTERVAL) {
+				int r = 2 + (int)(Math.random() * 5);
+				setDiceImage(r);
+				last=now;
+				count++;
+				rollDice.setDisable(true);
+				if(count > MAX_ROLLS) {
+					spinningDice.stop();
+					count=0;
+					setDiceImage(roll);
+					rollDice.setDisable(false);
+				}
+			}
+		}
     }
     
     /**

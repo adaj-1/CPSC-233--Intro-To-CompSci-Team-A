@@ -1,13 +1,14 @@
 package model;
 /**
- * This class is for setting up the text version of the game. This class mainly contains the outputs to crate
- * the text based version of the board in the console.
- * 
- *
+ * This class is for setting up the text version
+ * of the game. This class mainly contains the
+ * outputs to create the text based version of
+ * the board in the console.
  */
 public class GameBoard {
 	
-	public void drawBoard(Player firstPlayer, Player secondPlayer, Player thirdPlayer, Player fourthPlayer) {
+	public void drawBoard(Player firstPlayer, Player secondPlayer, 
+			      Player thirdPlayer, Player fourthPlayer) {
 		int spaceNum = 100;
 		String[] player1 = firstPlayer.getPlayer();
 		String[] player2 = secondPlayer.getPlayer();
@@ -21,13 +22,16 @@ public class GameBoard {
 		System.out.print("|" + "                  |                  |                 "
 				+ " |                  |                  |                  |                 "
 				+ " |                  |                  |                  |" + "\n");
-		System.out.print("|" + spaceNum + "      " + player1[spaceNum] + player2[spaceNum] + player3[spaceNum] + player4[spaceNum] + " |");
+		System.out.print("|" + spaceNum + "      " + player1[spaceNum] + player2[spaceNum] 
+				     + player3[spaceNum] + player4[spaceNum] + " |");
 		spaceNum -= 1;
 		for (int i = 0; i < 9; spaceNum--, i++) {
 			if(spaceNum == 97 || spaceNum == 92) {
-				System.out.print(spaceNum + " /     " + player1[spaceNum] + player2[spaceNum] + player3[spaceNum] + player4[spaceNum] + " |");
+				System.out.print(spaceNum + " /     " + player1[spaceNum] + player2[spaceNum] 
+						          + player3[spaceNum] + player4[spaceNum] + " |");
 			} else {
-				System.out.print(spaceNum + "       " + player1[spaceNum] + player2[spaceNum] + player3[spaceNum] + player4[spaceNum] + " |");
+				System.out.print(spaceNum + "       " + player1[spaceNum] + player2[spaceNum] 
+						          + player3[spaceNum] + player4[spaceNum] + " |");
 				}
 		}
 		System.out.print("\n" + "______________________________________________________"
@@ -42,13 +46,17 @@ public class GameBoard {
 		for (int index = 0; index < 4; index++) {
 			for (int i = 0; i < 10 ; spaceNum++, i++) {
 				if (spaceNum == 42 || spaceNum == 47){
-					System.out.print(spaceNum + " /     " + player1[spaceNum] + player2[spaceNum] + player3[spaceNum] + player4[spaceNum] + " |");
+					System.out.print(spaceNum + " /     " + player1[spaceNum] + player2[spaceNum] 
+							          + player3[spaceNum] + player4[spaceNum] + " |");
 				} else if (spaceNum == 61 || spaceNum == 66) {
-					System.out.print(spaceNum + "|-|    " + player1[spaceNum] + player2[spaceNum] + player3[spaceNum] + player4[spaceNum] + " |");
+					System.out.print(spaceNum + "|-|    " + player1[spaceNum] + player2[spaceNum] 
+							          + player3[spaceNum] + player4[spaceNum] + " |");
 				} else if (spaceNum == 84 || spaceNum == 89) {
-					System.out.print(spaceNum + " |     " + player1[spaceNum] + player2[spaceNum] + player3[spaceNum] + player4[spaceNum] + " |");
+					System.out.print(spaceNum + " |     " + player1[spaceNum] + player2[spaceNum] 
+							          + player3[spaceNum] + player4[spaceNum] + " |");
 				} else {
-					System.out.print(spaceNum + "       " + player1[spaceNum] + player2[spaceNum] + player3[spaceNum] + player4[spaceNum] + " |");	
+					System.out.print(spaceNum + "       " + player1[spaceNum] + player2[spaceNum] 
+							          + player3[spaceNum] + player4[spaceNum] + " |");	
 				}
 			}
 			if (spaceNum == 31) {
@@ -98,13 +106,17 @@ public class GameBoard {
 			
 			for (int i = 0; i < 10 ; spaceNum--, i++) {
 				if (spaceNum == 18 || spaceNum == 12) {
-					System.out.print(spaceNum + "|-|    " + player1[spaceNum] + player2[spaceNum] + player3[spaceNum] + player4[spaceNum] + " |");
+					System.out.print(spaceNum + "|-|    " + player1[spaceNum] + player2[spaceNum] 
+							          + player3[spaceNum] + player4[spaceNum] + " |");
 				} else if (spaceNum == 39 || spaceNum == 34) {
-					System.out.print(spaceNum + " |     " + player1[spaceNum] + player2[spaceNum] + player3[spaceNum] + player4[spaceNum] + " |");
+					System.out.print(spaceNum + " |     " + player1[spaceNum] + player2[spaceNum] 
+							          + player3[spaceNum] + player4[spaceNum] + " |");
 				} else if (spaceNum == 60 || spaceNum == 55) {
-					System.out.print(spaceNum + "|-|    " + player1[spaceNum] + player2[spaceNum] + player3[spaceNum] + player4[spaceNum] + " |");
+					System.out.print(spaceNum + "|-|    " + player1[spaceNum] + player2[spaceNum] 
+							          + player3[spaceNum] + player4[spaceNum] + " |");
 				} else {
-					System.out.print(spaceNum + "       " + player1[spaceNum] + player2[spaceNum] + player3[spaceNum] + player4[spaceNum] + " |");
+					System.out.print(spaceNum + "       " + player1[spaceNum] + player2[spaceNum] 
+							          + player3[spaceNum] + player4[spaceNum] + " |");
 				}
 			}
 			if (spaceNum == 10) {
@@ -146,16 +158,20 @@ public class GameBoard {
 		}
 		
 		/* first line of game board */
-		System.out.print(spaceNum + "        " + player1[spaceNum] + player2[spaceNum] + player3[spaceNum] + player4[spaceNum] + " |");
+		System.out.print(spaceNum + "        " + player1[spaceNum] + player2[spaceNum] 
+				          + player3[spaceNum] + player4[spaceNum] + " |");
 		spaceNum += 1;
 		for (int i = 0; i < 8; spaceNum++, i++) {
 			if (spaceNum == 3 || spaceNum == 9) {
-				System.out.print(spaceNum + " |-|    " + player1[spaceNum] + player2[spaceNum] + player3[spaceNum] + player4[spaceNum] + " |");
+				System.out.print(spaceNum + " |-|    " + player1[spaceNum] + player2[spaceNum] 
+						          + player3[spaceNum] + player4[spaceNum] + " |");
 			} else {
-				System.out.print(spaceNum + "        " + player1[spaceNum] + player2[spaceNum] + player3[spaceNum] + player4[spaceNum] + " |");
+				System.out.print(spaceNum + "        " + player1[spaceNum] + player2[spaceNum] 
+						          + player3[spaceNum] + player4[spaceNum] + " |");
 			}
 		}
-		System.out.print(spaceNum + "       " + player1[spaceNum] + player2[spaceNum] + player3[spaceNum] + player4[spaceNum] + " |");
+		System.out.print(spaceNum + "       " + player1[spaceNum] + player2[spaceNum] 
+				          + player3[spaceNum] + player4[spaceNum] + " |");
 		System.out.print("\n" + "______________________________________________________"
 				+ "____________________________________________________________________________"
 				+ "_____________________________________________________________" + "\n");
