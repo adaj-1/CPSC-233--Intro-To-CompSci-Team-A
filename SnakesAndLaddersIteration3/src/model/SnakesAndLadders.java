@@ -3,7 +3,10 @@ package model;
 import java.util.Random;
 
 public class SnakesAndLadders {
-	
+	protected int[] snakesStart = {97, 92, 42, 47};
+	protected int[] snakesEnd = {77, 72, 22, 27};
+	protected int[] laddersStart = {3, 9, 55, 60};
+	protected int[] laddersEnd = {23, 29, 75, 80};
 	private static int[] snakesStartGUI = new int[6];
 	private static int[] snakesEndGUI = new int[6];
 	private static int[] laddersStartGUI = new int[6];
@@ -11,6 +14,65 @@ public class SnakesAndLadders {
 	
 	public SnakesAndLadders() {	
 		initializeSnakeLadder();
+	}
+	
+	/**
+	 * This sets the position of the ladders
+	 * on the gameboard.
+	 * @param position
+	 * @returns position of player after
+	 * player goes up the ladder.
+	 */
+	public int Ladder(int position) {
+		for (int counter = 0; counter < laddersStart.length; counter++) {
+			if (position == laddersStart[counter]) {				
+				position = laddersEnd[counter];
+			}
+		}
+		return position;	
+	}
+	
+	/**
+	 * This sets the positions of the snakes
+	 * on the gameboard.
+	 * @param position
+	 * @returns position of player after
+	 * player goes down a snake.
+	 */	
+	public int Snake(int position) {
+		for (int counter = 0; counter < snakesStart.length; counter++) {
+			if (position == snakesStart[counter]) {
+				position = snakesEnd[counter];
+			}
+		}
+		return position;	
+	}
+	
+	public int LadderGUI(int position) {
+		for (int counter = 0; counter < 6; counter++) {
+			if (position == getLaddersStart()[counter]) {
+				System.out.println("ladder");
+				
+				System.out.println(position);
+				position = getLaddersEndGUI()[counter];
+				System.out.println("new position" +position);
+			}
+		}
+		return position;	
+	}
+
+	public int SnakeGUI(int position) {
+		
+		for (int counter = 0; counter < 6; counter++) {			
+			if (position == getSnakesStart()[counter]) {
+				
+				System.out.println("snake");
+				System.out.println(position);
+				position = getSnakesEndGUI()[counter];
+				System.out.println("new position" +position);
+			}
+		}
+		return position;	
 	}
 	
 	public static boolean getRandomBoolean() {
