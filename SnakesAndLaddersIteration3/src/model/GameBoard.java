@@ -158,7 +158,8 @@ public class GameBoard {
 		}
 		
 		/* first line of game board */
-		System.out.print(spaceNum + "        " + player1[spaceNum] + player2[spaceNum] + player3[spaceNum] + player4[spaceNum] + " |");
+		System.out.print(spaceNum + "        " + player1[spaceNum] + player2[spaceNum] 
+				          + player3[spaceNum] + player4[spaceNum] + " |");
 		spaceNum += 1;
 		for (int i = 0; i < 8; spaceNum++, i++) {
 			if (spaceNum == 3 || spaceNum == 9) {
