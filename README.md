@@ -27,6 +27,18 @@ How to run it:
 For this version, first download the 4 files (GameBoard, GameConfiguration, Player and Move).
 Second, run GameConfiguration, which will start a new game with four human players (named P1, P2, P3 & P4).
 You will then be prompted to enter 'r' before each turn to roll the dice. First player to reach 100 exactly will win.
+
+					    
+						Snakes & Ladders Iteration 3
+
+Where to find it:
+This version of the program can be found inside the folder named "Snakes&Ladders Iteration 3".
+
+How to run it:
+
+For this version, first download the all of the files. Second, run GameConfiguration, which will start a new game with 
+four human players (named P1, P2, P3 & P4). You will then be prompted to enter 'r' before each turn to roll the dice. 
+First player to reach 100 exactly will win.
 #######################################################################################################################
 
 #######################################################################################################################
