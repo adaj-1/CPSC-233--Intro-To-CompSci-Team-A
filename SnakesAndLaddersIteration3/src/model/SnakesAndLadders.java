@@ -74,7 +74,7 @@ public class SnakesAndLadders {
 		}
 		return position;	
 	}
-
+	
 	public static boolean getRandomBoolean() {
 		Random random = new Random();
 		return random.nextBoolean();
