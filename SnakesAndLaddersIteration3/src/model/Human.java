@@ -11,6 +11,11 @@ public class Human extends Player {
 	 super(name);
 	}
 	
+	/**
+	 * This method takes in valid rolls of each 
+	 * player and sets them to their new position
+	 * on the game board. 
+	 */
 	public void MovePlayer(){
 		System.out.println("It is your turn player " + name +  " if you would like to roll, type 'r'");
 		playerInput = new Scanner(System.in);
