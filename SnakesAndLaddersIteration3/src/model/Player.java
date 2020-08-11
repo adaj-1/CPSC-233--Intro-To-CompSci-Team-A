@@ -7,7 +7,8 @@ import java.util.Scanner;
  * This class retrieves player names, types, and 
  * their positions and sets them.
  */
-public abstract class Player extends SnakesAndLadders{ // Arlina
+public abstract class Player extends SnakesAndLadders { // Arlina
+
 	protected String name;
 	protected String[] player;
 	protected int position = 1;
@@ -15,19 +16,19 @@ public abstract class Player extends SnakesAndLadders{ // Arlina
 	protected Scanner playerInput;
 	protected int diceRoll;
 	protected int validRoll;
-	protected int[] snakesStart = {97, 92, 42, 47};
-	protected int[] snakesEnd = {77, 72, 22, 27};
-	protected int[] laddersStart = {3, 9, 55, 60};
-	protected int[] laddersEnd = {23, 29, 75, 80};
-	
-	
+
+	/**
+	* This constuctor creates spaces on the
+	* gameboard for each of the players.
+	*/
 	public Player() {
 	}
 
 	/**
-	 * This constructor takes in the
+	 * This constructor takes in the type and
 	 * name of the players. It then sets them
 	 * according to their positions.
+	 * @param type
 	 * @param name
 	 */
 	public Player(String name) {
@@ -62,7 +63,7 @@ public abstract class Player extends SnakesAndLadders{ // Arlina
 	}
 	
 	/**
-	 * Duplicates previous methods for GUI version.
+	 * Duplicates previous methods for GUI.
 	 */	
 	public void MovePlayerGUI() {
 		
@@ -85,7 +86,7 @@ public abstract class Player extends SnakesAndLadders{ // Arlina
 	Random randomNum = new Random();
 	int diceRoll = randomNum.nextInt((max - min) + 1) + min; // Source: https://stackoverflow.com/questions/363681/how-do-i-generate-random-integers-within-a-specific-range-in-java
 	return diceRoll;
-	}
+	}	
 	
 	/**
 	 * This sets the positions of the ladders
@@ -162,7 +163,6 @@ public abstract class Player extends SnakesAndLadders{ // Arlina
 		}
 		return position;	
 	}
-	
 	
 	/**
 	 * The getters and setters retrieves the
