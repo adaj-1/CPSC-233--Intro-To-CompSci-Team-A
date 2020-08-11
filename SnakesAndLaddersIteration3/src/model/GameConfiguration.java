@@ -42,7 +42,7 @@ public class GameConfiguration {
 	/**
 	 * This method is for setting up the text version of the game,
 	 * prompting for input from console.
-	 * The user will input the number of human and computer players.
+	 * The user will input the number of human players.
 	 */
 	public void getHumanPlayerInputs() {
 		playerInput = new Scanner(System.in);
@@ -61,6 +61,10 @@ public class GameConfiguration {
 		} 
 	}
 	
+	/**
+	 * This method is for setting up the text version of the game.
+	 * The user will input the number of computer players.
+	 */
 	public void getComputerPlayerInputs() {
 		playerInput = new Scanner(System.in);
 		System.out.println("How many computer players would you like to play with?" + 
@@ -79,6 +83,10 @@ public class GameConfiguration {
 		} 
 	}
 	
+	/**
+	 * This method takes in input for the number
+	 * of human and computer players for the game.
+	 */
 	public void gameSetup() {
 		System.out.println("Welcome to Snakes and Ladders!");
 		getHumanPlayerInputs();
