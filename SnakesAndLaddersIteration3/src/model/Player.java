@@ -20,18 +20,14 @@ public abstract class Player extends SnakesAndLadders{ // Arlina
 	protected int[] laddersStart = {3, 9, 55, 60};
 	protected int[] laddersEnd = {23, 29, 75, 80};
 	
-	/**
-	* This constuctor creates spaces on the
-	* gameboard for each of the players.
-	*/
+	
 	public Player() {
 	}
 
 	/**
-	 * This constructor takes in the type and
+	 * This constructor takes in the
 	 * name of the players. It then sets them
 	 * according to their positions.
-	 * @param type
 	 * @param name
 	 */
 	public Player(String name) {
@@ -66,7 +62,7 @@ public abstract class Player extends SnakesAndLadders{ // Arlina
 	}
 	
 	/**
-	 * Duplicates previous methods for GUI.
+	 * Duplicates previous methods for GUI version.
 	 */	
 	public void MovePlayerGUI() {
 		
@@ -79,6 +75,10 @@ public abstract class Player extends SnakesAndLadders{ // Arlina
 		} 
 	}
 	
+	/**
+	 * This method rolls the dice
+	 * and randomly returns the number rolled.
+	 */	
 	public int dice() {
 	int max = 6;
 	int min = 1;
@@ -88,9 +88,10 @@ public abstract class Player extends SnakesAndLadders{ // Arlina
 	}
 	
 	/**
-	 * This sets the position of the ladders
-	 * on the gameboard.
-	 * @param position
+	 * This sets the positions of the ladders
+	 * on the game board.
+	 * @param position includes positions of all
+	 * ladders on the game board.
 	 * @returns position of player after
 	 * player goes up the ladder.
 	 */
@@ -109,11 +110,12 @@ public abstract class Player extends SnakesAndLadders{ // Arlina
 	
 	/**
 	 * This sets the positions of the snakes
-	 * on the gameboard.
-	 * @param position
+	 * on the game board.
+	 * @param position includes positions
+	 * of all snakes on the game board.
 	 * @returns position of player after
 	 * player goes down a snake.
-	 */	
+	 */		
 	public int Snake(int position) {
 		System.out.println("in snake");
 		for (int counter = 0; counter < snakesStart.length; counter++) {
@@ -125,8 +127,10 @@ public abstract class Player extends SnakesAndLadders{ // Arlina
 		return position;	
 	}
 
-	
-	
+	/**
+	 * This does the same thing as the previous
+	 * ladder method but for GUI version.
+	 */	
 	public int LadderGUI(int position) {
 		for (int counter = 0; counter < 6; counter++) {
 			if (position == getLaddersStart()[counter]) {
@@ -139,6 +143,11 @@ public abstract class Player extends SnakesAndLadders{ // Arlina
 		}
 		return position;	
 	}
+	
+	/**
+	 * This does the same thing as the previous
+	 * snake method but for GUI version.
+	 */
 
 	public int SnakeGUI(int position) {
 		
