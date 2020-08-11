@@ -3,18 +3,21 @@ package model;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+
 	/**
-	 * This Class is for setting up the game. There are two versions, the text and the GUI versions.
-	 * 
+	 * This Class is for setting up the game.
+	 * There are two versions, the text and the
+	 * GUI versions.
 	 */
 public class GameConfiguration { 
+	
 	/**
-	 * These variables are for setting up the game. These include:
-	 * Constants for the game setup (maximum number of players, finishing space on the board,
-	 * Lists for the players
-	 * Number of computer players, human players and counter for total players
+	 * These variables are for setting up the game.
+	 * These include: Constants for the game setup (maximum
+	 * number of players, finishing space on the board,
+	 * lists for the players, number of computer players,
+	 * human players and counter for total players).
 	 */
-
 	final static int FINISHING_SPACE = 100;		
 	final static int MAX_PLAYERS=4;
 	private ArrayList<Player> players = new ArrayList<Player>(); 
@@ -37,10 +40,10 @@ public class GameConfiguration {
 	}
 	
 	/**
-	 * This method is for setting up the text version of the game, prompting for input from console.
+	 * This method is for setting up the text version of the game,
+	 * prompting for input from console.
 	 * The user will input the number of human and computer players.
 	 */
-	
 	public void getHumanPlayerInputs() {
 		playerInput = new Scanner(System.in);
 		System.out.println("How many human players would you like to play with? (max 4)");
@@ -99,13 +102,15 @@ public class GameConfiguration {
 			createBlankPlayers((MAX_PLAYERS - playerCounter));
 		}
 	}
+	
 	/**
 	 * This method is for setting up the GUI version of the game.
-	 * Based on the selections in the GUI, it will create the number of human and computer players.
-	 * It will also create a number of blank players, based on the selection of number of players to 
-	 * correctly space out the board.
-	 * @param numOfHum
-	 * @param numOfComp
+	 * Based on the selections in the GUI, it will create the number
+	 * of human and computer players.
+	 * It will also create a number of blank players, based on the
+	 * selection of number of players to correctly space out the board.
+	 * @param numOfHum takes in the number of human players.
+	 * @param numOfComp takes in the number of computer players.
 	 */
 	public void GUIGameSetup(int numOfHum, int numOfComp) {
 				
@@ -129,12 +134,12 @@ public class GameConfiguration {
 	/**
 	 * This method adds a created player to the player list.
 	 * @param aPlayer
-	 * @param index
+	 * @param index of player.
 	 */
-
 	public void addPlayer(Player aPlayer, int index) {
 		players.add(index, aPlayer);
 	}
+	
 	/**
 	 * This method returns the list of players.
 	 * @return
@@ -142,8 +147,10 @@ public class GameConfiguration {
 	public ArrayList<Player> getPlayer() {
 		return this.players;
 	}
+	
 	/**
-	 * This method uses a for loop to create a number of human players, based on the user input.
+	 * This method uses a for loop to create a number
+	 * of human players, based on the user input.
 	 */
 	public void createHumanPlayers(int amount) {
 		for (int i = 0; i < amount; i++) {
@@ -152,8 +159,10 @@ public class GameConfiguration {
 			playerCounter++;
 		}
 	}
+	
 	/**
-	 * This method uses a for loop to create a number of computer players, based on the user input.
+	 * This method uses a for loop to create a number
+	 * of computer players, based on the user input.
 	 */
 	public void createComputerPlayers(int amount) {
 		for (int i = 0; i < amount; i++) {
@@ -162,9 +171,11 @@ public class GameConfiguration {
 			playerCounter++;
 		}
 	}
+	
 	/**
-	 * If the number of human and computer players is less than 4, blank players will be created 
-	 * for the board spacing.
+	 * If the number of human and computer players is
+	 * less than 4, blank players will be created for
+	 * the board spacing.
 	 */
 	public void createBlankPlayers(int amount) {
 		for (int i = 0; i < amount; i++) {
@@ -173,13 +184,16 @@ public class GameConfiguration {
 			playerCounter++;
 		}
 	}
-	/**
+	
 
 	/**
-	 * This method takes aPlayerList and aPlayer as arguments. If the player is a human, the program will
-	 * prompt the user via console to roll the dice, and move the player. If the player is a computer, it
-	 * will not ask for input, and move the computer player. AFter the player is moved, the gameboard will 
-	 * reprint to show the user the movement of the player on the baord.
+	 * This method takes aPlayerList and aPlayer as arguments.
+	 * If the player is a human, the program will prompt the
+	 * user via console to roll the dice, and move the player.
+	 * If the player is a computer, it will not ask for input,
+	 * and move the computer player. After the player is moved,
+	 * the game board will reprint to show the user the movement
+	 * of the player on the board.
 	 * @param aPlayerList
 	 * @param aPlayer
 	 */
@@ -188,8 +202,10 @@ public class GameConfiguration {
 		gb.drawBoard(aPlayerList.get(0), aPlayerList.get(1), aPlayerList.get(2),
 					 aPlayerList.get(3));
 		}
+	
 	/**
-	 * This method is the same as playerTurn, but for the GUI version of the game.
+	 * This method is the same as playerTurn, but for
+	 * the GUI version of the game.
 	 * @param aPlayerList
 	 * @param aPlayer
 	 */
@@ -204,9 +220,10 @@ public class GameConfiguration {
 	
 	
 	/**
-	 * This method sets up the game, and runs the game using a do while loop,
-	 * until a player's last space isnt empty, meaning that the game will be over.
-	 * The console will print a message indicating which player won.
+	 * This method sets up the game, and runs the game using
+	 * a do while loop, until a player's last space is not empty,
+	 * meaning that the game will be over. The console will print
+	 * a message indicating which player won.
 	 */
 	public void run()  {
 	/*
