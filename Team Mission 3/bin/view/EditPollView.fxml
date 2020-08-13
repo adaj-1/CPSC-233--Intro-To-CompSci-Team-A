@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<BorderPane maxHeight="400.0" maxWidth="600.0" minHeight="400.0" minWidth="400.0" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.EditPollViewController">
+   <top>
+      <VBox prefHeight="110.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label prefHeight="31.0" prefWidth="86.0" text="Poll to edit:">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="110.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                  </Label>
+                  <ChoiceBox fx:id="pollToEdit" prefHeight="20.0" prefWidth="157.0">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                  </ChoiceBox>
+               </children>
+            </HBox>
+            <HBox prefHeight="68.0" prefWidth="600.0">
+               <children>
+                  <Label prefHeight="31.0" prefWidth="121.0" text="Party to update:">
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="50.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                  </Label>
+                  <ChoiceBox fx:id="partyToUpdate" prefHeight="31.0" prefWidth="213.0">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                  </ChoiceBox>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </top>
+   <center>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label prefHeight="21.0" prefWidth="189.0" text="Projected number of seats:">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="35.0" right="5.0" top="40.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="projectedNumOfSeats" onKeyTyped="#numberOfSeatsKeyTyped" prefHeight="31.0" prefWidth="82.0">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="40.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <Label fx:id="totalSeats" text="/ total seats">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="45.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label text="Projected percentage of the vote:">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="50.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="projectedPercentOfVotes" onKeyTyped="#percentageOfVoteKeyTyped" prefHeight="31.0" prefWidth="78.0">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <Label text="\%">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="10.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </center>
+   <bottom>
+      <HBox prefHeight="60.0" prefWidth="600.0" BorderPane.alignment="TOP_CENTER">
+         <children>
+            <Button fx:id="clearButton" mnemonicParsing="false" onMouseClicked="#clearButtonClicked" text="Clear">
+               <HBox.margin>
+                  <Insets bottom="5.0" left="200.0" right="5.0" top="5.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="updatePartyButton" alignment="CENTER" mnemonicParsing="false" onMouseClicked="#updatePartyButtonClicked" text="Update Party">
+               <HBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+   </bottom>
+</BorderPane>
