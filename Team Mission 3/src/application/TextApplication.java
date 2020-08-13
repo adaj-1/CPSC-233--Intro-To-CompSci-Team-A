@@ -8,6 +8,7 @@ package application;
 
 import model.Party;
 import model.Factory;
+import model.InvalidSetupDataException;
 import model.Poll;
 import model.PollList;
 
@@ -107,7 +108,7 @@ public class TextApplication {
 	 * this pulls all the classes (Party, Poll, PollList, and Factory)
 	 * together and gets the user input arguments needed to run the code.
 	 */
-	public void run()  {	
+	public void run() {	
 		System.out.println("Welcome To The Poll Tracker.");
 		
 		System.out.println("How many seats are available in the election?");
@@ -130,10 +131,18 @@ public class TextApplication {
 		
 		if (yesNo.equals("yes")) {
 			Factory holdPollList = new Factory(numOfSeats);        		// determine whether to use random polls or user input polls
-			polls = holdPollList.createRandomPollList(numOfPolls);		// creates a random poll list data
+			try {
+				polls = holdPollList.createRandomPollList(numOfPolls);
+			} catch (InvalidSetupDataException e) {
+				e.printStackTrace();
+			}		// creates a random poll list data
 		} else {
 			Factory holdPollList = new Factory(numOfSeats);				
-			polls = holdPollList.promptForPollList(numOfPolls);			// prompts user for poll list data			
+			try {
+				polls = holdPollList.promptForPollList(numOfPolls);
+			} catch (InvalidSetupDataException e) {
+				e.printStackTrace();
+			}			// prompts user for poll list data			
 		}
 		
 		/* 
@@ -168,7 +177,7 @@ public class TextApplication {
 		yesNoInput.close();	
 	}
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InvalidSetupDataException {
 		TextApplication app = new TextApplication();		// instantiates the class
 		app.run();	
 	}

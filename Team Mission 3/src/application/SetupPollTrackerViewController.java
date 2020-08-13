@@ -10,6 +10,7 @@
 package application;
 
 import model.Factory;
+import model.InvalidSetupDataException;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -69,13 +70,20 @@ public class SetupPollTrackerViewController extends PollTrackerController{
         String[] partyNames = new String[party];
         
 	/* This takes in the number of parties from the user*/
+        PollList list = null;
         for (int i = 0; i < party; i++) {
         	partyNames[i] = factoryNames[i];
         }
 
         getFactory().setPartyNames(partyNames);        
-        PollList list = getFactory().promptForPollList(polls);        
-        setPollList(list);    
+		try {
+			list = getFactory().promptForPollList(polls);
+		} catch (InvalidSetupDataException e) {
+			//handle error here
+		}
+		if (list != null) {
+			setPollList(list); 
+		}
     }
 
     /**

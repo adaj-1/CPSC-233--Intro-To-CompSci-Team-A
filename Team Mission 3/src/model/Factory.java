@@ -33,21 +33,16 @@ public class Factory {
 		return poll;
 	}
 
-	public PollList createRandomPollList(int numOfPolls) {
+	public PollList createRandomPollList (int numOfPolls) throws InvalidSetupDataException {
 		PollList list = null;
-		try {
-			list = new PollList(numOfPolls,numOfSeats);
-			for (int counter = 0; counter < numOfPolls; counter++) {
-				list.addPoll(createRandomPoll("Poll" + counter));
-			}
-			
-		} catch (InvalidSetupDataException isde) {
-		isde.getMessage();	
+		list = new PollList(numOfPolls,numOfSeats);
+		for (int counter = 0; counter < numOfPolls; counter++) {
+			list.addPoll(createRandomPoll("Poll" + counter));
 		}
 		return list;
 	}
 	
-	public PollList promptForPollList(int numOfPolls) {
+	public PollList promptForPollList(int numOfPolls) throws InvalidSetupDataException {
 		return createRandomPollList(numOfPolls);
 	}
 	
