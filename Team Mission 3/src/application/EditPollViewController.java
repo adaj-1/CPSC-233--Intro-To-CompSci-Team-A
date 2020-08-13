@@ -114,6 +114,7 @@ public class EditPollViewController extends PollTrackerController {
      */
     @FXML
     void updatePartyButtonClicked(MouseEvent event) {
+
 	    if (currentParty != null) {
 	    	
 	    	/* oldPartyData stores the old data in case one of the fields is left blank */
