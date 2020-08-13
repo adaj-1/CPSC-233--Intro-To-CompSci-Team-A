@@ -97,12 +97,12 @@
    <bottom>
       <HBox prefHeight="60.0" prefWidth="600.0" BorderPane.alignment="TOP_CENTER">
          <children>
-            <Button fx:id="clearButton" mnemonicParsing="false" onAction="#clearButtonClicked" text="Clear">
+            <Button fx:id="clearButton" mnemonicParsing="false" onMouseClicked="#clearButtonClicked" text="Clear">
                <HBox.margin>
                   <Insets bottom="5.0" left="200.0" right="5.0" top="5.0" />
                </HBox.margin>
             </Button>
-            <Button fx:id="updatePartyButton" alignment="CENTER" mnemonicParsing="false" onAction="#updatePartyButtonClicked" text="Update Party">
+            <Button fx:id="updatePartyButton" alignment="CENTER" mnemonicParsing="false" onMouseClicked="#updatePartyButtonClicked" text="Update Party">
                <HBox.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </HBox.margin>

@@ -34,9 +34,15 @@ public class Factory {
 	}
 
 	public PollList createRandomPollList(int numOfPolls) {
-		PollList list = new PollList(numOfPolls,numOfSeats);
-		for (int counter = 0; counter < numOfPolls; counter++) {
-			list.addPoll(createRandomPoll("Poll" + counter));
+		PollList list = null;
+		try {
+			list = new PollList(numOfPolls,numOfSeats);
+			for (int counter = 0; counter < numOfPolls; counter++) {
+				list.addPoll(createRandomPoll("Poll" + counter));
+			}
+			
+		} catch (InvalidSetupDataException isde) {
+		isde.getMessage();	
 		}
 		return list;
 	}

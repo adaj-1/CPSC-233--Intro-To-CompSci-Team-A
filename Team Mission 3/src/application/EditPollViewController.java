@@ -1,14 +1,3 @@
-/**
- * This class handles all of the data related to displaying a list
- * of party data (ie. amount of seats and votes) as well as calculations
- * to edit specific party data in a poll. 
- * 
- * This class also displays an aggregate of all party data which is
- * updated when the user makes changes to individual parties and polls 
- * 
- * @version 1.0 28 July 2020
- * @author Luke Couture
- */
 package application;
 
 import javafx.beans.value.ChangeListener;
@@ -21,10 +10,22 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import model.Party;
 import java.lang.Math;
 import model.PollList;
 
+/**
+ * This class handles all of the data related to displaying a list
+ * of party data (ie. amount of seats and votes) as well as calculations
+ * to edit specific party data in a poll. 
+ * 
+ * This class also displays an aggregate of all party data which is
+ * updated when the user makes changes to individual parties and polls 
+ * 
+ * @version 1.0 28 July 2020
+ * @author Luke Couture
+ */
 public class EditPollViewController extends PollTrackerController {
 	private Float seatInput;
 	private Float voteInput;
@@ -32,6 +33,7 @@ public class EditPollViewController extends PollTrackerController {
 	private int currentPoll;
 	String[] parties;
 	String[] polls;
+	Party partyData;
 	
 	/**
 	 * totalSeats displays the amount of total seats available in the
@@ -92,9 +94,10 @@ public class EditPollViewController extends PollTrackerController {
      * @param event
      */
     @FXML
-    void clearButtonClicked(ActionEvent event) {
+    void clearButtonClicked(MouseEvent event) {
        	pollToEdit.getItems().clear();
-    	refresh();
+    	currentParty = null;
+       	refresh();
     }
     
     /**
@@ -110,7 +113,8 @@ public class EditPollViewController extends PollTrackerController {
      * @param event
      */
     @FXML
-    void updatePartyButtonClicked(ActionEvent event) {
+    void updatePartyButtonClicked(MouseEvent event) {
+
 	    if (currentParty != null) {
 	    	
 	    	/* oldPartyData stores the old data in case one of the fields is left blank */
@@ -174,7 +178,7 @@ public class EditPollViewController extends PollTrackerController {
     	
     	/* This block grabs all the party data */
     	for (int i = 0; i < parties.length; i++) {
-    		Party partyData = getPollTrackerApp().getPolls().
+    		partyData = getPollTrackerApp().getPolls().
     				getPolls()[currentPoll].getParty(getPollTrackerApp().getFactory().
     						getPartyNames()[i]);
     		
@@ -211,11 +215,11 @@ public class EditPollViewController extends PollTrackerController {
      * 
      */
     public void resetFields() {
-    	seatInput = null;
-    	voteInput = null;
+	    seatInput = null;
+	    voteInput = null;
+	    projectedNumOfSeats.clear();
+    	projectedPercentOfVotes.clear();
     	partyToUpdate.getItems().clear();
-    	projectedPercentOfVotes.setText("");
-    	projectedNumOfSeats.setText("");
     }
     
     /**
@@ -227,41 +231,40 @@ public class EditPollViewController extends PollTrackerController {
      */
 	@Override
 	public void refresh() {
-		try {
 		
-		/* This line sets the total seats to the total amount available */
-		totalSeats.setText("/" + Integer.toString(getPollTrackerApp().getPolls().
-				getNumOfSeats()));
-    	int pollLength = getPollList().getPolls().length;
-
-    	/* This block of code sets a new string array with Poll + its number */
-		String[] polls = new String[pollLength];
-    	int i = 0;
-		for (; i < pollLength; i++) {
-			polls[i] = getPollList().getPolls()[i].getPollName();
-    	}
-		
-		/* This block sets the choice box with the list of poll names */
-		pollToEdit.setItems(FXCollections.observableArrayList(polls));
-    	pollToEdit.getSelectionModel().selectedIndexProperty().addListener(
-    		new	ChangeListener<Number>() {
-    			@Override
-    			public void changed(ObservableValue observable, Number oldValue, 
-    					Number newValue) {
-    				int index = newValue.intValue();
-    				if (index >= 0) {
-    					currentPoll = index;
-    					
-    					/* When a poll is selected this grabs the party data to display in the party choice box */
-    					setParties(index);
-    				}
-    			}
+		if (getPollTrackerApp().getPolls() != null) {
+			
+			/* This line sets the total seats to the total amount available */
+			totalSeats.setText("/" + Integer.toString(getPollTrackerApp().getPolls().
+					getNumOfSeats()));
+	    	int pollLength = getPollList().getPolls().length;
+	
+	    	/* This block of code sets a new string array with Poll + its number */
+			String[] polls = new String[pollLength];
+	    	int i = 0;
+			for (; i < pollLength; i++) {
+				polls[i] = getPollList().getPolls()[i].getPollName();
+	    	}
+			
+			/* This block sets the choice box with the list of poll names */
+			pollToEdit.setItems(FXCollections.observableArrayList(polls));
+	    	pollToEdit.getSelectionModel().selectedIndexProperty().addListener(
+	    		new	ChangeListener<Number>() {
+	    			@Override
+	    			public void changed(ObservableValue observable, Number oldValue, 
+	    					Number newValue) {
+	    				int index = newValue.intValue();
+	    				if (index >= 0) {
+	    					currentPoll = index;
+	    					
+	    					/* When a poll is selected this grabs the party data to display in the party choice box */
+	    					setParties(index);
+	    				}
+	    			}
     		}
     	);
-    	} catch (NullPointerException npe) {
-    		
-    	}
     	resetFields(); // resets the fields after each refresh
+		}
 	}
 		
 

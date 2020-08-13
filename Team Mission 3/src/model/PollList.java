@@ -24,16 +24,19 @@ public class PollList {
 	 * @param numOfPolls
 	 * @param numOfSeats
 	 */
-	public PollList(int numOfPolls, int numOfSeats) {
+	public PollList(int numOfPolls, int numOfSeats) throws InvalidSetupDataException {
+		
 		if (numOfPolls > 0) {
 			this.polls = new Poll[numOfPolls];
 		} else {
-			this.polls = new Poll[5]; // If numOfPolls <= 0, number of polls are set to 5
+			throw new InvalidSetupDataException("Error! Invalid number of polls entered.");
+			//this.polls = new Poll[5]; // If numOfPolls <= 0, number of polls are set to 5
 		}
 		if (numOfSeats > 0) {
 			this.numOfSeats = numOfSeats;
 		} else {
-			this.numOfSeats = 10; // If numOfSeats <=0, number of seats are set to 10
+			throw new InvalidSetupDataException("Error! Invalid number of seats entered.");
+			//this.numOfSeats = 10; // If numOfSeats <=0, number of seats are set to 10
 		}
 	}
 	

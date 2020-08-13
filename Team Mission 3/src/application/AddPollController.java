@@ -7,6 +7,7 @@
 
 package application;
 
+import model.InvalidSetupDataException;
 import model.Poll;
 import model.PollList;
 import javafx.event.ActionEvent;
@@ -83,11 +84,15 @@ public class AddPollController extends PollTrackerController{
     	int indexNum=pollDropDown.getSelectionModel().getSelectedIndex();
     	poll[indexNum]=randomPolls;
     	
+    	try {
     	PollList newList=new PollList(poll.length,getPollList().getNumOfSeats());
     	for(int i=0;i<poll.length;i++) {
     		newList.addPoll(poll[i]);
     	}
     	setPollList(newList);
+    	} catch (InvalidSetupDataException isde) {
+    		isde.getMessage();
+    	}
     }
 
     /**
