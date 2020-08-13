@@ -11,6 +11,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
 
 import model.Factory;
+import model.InvalidSetupDataException;
 import model.PollList;
 
 import javafx.scene.Scene;
@@ -100,7 +101,7 @@ public class PollTrackerApp extends Application {
 	}
 	
 	@Override
-	public void start(Stage primaryStage) {
+	public void start(Stage primaryStage) throws InvalidSetupDataException {
 		/* Remove the next two lines (and this comment) before the final version of iteration 2.
 		 * These two first statements allows you to run and test your view with some data.
 		 * Use the first if you need the application to run with some randomly generated.

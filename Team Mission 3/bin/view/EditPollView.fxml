@@ -60,7 +60,7 @@
                         <Insets bottom="5.0" left="35.0" right="5.0" top="40.0" />
                      </HBox.margin>
                   </Label>
-                  <TextField fx:id="projectedNumOfSeats" onKeyTyped="#numberOfSeatsKeyTyped" prefHeight="31.0" prefWidth="82.0">
+                  <TextField fx:id="projectedNumOfSeats" prefHeight="31.0" prefWidth="82.0">
                      <HBox.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="40.0" />
                      </HBox.margin>
@@ -79,7 +79,7 @@
                         <Insets bottom="5.0" left="50.0" right="5.0" top="5.0" />
                      </HBox.margin>
                   </Label>
-                  <TextField fx:id="projectedPercentOfVotes" onKeyTyped="#percentageOfVoteKeyTyped" prefHeight="31.0" prefWidth="78.0">
+                  <TextField fx:id="projectedPercentOfVotes" prefHeight="31.0" prefWidth="78.0">
                      <HBox.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </HBox.margin>
@@ -91,21 +91,19 @@
                   </Label>
                </children>
             </HBox>
+            <Label fx:id="errorLabel" alignment="CENTER" prefHeight="21.0" prefWidth="615.0" textAlignment="CENTER" textFill="RED" />
          </children>
       </VBox>
    </center>
    <bottom>
       <HBox prefHeight="60.0" prefWidth="600.0" BorderPane.alignment="TOP_CENTER">
          <children>
-
             <Button fx:id="clearButton" mnemonicParsing="false" onMouseClicked="#clearButtonClicked" text="Clear">
-
                <HBox.margin>
                   <Insets bottom="5.0" left="200.0" right="5.0" top="5.0" />
                </HBox.margin>
             </Button>
             <Button fx:id="updatePartyButton" alignment="CENTER" mnemonicParsing="false" onMouseClicked="#updatePartyButtonClicked" text="Update Party">
-
                <HBox.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </HBox.margin>

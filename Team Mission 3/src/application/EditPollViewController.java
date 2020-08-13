@@ -3,17 +3,14 @@ package application;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import model.Party;
 import java.lang.Math;
-import model.PollList;
 
 /**
  * This class handles all of the data related to displaying a list
@@ -34,6 +31,9 @@ public class EditPollViewController extends PollTrackerController {
 	String[] parties;
 	String[] polls;
 	Party partyData;
+	
+	@FXML
+    private Label errorLabel;
 	
 	/**
 	 * totalSeats displays the amount of total seats available in the
@@ -114,8 +114,13 @@ public class EditPollViewController extends PollTrackerController {
      */
     @FXML
     void updatePartyButtonClicked(MouseEvent event) {
-
 	    if (currentParty != null) {
+	    	if (projectedNumOfSeats.getText().length() > 0) {
+	    		seatInput = Float.parseFloat(projectedNumOfSeats.getText());
+	    	}
+	    	if (projectedPercentOfVotes.getText().length() > 0) {
+	    		voteInput = Float.parseFloat(projectedPercentOfVotes.getText()) / 100;
+	    	}
 	    	
 	    	/* oldPartyData stores the old data in case one of the fields is left blank */
 	    	Party oldPartyData = getPollTrackerApp().getPolls().getPolls()[currentPoll].
@@ -133,30 +138,6 @@ public class EditPollViewController extends PollTrackerController {
 	    	seatInput = null; // resets seatInput to null after its use
 	    	voteInput = null; // resets voteInput to null after its use
 	    }
-    }
-
-
-    /**
-     * This method handles the event when information is typed into
-     * the text field for editing number of seats.
-     * 
-     * @param event
-     */
-    @FXML
-    void numberOfSeatsKeyTyped(KeyEvent event) {
-    	seatInput = Float.parseFloat(projectedNumOfSeats.getText());
-    }
-    
-
-    /**
-     * This method handles the event when information is typed into
-     * the text field for editing percentage of votes.
-     * 
-     * @param event
-     */
-    @FXML
-    void percentageOfVoteKeyTyped(KeyEvent event) {
-    	voteInput = Float.parseFloat(projectedPercentOfVotes.getText()) / 100;
     }
     
     /**
@@ -266,7 +247,4 @@ public class EditPollViewController extends PollTrackerController {
     	resetFields(); // resets the fields after each refresh
 		}
 	}
-		
-
-
 }
