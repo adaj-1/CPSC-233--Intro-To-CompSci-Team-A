@@ -29,13 +29,15 @@ public class PollList {
 		if (numOfPolls > 0) {
 			this.polls = new Poll[numOfPolls];
 		} else {
-			throw new InvalidSetupDataException("Error! Invalid number of polls entered.");
+			throw new InvalidSetupDataException("Error! Invalid number of polls entered. "
+												+ "Enter a number greater than 0");
 			//this.polls = new Poll[5]; // If numOfPolls <= 0, number of polls are set to 5
 		}
 		if (numOfSeats > 0) {
 			this.numOfSeats = numOfSeats;
 		} else {
-			throw new InvalidSetupDataException("Error! Invalid number of seats entered.");
+			throw new InvalidSetupDataException("Error! Invalid number of seats entered. "
+												+ "Enter a number greater than 0");
 			//this.numOfSeats = 10; // If numOfSeats <=0, number of seats are set to 10
 		}
 	}
