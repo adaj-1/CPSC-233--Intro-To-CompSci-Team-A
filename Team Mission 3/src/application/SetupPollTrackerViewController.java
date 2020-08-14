@@ -78,11 +78,9 @@ public class SetupPollTrackerViewController extends PollTrackerController{
         getFactory().setPartyNames(partyNames);        
 		try {
 			list = getFactory().promptForPollList(polls);
+			setPollList(list);
 		} catch (InvalidSetupDataException e) {
 			//handle error here
-		}
-		if (list != null) {
-			setPollList(list); 
 		}
     }
 
