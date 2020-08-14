@@ -1,7 +1,7 @@
 /**
  *This class will handle naming each of the poll that the application tracks.
  *
- *@version 1.0 28 July 2020
+ * @version 3.0 13 August 2020
  *@author Nathan Jung
  */
 
@@ -10,6 +10,7 @@ package application;
 import model.InvalidSetupDataException;
 import model.Poll;
 import model.PollList;
+import model.PollListFullException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -58,6 +59,10 @@ public class AddPollController extends PollTrackerController{
      */
     @FXML
     private TextField userInput;
+
+    @FXML
+    private Label errorLabel;
+
     	
    /**
  	* This method handles the event when the clear button is clicked.
@@ -87,7 +92,13 @@ public class AddPollController extends PollTrackerController{
     	try {
     	PollList newList=new PollList(poll.length,getPollList().getNumOfSeats());
     	for(int i=0;i<poll.length;i++) {
-    		newList.addPoll(poll[i]);
+    		try {
+				newList.addPoll(poll[i]);
+				errorLabel.setText("");
+			} catch (PollListFullException e) {
+				// TODO Auto-generated catch block
+				errorLabel.setText("Error, PollList is Full!");
+			}
     	}
     	setPollList(newList);
     	} catch (InvalidSetupDataException isde) {

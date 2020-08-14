@@ -1,24 +1,24 @@
-/**
- *
- * @author Arlina Dey
- * Iteration 1
- * @version 15.07.2020
- */
-
-/**
- * This class creates a visualization of all the
- * majority and minority votes of a political party.
- *
- * It shows a visual representation by drawing stars
- * that represent the number of seats and a bar to represent
- * the number of seats needed for a majority.
- *
- * Empty spaces between the last start(or no star)
- * and a bar represents that the party has
- * fewer seats than needed for majority.
- */
-
 package model;
+
+/**
+*
+* @author Arlina Dey
+* Iteration 1
+* @version 3.0 13 August 2020
+*/
+
+/**
+* This class creates a visualization of all the
+* majority and minority votes of a political party.
+*
+* It shows a visual representation by drawing stars
+* that represent the number of seats and a bar to represent
+* the number of seats needed for a majority.
+*
+* Empty spaces between the last start(or no star)
+* and a bar represents that the party has
+* fewer seats than needed for majority.
+*/
 
 public class Party {
 	private String name;
@@ -37,21 +37,25 @@ public class Party {
 	 * constructor 2
 	 * This takes the projectedSeats and projectedVotes
 	 * as values between 0 & 1.
+	 * @throws InvalidPartyDataException if the project # of seats is negative and if percentage of votes is invalid
 	 */
 	public Party(String partyName,
 				 float projectedNumberOfSeats,
-				 float projectedPercentageOfVotes) {
+				 float projectedPercentageOfVotes) throws InvalidPartyDataException {
 		name = partyName;
 
 		if (projectedPercentageOfVotes >= 0 && projectedPercentageOfVotes <= 1) {
 			this.projectedPercentageOfVotes = projectedPercentageOfVotes;
 		} else {
-			this.projectedPercentageOfVotes = 0;
+			throw new InvalidPartyDataException("Invalid number entered. "
+					+ "Projected number of seats must be between 0 and 1 (both inclusive).");
+		
 		}
 		if (projectedNumberOfSeats >= 0) {
 			this.projectedNumberOfSeats = projectedNumberOfSeats;
 		} else {
-			this.projectedNumberOfSeats = 0;
+			throw new InvalidPartyDataException("Invalid number entered. "
+					+ "Seats must be non-negative.");
 		}
 	}
 

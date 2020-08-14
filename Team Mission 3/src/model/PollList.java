@@ -1,3 +1,5 @@
+package model;
+
 /**
  * This class grabs and stores collection of polls, collecting seat 
  * and vote data that represent one election.
@@ -5,13 +7,10 @@
  * This class also performs calculations on the data such as providing
  * average seats and votes for a given party, as well as an aggregate of all parties.
  * 
- * @version 1.0 15 July 2020
+ * @version 3.0 13 August 2020
  * @author Luke Couture
  *
  */
-
-package model;
-
 public class PollList {
 	private Poll[] polls;
 	private int numOfSeats;
@@ -23,6 +22,7 @@ public class PollList {
 	 *
 	 * @param numOfPolls
 	 * @param numOfSeats
+	 * @throws InvalidSetupDataException when # of parties or # of seats < 1
 	 */
 	public PollList(int numOfPolls, int numOfSeats) throws InvalidSetupDataException {
 		
@@ -70,8 +70,9 @@ public class PollList {
 	 * the method will overwrite the poll already in the list with the new one.
 	 * 
 	 * @param aPoll
+	 * @throws PollListFullException throws when the PollList is full
 	 */
-	public void addPoll(Poll aPoll) {
+	public void addPoll(Poll aPoll) throws PollListFullException{
 		int index = 0;
 
 		if (aPoll == null) {
@@ -172,7 +173,11 @@ public class PollList {
 			 * also keeps a running total of seats and votes to track values, in case values exceed amount available
 			*/
 			p1 = getAveragePartyData(partyNames[i]);				
-			aggregate.addParty(p1);									
+			try {								// try catch as aggregate just pulls party data provided and averages it
+				aggregate.addParty(p1);
+			} catch (PollFullException e) {
+				e.printStackTrace();
+			}									
 			seats[i] = p1.getProjectedNumberOfSeats();				
 			votes[i] = p1.getProjectedPercentageOfVotes();			 
 			seatTotal += seats[i];									
@@ -187,9 +192,17 @@ public class PollList {
 				p1 = getAveragePartyData(partyNames[i]);
 				seats[i] *= (this.numOfSeats / seatTotal);					 
 				p1.setProjectedNumberOfSeats(seats[i]);				
-				p1 = new Party(partyNames[i],
-							   p1.getProjectedNumberOfSeats(), p1.getProjectedPercentageOfVotes());
-				aggregate.addParty(p1);	
+				try {							// try catch as aggregate just pulls party data provided and averages it
+					p1 = new Party(partyNames[i],
+								   p1.getProjectedNumberOfSeats(), p1.getProjectedPercentageOfVotes());
+				} catch (InvalidPartyDataException e) {
+					e.printStackTrace();
+				}
+				try {							// try catch as aggregate just pulls party data provided and averages it
+					aggregate.addParty(p1);
+				} catch (PollFullException e) {
+					e.printStackTrace();
+				}	
 			}
 		}
 
@@ -201,9 +214,17 @@ public class PollList {
 				p1 = getAveragePartyData(partyNames[i]);
 				votes[i] *= (1 / voteTotal);
 				p1.setProjectedPercentageOfVotes(votes[i]);
-				p1 = new Party(partyNames[i],
-							   p1.getProjectedNumberOfSeats(), p1.getProjectedPercentageOfVotes());
-				aggregate.addParty(p1);	
+				try {							// try catch as aggregate just pulls party data provided and averages it
+					p1 = new Party(partyNames[i],
+								   p1.getProjectedNumberOfSeats(), p1.getProjectedPercentageOfVotes());
+				} catch (InvalidPartyDataException e) {
+					e.printStackTrace();
+				}
+				try {							// try catch as aggregate just pulls party data provided and averages it
+					aggregate.addParty(p1);
+				} catch (PollFullException e) {
+					e.printStackTrace();
+				}	
 			}
 		}
 		return aggregate;

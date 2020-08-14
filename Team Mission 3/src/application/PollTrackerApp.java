@@ -99,7 +99,9 @@ public class PollTrackerApp extends Application {
 		vizTab.setOnSelectionChanged (e -> updateVisualization(vizTextArea));
 		return vizTab; 
 	}
-	
+	/**
+	 * @throws InvalidSetupDataException when # of parties or # of seats < 1
+	 */
 	@Override
 	public void start(Stage primaryStage) throws InvalidSetupDataException {
 		/* Remove the next two lines (and this comment) before the final version of iteration 2.

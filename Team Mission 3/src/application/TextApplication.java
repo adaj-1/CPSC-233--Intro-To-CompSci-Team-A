@@ -1,13 +1,8 @@
-/*
- * TextApplication	Jada Li
- * 
- * Iteration 1
- * 
- */
 package application;
 
 import model.Party;
 import model.Factory;
+import model.InvalidPartyDataException;
 import model.InvalidSetupDataException;
 import model.Poll;
 import model.PollList;
@@ -20,7 +15,7 @@ import java.util.Scanner;
  * input from the user and outputs a visualization of the results of 
  * an election.
  * 
- * @version 1.0  14 July 2020
+ * @version 3.0 13 August 2020
  * @author Jada Li
  *
  */
@@ -66,7 +61,8 @@ public class TextApplication {
 				System.out.println();
 			}
 				
-			Poll AggregatePoll = polls.getAggregatePoll(partyNames);	// invokes displayPollDataBySeat for the Aggregate poll data
+			Poll AggregatePoll = null;
+			AggregatePoll = polls.getAggregatePoll(partyNames);
 			displayPollDataBySeat(AggregatePoll);
 			}
 	}
@@ -134,15 +130,15 @@ public class TextApplication {
 			try {
 				polls = holdPollList.createRandomPollList(numOfPolls);
 			} catch (InvalidSetupDataException e) {
-				e.printStackTrace();
+				e.printStackTrace();				// this shouldn't happen for debugging purposes only
 			}		// creates a random poll list data
 		} else {
 			Factory holdPollList = new Factory(numOfSeats);				
 			try {
-				polls = holdPollList.promptForPollList(numOfPolls);
+				polls = holdPollList.promptForPollList(numOfPolls);		// prompts user for poll list data	
 			} catch (InvalidSetupDataException e) {
-				e.printStackTrace();
-			}			// prompts user for poll list data			
+				e.printStackTrace();				// this shouldn't happen for debugging purposes only
+			}					
 		}
 		
 		/* 
@@ -161,7 +157,8 @@ public class TextApplication {
 				displayPollsBySeat(partyNameList);
 				hold = true;
 			} else if (option.equals("aggregate")) {										// displays only the aggregate data
-				Poll AggregatePoll = polls.getAggregatePoll(partyNameList);
+				Poll AggregatePoll = null;
+				AggregatePoll = polls.getAggregatePoll(partyNameList);
 				displayPollDataBySeat(AggregatePoll);
 				hold = true;
 			} else if (option.equals("quit")) {
@@ -176,7 +173,11 @@ public class TextApplication {
 		numOfPollsInput.close();
 		yesNoInput.close();	
 	}
-
+/**
+ * 
+ * @param args
+ * @throws InvalidSetupDataException when # of parties or # of seats < 1
+ */
 	public static void main(String[] args) throws InvalidSetupDataException {
 		TextApplication app = new TextApplication();		// instantiates the class
 		app.run();	

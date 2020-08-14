@@ -9,7 +9,10 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import model.InvalidPartyDataException;
 import model.Party;
+import model.PollFullException;
+
 import java.lang.Math;
 
 /**
@@ -20,7 +23,7 @@ import java.lang.Math;
  * This class also displays an aggregate of all party data which is
  * updated when the user makes changes to individual parties and polls 
  * 
- * @version 1.0 28 July 2020
+ * @version 3.0 13 August 2020
  * @author Luke Couture
  */
 public class EditPollViewController extends PollTrackerController {
@@ -115,6 +118,7 @@ public class EditPollViewController extends PollTrackerController {
     @FXML
     void updatePartyButtonClicked(MouseEvent event) {
 	    if (currentParty != null) {
+	    	errorLabel.setText("");
 	    	if (projectedNumOfSeats.getText().length() > 0) {
 	    		seatInput = Float.parseFloat(projectedNumOfSeats.getText());
 	    	}
@@ -132,8 +136,17 @@ public class EditPollViewController extends PollTrackerController {
 	    		voteInput = oldPartyData.getProjectedPercentageOfVotes();
 	    	}
 	    	
-	    	Party aParty = new Party(currentParty, seatInput, voteInput);
-	    	getPollList().getPolls()[currentPoll].addParty(aParty);
+	    	Party aParty = null;
+			try {
+				aParty = new Party(currentParty, seatInput, voteInput);
+			} catch (InvalidPartyDataException e) {
+				errorLabel.setText(e.getMessage());
+			}
+	    	try {
+				getPollList().getPolls()[currentPoll].addParty(aParty);
+			} catch (PollFullException e) {
+				errorLabel.setText("Error, Poll is full.");
+			}
 	    	
 	    	seatInput = null; // resets seatInput to null after its use
 	    	voteInput = null; // resets voteInput to null after its use

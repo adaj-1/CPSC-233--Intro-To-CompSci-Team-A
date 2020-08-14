@@ -1,10 +1,3 @@
-/**
- * This controller class allows the user to edit the name for each of 
- * the parties in the election. 
- *  
- * @version 1.0 28 July 2020
- * @author Jada Li
- */
 package application;
 
 import java.util.ArrayList;
@@ -14,6 +7,13 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 
+/**
+ * This controller class allows the user to edit the name for each of 
+ * the parties in the election. 
+ *  
+ * @version 3.0 13 August 2020
+ * @author Jada Li
+ */
 public class SetupPartiesViewController extends PollTrackerController{
 
     /**

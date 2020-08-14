@@ -1,12 +1,3 @@
-/**
- * This controller allows the user to keep a
- * track of polls by specifying the number of
- * seats and parties in the election and by
- * providing the number of polls to track.
- *
- * @author Arlina Dey
- * @version 29.07.2020
- */
 package application;
 
 import model.Factory;
@@ -19,9 +10,22 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
 import model.PollList;
+/**
+ * This controller allows the user to keep a
+ * track of polls by specifying the number of
+ * seats and parties in the election and by
+ * providing the number of polls to track.
+ *
+ * @version 3.0 13 August 2020
+ * @author Arlina Dey
+ * @version 29.07.2020
+ */
 
 public class SetupPollTrackerViewController extends PollTrackerController{
-
+    
+	@FXML
+    private Label errorLabel;
+	
     /**
      * Clear button clears all fields in the text area.
      * Submit button submits all fields from text area.
@@ -63,6 +67,7 @@ public class SetupPollTrackerViewController extends PollTrackerController{
          * This sets the party names in factory and creates
          * a new poll list showing polls and seats available.
          */
+        
         Factory factory = new Factory(seat);  
         setFactory(factory);
         
@@ -79,8 +84,9 @@ public class SetupPollTrackerViewController extends PollTrackerController{
 		try {
 			list = getFactory().promptForPollList(polls);
 			setPollList(list);
+			errorLabel.setText("");
 		} catch (InvalidSetupDataException e) {
-			//handle error here
+			errorLabel.setText(e.getMessage());
 		}
     }
 
